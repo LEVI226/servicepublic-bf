@@ -221,5 +221,5 @@ Développé pour le **Service Public de l'Administration du Burkina Faso**.
 ---
 
 <p align="center">
-  <strong>🇧🇫 Unité - Progrès - Justice 🇧🇫</strong>
+  <strong>🇧🇫 La Patrie ou la Mort, nous vaincrons 🇧🇫</strong>
 </p>

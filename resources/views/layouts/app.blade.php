@@ -36,7 +36,7 @@
                 <div class="col-md-6">
                     <span class="devise">
                         <i class="bi bi-flag-fill me-2"></i>
-                        BURKINA FASO - Unité - Progrès - Justice
+                        BURKINA FASO - La Patrie ou la Mort, nous vaincrons
                     </span>
                 </div>
                 <div class="col-md-6 text-md-end contact-info">
@@ -207,7 +207,7 @@
                         <img src="{{ asset('images/armoirie-burkina-faso.png') }}" alt="Armoiries du Burkina Faso">
                         <div>
                             <div class="text-white fw-bold">SERVICE PUBLIC</div>
-                            <div class="devise-footer">Unité - Progrès - Justice</div>
+                            <div class="devise-footer">La Patrie ou la Mort, nous vaincrons</div>
                         </div>
                     </div>
                     <p class="mb-4">Le portail des services publics du Burkina Faso vous accompagne dans vos démarches administratives et vous donne accès aux informations des ministères et institutions.</p>
