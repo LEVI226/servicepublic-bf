@@ -1,4 +1,0 @@
-﻿
-   INFO  Seeding database.  
-
-EserviceSeeder: 117 e-services import├®s.
