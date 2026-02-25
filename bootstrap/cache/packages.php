@@ -151,6 +151,13 @@
       0 => 'Termwind\\Laravel\\TermwindServiceProvider',
     ),
   ),
+  'orangehill/iseed' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Orangehill\\Iseed\\IseedServiceProvider',
+    ),
+  ),
   'ryangjchandler/blade-capture-directive' => 
   array (
     'aliases' => 

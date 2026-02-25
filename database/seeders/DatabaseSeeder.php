@@ -14,27 +14,19 @@ class DatabaseSeeder extends Seeder
         $this->command->info('====================================');
         $this->command->info('');
 
-        // ORDRE CRITIQUE : respecter les dépendances FK
+        // Utilisateur admin par défaut
+        $this->call(UserSeeder::class);
+
+        // Données réelles extraites de la base locale
         $this->call([
-            // 1. Tables sans dépendances
-            CategorySeeder::class,
-            OrganismeSeeder::class,
-            LifeEventSeeder::class,
-
-            // 2. Tables avec FK vers categories
-            ProcedureSeeder::class,
-            EserviceSeeder::class,
-
-            // 3. Tables pivot (si besoin plus tard)
-            // LifeEventProcedureSeeder::class,
-
-            // 4. Utilisateur admin par défaut
-            UserSeeder::class,
+            CategoriesTableSeeder::class,
+            SubcategoriesTableSeeder::class,
+            OrganismesTableSeeder::class,
+            LifeEventsTableSeeder::class,
+            ProceduresTableSeeder::class,
+            EservicesTableSeeder::class,
+            FaqsTableSeeder::class,
+            ArticlesTableSeeder::class,
         ]);
-
-        $this->command->info('');
-        $this->command->info('====================================');
-        $this->command->info(' ✅ SEEDING TERMINÉ');
-        $this->command->info('====================================');
     }
 }

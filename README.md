@@ -46,11 +46,16 @@ cp .env.example .env
 php artisan key:generate
 # Éditer .env avec vos paramètres DB
 
-# 4. Créer la base et migrer
-php artisan migrate
+# 4. Créer la base et configurer le .env
+# Créer une base nommée 'servicepublic_bf' dans MySQL
+# Éditer ensuite le fichier .env (DB_DATABASE, DB_USERNAME, DB_PASSWORD)
 
-# 5. Alimenter avec les données BF
-php artisan db:seed
+# 5. Installer la structure et les données de base
+php artisan migrate --seed
+
+# NOTE SUR LA BASE DE DONNÉES :
+# La commande 'migrate --seed' installe la structure et les données de test BF.
+# Si vous souhaitez une copie exacte (données saisies en admin), importez le fichier 'database.sql' (si fourni).
 
 # 6. Lancer le serveur
 php artisan serve
