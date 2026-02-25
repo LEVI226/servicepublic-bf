@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('content'); ?>
     <!-- 🌟 Hero Section -->
     <section class="hero text-center" style="background: white; padding: 100px 0 80px; position: relative; overflow: hidden;">

@@ -29,7 +29,7 @@ class Category extends Model
 
     public function eservices(): HasMany
     {
-        return $this->hasMany(Eservice::class);
+        return $this->hasMany(EService::class);
     }
 
     public function articles(): HasMany

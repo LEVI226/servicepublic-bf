@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('title', 'Portail Entreprises'); ?>
 
 <?php $__env->startSection('content'); ?>
