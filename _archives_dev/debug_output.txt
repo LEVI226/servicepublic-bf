@@ -1,0 +1,1 @@
+Total with documents array in database/data/procedures.json: 0

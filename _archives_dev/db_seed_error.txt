@@ -1,0 +1,41 @@
+
+   INFO  Seeding database.  
+
+
+====================================
+ SERVICE PUBLIC BF — SEEDING
+====================================
+
+  Database\Seeders\CategorySeeder  RUNNING  
+Import de 62 catégories...
+✅ 62 catégories importées.
+  Database\Seeders\CategorySeeder  62 ms DONE  
+
+  Database\Seeders\OrganismeSeeder  RUNNING  
+Import de 145 organismes...
+✅ 0 organismes importés.
+ℹ️ 145 doublons détectés → mis à jour.
+  Database\Seeders\OrganismeSeeder  47 ms DONE  
+
+  Database\Seeders\LifeEventSeeder  RUNNING  
+Import des événements de vie...
+✅ 12 événements de vie importés.
+  Database\Seeders\LifeEventSeeder  10 ms DONE  
+
+  Database\Seeders\ProcedureSeeder  RUNNING  
+Import de 593 procédures...
+✅ 593 procédures importées.
+  Database\Seeders\ProcedureSeeder  574 ms DONE  
+
+  Database\Seeders\EserviceSeeder  RUNNING  
+Import de 106 e-services...
+✅ 106 e-services importés.
+  Database\Seeders\EserviceSeeder  217 ms DONE  
+
+  Database\Seeders\UserSeeder  RUNNING  
+  Database\Seeders\UserSeeder  523 ms DONE  
+
+
+====================================
+ ✅ SEEDING TERMINÉ
+====================================

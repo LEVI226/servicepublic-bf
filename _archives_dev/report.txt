@@ -1,0 +1,90 @@
+Verifying Seeding Results:
+Catégories : 82
+Procédures : 1193
+E-services : 124
+Organismes : 169
+Événements : 12
+Procédures avec catégorie : 1193
+Procédures sans catégorie : 0
+Entreprises & Commerce: 33 fiches
+Communication & Numérique: 66 fiches
+Fiscalité & Finances: 44 fiches
+Famille & Action sociale: 36 fiches
+Travail & Emploi: 55 fiches
+Justice & Droits: 26 fiches
+Éducation & Recherche: 14 fiches
+Santé & Protection sociale: 3 fiches
+Agriculture & Élevage: 25 fiches
+Travaux publics & Urbanisme: 40 fiches
+Gouvernance & Institutions: 25 fiches
+Sport & Loisirs: 9 fiches
+Culture & Tourisme: 20 fiches
+Diaspora & Coopération: 5 fiches
+Médiation: 51 fiches
+Fonction publique: 26 fiches
+Autres démarches: 122 fiches
+Communication audio-visuelle: 61 fiches
+Médiation dans le public: 51 fiches
+Autres: 38 fiches
+Construction d'ouvrages: 26 fiches
+Transport: 26 fiches
+Activités commerciales: 23 fiches
+Promotion de la justice: 23 fiches
+Gestion de carrière: 22 fiches
+Services sociaux: 22 fiches
+Formation professionnelle: 18 fiches
+Administration du travail: 17 fiches
+Emploi: 16 fiches
+Arts et culture: 14 fiches
+Femme et Genre: 14 fiches
+Comptabilité publique: 13 fiches
+Eau: 13 fiches
+Secteur agricole: 12 fiches
+Impôts et taxes: 11 fiches
+Dépenses publiques: 10 fiches
+Commandes publiques: 9 fiches
+Décentralisation: 8 fiches
+Information géographique: 8 fiches
+Secteur de l'élevage: 8 fiches
+Faune: 7 fiches
+Tourisme: 7 fiches
+Promotion des énergies renouvelables: 6 fiches
+Bâtiments: 5 fiches
+Contentieux Électoraux: 5 fiches
+Création d'entreprise: 5 fiches
+Diplomatie: 5 fiches
+Distinction honorifique: 5 fiches
+Enseignement: 5 fiches
+Gouvernance administrative: 5 fiches
+Pêche: 5 fiches
+Recrutement: 5 fiches
+Communication: 4 fiches
+Formation: 4 fiches
+Mines: 4 fiches
+Promotion du sport: 4 fiches
+Protection de l'environnement: 4 fiches
+Protection sociale: 4 fiches
+Assainissement: 3 fiches
+Logistique: 3 fiches
+Promotion de la jeunesse: 3 fiches
+Promotion des droits humains: 3 fiches
+Protection civile: 3 fiches
+Recherche scientifique: 3 fiches
+Régulation Institutions/Politiques: 3 fiches
+Santé humaine: 3 fiches
+Bourses d'études/Prêts et Aides: 2 fiches
+Contrôle de constitutionnalité: 2 fiches
+Contrôle des Partis Politiques: 2 fiches
+Loisirs: 2 fiches
+Aménagements urbains: 1 fiches
+Concurrence: 1 fiches
+Etat civil: 1 fiches
+Gouvernance économique: 1 fiches
+Gouvernance politique: 1 fiches
+Prêts, aides et dons: 1 fiches
+Révision constitutionnelle: 1 fiches
+Sécurité: 1 fiches
+TIC: 1 fiches
+Doublons procédures (slug) : 0
+Doublons organismes (name) : 0
+============================

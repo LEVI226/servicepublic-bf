@@ -1,0 +1,589 @@
+1: Commercialisation de documents d’études
+2: Commercialisation des documents d'études et d'enquêtes
+3: Demande d'agrément en qualité de distributeurs de produits pétroliers
+4: Demande d'agrément pour la commercialisation des semences végétales
+5: Demande d'agrément pour vendeurs grossistes et détaillants, applicateurs et prestataires de services de pesticide
+6: Demande d'attestation d'activités
+7: Demande d'autorisation de production d'huiles alimentaires
+8: Demande d'autorisation d'exercer le commerce au BF par les étrangers
+9: Demande d'autorisation spéciale d'exportation (ASE)
+10: Demande d'autorisation spéciale d'importation (ASI)
+11: Demande de carte professionnelle de commerçant
+12: Demande de certificat d'origine (CO) des marchandises
+13: Demande de visa de validation de la licence d’agence de voyage et de tourisme
+14: Demande de visa du monopôle des tabacs
+15: Location des espaces publicitaires sur le site web de l'ONEF
+16: Location des pavillons du Salon International de l'Artisanat de Ouagadougou (SIAO)
+17: Location d’espace publicitaire
+18: Obtention de la déclaration préalable d'importation (DPI)
+19: Publication des offres d'emploi sur le site web de l'ONEF
+20: Réalisation d’études sur commande
+21: Vente de publications de l'INSD
+22: Vente des cartes des Zones de dénombrements (ZD)
+23: Vente d’espace d’insertion d’offres d’emploi
+24: Agrément d'ouverture de bureau ou office privé de placement ou d'entreprise de travail temporaire
+25: Appui à la conclusion des conventions collectives de travail
+26: Attestation de chômage
+27: Attestation de soumission aux marchés publics
+28: Attestation de travail
+29: Avis de licencier un salarié malade
+30: Avis d'ouverture d'économat
+31: Conciliation conflit collectif de travail
+32: Conciliation conflit individuel de travail
+33: Conseil aux partenaires sociaux
+34: Déclaration d'ouverture d'entreprise ou d'établissement
+35: Formation des partenaires sociaux
+36: Visa de contrat d'apprentissage
+37: Visa de contrat de travail
+38: Visa des salaires
+39: Visa règlement intérieur
+40: Visa statut du personnel
+41: Agrément fournir pour l’exercice de la mission d’urbaniste
+42: Demande d'attestation d'artiste
+43: Demande d'autorisation de participation
+44: Demande d’autorisation de prise de vues
+45: Demande d’autorisation de tournage
+46: Demande d’autorisation d’exercice de la profession cinématographique et audiovisuelle
+47: demande d'autorisation d'exploitater des établissements touristiques d'hébergement (ETH)
+48: Demande d’autorisation d’exploiter un restaurant
+49: Demande de certificat d’origine et d’exploitation
+50: Unknown Title
+51: Demande de la carte professionnelle du cinéma et de l’audiovisuel
+52: Demande de licence d’entrepreneur de spectacle
+53: Demande de licence des agences de voyage et de tourisme
+54: Demande de renouvellement la carte professionnelle de guide de tourisme
+55: Demande d’immatriculation des œuvres et d’enregistrement de contrats au Registre Public du Cinéma et de l’Audiovisuel (RPCA)
+56: Demande de Branchement au réseau collectif de l'assainissement en milieu urbain
+57: Demande d'Ouvrages d'assainissement autonome à domicile en milieu urbain
+58: Demande d'ouvrages d'assainissement autonomes communautaires en milieu urbain
+59: Arrêté d'avancement
+60: Arrêté de bonification d'échelon suite à une décoration
+61: Arrêté de fin de détachement
+62: Arrêté de fin de stage de perfectionnement ou de spécialisation
+63: Arrêté de mise en position de détachement
+64: Arrêté de mise en position de stage de perfectionnement ou de spécialisation
+65: Arrêté de renouvellement de detachement des agents
+66: Arrêté de renouvellement de stage de perfectionnement ou de spécialisation
+67: Arrêté de titularisation
+68: Avis technique de l'inspection du travail
+69: Correction salaires des actes de carrières (avancement, bonification, intégration et reversement)
+70: Décision de congé maladie de courte durée (plus de 7 jours et moins de 90 jours)
+71: Décision de mise à disposition
+72: Décision d'engagement de temporaires
+73: Declaration d'ouverture, de modification ou de fermeture d'etablissement
+74: Demande d'agrément pour les vérifications périodiques des machines, materiels et équipements présentant des dangers pour les travailleurs
+75: Demande d'allocation familiale
+76: Demande d'attestation de soumission aux marchés publics
+77: Demande d'attestation de travail
+78: Demande d'attestation du chômage
+79: Demande d'avis de rachat de rente
+80: Demande d'avis sur le licenciement des travailleurs dont le poste est médicalement déconseillé
+81: Demande d'avis sur le licenciement des travailleurs protégés (délégué syndical, délégué du personnel, membres chargés de l'administration d'un syndicat)
+82: Demande de congé de maternité
+83: Demande de constat de carence et autorisation en matière d'élection de délégués de personnel
+84: Demande de construction d'infrastrucures de stockage
+85: Demande de consultation de documents produits par le CES.
+86: Demande de mise en place de ferme pilote
+87: Demande de visa de règlement intérieur
+88: Demande de visa de statut du personnel
+89: Demande de visa des salaires
+90: Demande de visas de contrat de travail des nationaux nécessitant leur installation hors du territoire national
+91: Demande de visas de contrat de travail des non nationaux
+92: Demande d'un agrément pour l'ouverture des bureaux ou offices privés de placement et d'entreprises de travail temporaire
+93: Diverses prestations en Machines-Outils
+94: Enquêtes d'Accident de travail, de Maladie professionnelle
+95: Indemnité de départ à la retraite
+96: Saisine de l'inspection du travail en cas de conflit individuel ou collectif
+97: Agrément pour l’exercice de la mission de l’expertise immobilière
+98: Agrément pour l’exercice de la mission de promotion immobilière et/ou foncière
+99: Agrément pour l’exercice de la mission d’expert géomètre
+100: Agrément pour l’exercice de la mission d’ingénierie du bâtiment
+101: Agrément technique en bâtiment
+102: Demande d'allocations d'aides et de prêts aux étudiants
+103: Octroi et Renouvellement de bourses
+104: Abonnement à la revue des marchés publics
+105: Achat de revue des marchés publics
+106: Demande d'agrément en maitrise d'ouvrage public délégué
+107: Demande d'attestation de bonne fin d'exécution
+108: Demande de certificat de service fait
+109: Demande de main levée de caution
+110: Publication des avis ou les résultats de sélection de prestataires de commande publique dans la revue des marchés publics
+111: Vente des dossiers d'appel à concurrence et des cahiers de charge des dossiers d'entente directe
+112: Abonnement sidwaya mobile 1 jour
+113: Abonnement sidwaya mobile 30 jours
+114: Abonnement sidwaya mobile 7 jours
+115: Communiqué administratif et social 1 page (Police 12)
+116: Communiqué commercial 1 page (Police 12)
+117: Communiqué commercial ½ page (Police 12)
+118: Communiqué nécrologique 1 page (Police 12)
+119: Communiqué nécrologique ½ page (Police 12)
+120: Communiqués administratif et social ½ page (Police 12)
+121: Demande d'autorisation d'exploitation de frequence radioélectrique
+122: Demande d’autorisation d’occupation de l’espace audiovisuel
+123: Demandes d’attestation de diffusion ou de parution régulière
+124: Demandes de certification de grille de programmes
+125: les annonces publicitaires
+126: Réalisation de spot radio de 1 à 45 secondes
+127: Realisation spot radio
+128: Réception des déclarations d’existence des médias en ligne et de la presse écrite
+129: Spot de conception publicitaire sur devis de 15 secondes avant midi magazine
+130: Spot de conception publicitaire sur devis de 15 secondes Top Info 13H
+131: Spot de conception publicitaire sur devis de 15 secondes tranche du matin 10h
+132: Spot de conception publicitaire sur devis de 20 secondes Top Info 13H
+133: Spot de conception publicitaire sur devis de 20 secondes tranche du matin 10h
+134: Spot de conception publicitaire sur devis de 25 secondes Top Info 13H
+135: Spot de conception publicitaire sur devis de 25 secondes tranche du matin 10h
+136: Spot de conception publicitaire sur devis de 30 secondes Top Info 13H
+137: Spot de conception publicitaire sur devis de 30 secondes tranche du matin 10h
+138: Spot de conception publicitaire sur devis de 35 secondes Top Info 13H
+139: Spot de conception publicitaire sur devis de 35 secondes tranche du matin 10h
+140: Spot de conception publicitaire sur devis de 40 secondes Top Info 13H
+141: Spot de conception publicitaire sur devis de 40 secondes tranche du matin 10h
+142: Spot de conception publicitaire sur devis de 45 secondes Top Info 13H
+143: Spot de conception publicitaire sur devis de 45 secondes tranche du matin 10h
+144: Spot de conception publicitaire sur devis de 50 secondes Top Info 13H
+145: Spot de conception publicitaire sur devis de 50 secondes tranche du matin 10h
+146: Spot de conception publicitaire sur devis de 55 secondes Top Info 13H
+147: Spot de conception publicitaire sur devis de 55 secondes tranche du matin 10h
+148: Spot de conception publicitaire sur devis de 60 secondes Top Info 13H
+149: Spot de conception publicitaire sur devis de 60 secondes tranche du matin 10h
+150: Spot de conception publicitaure sur devis de 50 secondes Top Info 13H
+151: Spot publicitaire Apres Midi magazine 15 secondes
+152: Spot publicitaire Apres Midi magazine 30 secondes
+153: Spot publicitaire Apres Midi magazine 35 secondes
+154: Spot publicitaire Apres Midi magazine 40 secondes
+155: Spot publicitaire Apres Midi magazine 45 secondes
+156: Spot publicitaire Apres Midi magazine 50 secondes
+157: Spot publicitaire Apres Midi magazine 55 secondes
+158: Spot publicitaire Apres Midi magazine 60 secondes
+159: Spot publicitaire Apres Midi magazine de 20 secondes
+160: Spot publicitaire Apres Midi magazine de 25 secondes
+161: Spot publicitaire Avant Midi magazine 15 secondes
+162: Spot publicitaire Avant Midi magazine 20 secondes
+163: Spot publicitaire Avant Midi magazine 25 secondes
+164: Spot publicitaire Avant Midi magazine 30 secondes
+165: Spot publicitaire Avant Midi magazine 35 secondes
+166: Spot publicitaire Avant Midi magazine 40 secondes
+167: Spot publicitaire Avant Midi magazine 45 secondes
+168: Spot publicitaire Avant Midi magazine 60 secondes
+169: Spot publicitaire Avant Midi magazine de 50 secondes
+170: Spot publicitaire Avant Midi magazine de 55 secondes
+171: spot radio 45 à 60 secondes
+172: spot radio plus de 60 secondes jusqu'à 90 secondes
+173: les avis de recrutements
+174: les déclarations d’existences et de pertes
+175: les encartages
+176: Spot de conception sur devis de 60 secondes
+177: Crédit dédouanement de véhicules
+178: Délivrance d'arrêté de mise sous administration provisoire
+179: Délivrance de main levée d'hypothèque
+180: Demande d'autorisation d'ouverture de comptes dans les banques commerciales
+181: Demande d'autorisation d'ouverture d'un casino
+182: Demande d'autorisation d'ouverture d'une salle de machines à sous
+183: Demande d'autorisation ou de licence d'exploitation d'un casino
+184: Demande de changement de mode de paiement ou de changement d'adresse bancaire et activités connexes.
+185: Demande de dérogation à la condition de nationalité des dirigeants des Systèmes financiers décentralisés (SFD)
+186: Demande de liquidation d'un Systèmes financier décentralisé (SFD)
+187: Demande de retrait d'agrément des Systèmes Financiers Décentralisés
+188: Demande d'informations sur les comptes de dépôts au Trésor (services bancaires)
+189: Soumission cautionnée pour crédit d'enlèvement, droits et taxes, entrepôts fictifs
+190: Demande d'agrément au code des investissements
+191: Contrôle d'auscultation sonique des pieux
+192: Contrôle de qualité des sols et fondations
+193: Demande d' autocontrôle de travaux d'aménagement des routes
+194: Demande d'étude sols et fondations
+195: Demande d'Approbation de plans
+196: Demande de contrôle de la normalisation des risques en vue de l'assurance décennale
+197: Demande de contrôle des équipements techniques et de la qualité des matériaux
+198: Demande de contrôle et surveillance des travaux d'aménagment et de bitumage de voiries
+199: Demande de contrôle géotechnique des routes
+200: Demande de délivrance ou renouvellement d’agrément technique
+201: Demande de Formulation de béton
+202: Demande de prélèvement et essai de compression de béton
+203: Demande d'essai d'analyse granulométrique et équivalent de sable
+204: Demande d'essai de teneur en eau
+205: Demande d'essai d'identification et de portance des échantillons
+206: Demande d'essai sur du ciment
+207: Demande d'essais de carottage
+208: Demande d'essais Los angeles et micro Deval sur échantillon de béton
+209: Demande d'essais sur granite
+210: Demande d'Etalonnage d'une presse à béton
+211: Demande d'etude de formule de composition de béton
+212: Demande d'etude de sols et fondations
+213: Demande d'etudes géotechniques des infrastructures
+214: Demande Reconnaissances géotechniques
+215: Essais d'auscultation sclérométrique
+216: Réalisation d'ouvrages en travaux publics
+217: Gestion du contentieux de candidature à l’élection du Président du Faso (Article 131 du Code électoral)
+218: Gestion du contentieux de la régularité et du dépouillement des élections législatives
+219: Gestion du contentieux de liste des candidats aux élections législatives
+220: La gestion du contentieux de la régularité de l’élection du Président du Faso
+221: Publication de la déclaration de candidature à l’élection du Président du Faso
+222: Contrôle de constitutionnalité des normes
+223: Dossier en Conseil des Ministres
+224: Dépôt de Rapport d'activités
+225: Saisine du Conseil constitutionnel en matière de contrôle des partis politiques (article 26 et 27 de la Loi organique)
+226: Demande d'autorisation d'implantation d'unités industrielles autre que les unités d'ensachage d'eau et les unités de production d'huiles alimentaires
+227: Demande de création d'entreprises pour les personnes morales
+228: Demande de création d'entreprises pour les personnes physiques
+229: Demande d'implantation des unités industrielles de production d'huiles alimentaires
+230: Demande d'implantation des unités industrielles d'ensachage d'eau de forage
+231: AUTORISATION D’EXERCER AU BURKINA FASO D’ASSOCIATIONS ETRANGERES
+232: DECLARATION D’EXISTENCE D’UNIONS OU DE FUSIONS D’ASSOCIATIONS
+233: Demande de déclaration d'existence d'associations
+234: Demande de génération des ratios pour analyse financière des collectivités territoriales
+235: demande de reconnaissance de parti ou de formation politique
+236: DEMANDE DE RENOUVELLEMENT DE L’AUTORISATION D’EXERCER AU BURKINA FASO D’ASSOCIATIONS ETRANGERES
+237: demande de renouvellement de parti ou de formation politique
+238: Règlement de contentieux relatif à la gestion des carrières des agents des collectivités territoriales
+239: Demande de candidature aux examens du permis de conduire nationale
+240: Demande de renouvellement du permis de conduire
+241: Demande d'arrêt ou de remboursement de précomptes.
+242: Demande d'arrêts ou de suspension de Mandatement irrégulier
+243: Demande d'attestation de non engagement Trésor Public
+244: Demande de correction de salaire suite à une nomination à un poste de responsabilité
+245: Demande de correction d’indemnités liées à l’emploi des agents en position de stage à l’intérieur ou à l’extérieur du pays
+246: Demande de fin de retenues pour le service national pour le développement (SND).
+247: Demande de mandatement hors solde
+248: Demande d'établissement de l'ordre de service
+249: Demande d'établissement d'un certificat de cessation de paiement (CCP) ou d'émission d'ordre de recette individuelle (ORI).
+250: Dossiers relatifs aux retenues pour faits de grève.
+251: Composition de dossier de demande de Passeport Diplomatique
+252: Composition du dossier de demande/renouvellement de passeport de service
+253: Demande d'authentification des documents officiels
+254: Demande de Note Verbale
+255: Demande de traduction des documents (Du Français vers l'Anglais ou l'Espagnol ou l'Arabe)
+256: Demande de brevet de décoration
+257: Demande de proposition à une décoration
+258: Demande de remplacement d'une médaille ou d'un brevet de décoration
+259: Proposition de récipiendaire
+260: Vente d'emblèmes et d'armoiries
+261: Déclaration d'activités en matière de prélèvement d'eau brute
+262: Demande de branchement privé (compteur) d'eau
+263: demande de données sur la qualité de l'eau
+264: Demande de données sur l'eau potable et l'assainissement en milieu urbain
+265: Demande de données sur les Barrages
+266: Demande de données sur les bassins hydrographiques
+267: Demande de données sur les ouvrages d'eau potable en milieu rural
+268: Dépannage et fuite d'eau des branchements de l'ONEA
+269: Octroi de l'agrément technique dans le secteur de l'eau et de l'assainissement
+270: Paiement de la Contribution Financière en matière d'eau (CFE)
+271: Réclamations sur les services d'eau en milieu urbain
+272: Résiliation d'un service de l'ONEA
+273: Vérification des agréments techniques octroyés dans le domaine de l'eau et assainissement
+274: Cofinancement des projets (agriculture, élevage, artisanat et transformation des produits locaux, commerce, prestation de service, transport et BTP)
+275: Délivrance de la carte de demandeur d’emploi
+276: Délivrance de la carte de travail
+277: Demande d'appui à l'installation des jeunes formés aux métiers agricoles
+278: Demande de financement de micro-projets du secteur informel
+279: Demande de financement des activités génératrices de revenus
+280: Financement de micro-projets
+281: Financement de microprojets
+282: Financement des microprojets des jeunes diplômés du supérieur.
+283: Financement direct des projets
+284: Mise en stage de pré-emploi de jeunes diplômés ou qualifiés
+285: Octroi de kits pour l'auto emploi
+286: Publication des offres d’emploi
+287: Réalisation d'études sur l'emploi et la formation
+288: Recrutement et placement des jeunes en Travaux à Haute Intensité de Main d'oeuvre (THIMO)
+289: Souscription à la publication des offres d'emplois via SMS
+290: Autorisation de création d'un établissement d'enseignement général privé post primaire ou secondaire
+291: Autorisation de surveiller dans un établissement d’enseignement général privé post primaire ou secondaire
+292: Autorisation d'enseigner dans un établissement d’enseignement général privé post primaire ou secondaire
+293: Concours d'entrée au Prytanée Militaire du Kadiogo
+294: Demande d'autorisation d'enseigner
+295: Demande d'un passeport ordinaire
+296: Demande d'autorisation de transport/transfert d'un animal sauvage ou de trophées ( certificat d'origine)
+297: Demande de licence de concession de zone
+298: Demande de licence de Guide de Chasse
+299: Demande de licence de restaurateur de viande de gibier et de commerçant de gibier
+300: Demande de permis de capture,ou de détention d'un animal sauvage
+301: Demande de permis de circulation ou de permis de coupe (bois et charbon de bois)
+302: Paiement de taxes d'aménagement et de gestion des zones concédées
+303: Accompagnement des femmes en vue de leur autonomisation
+304: Appui à l’élaboration de micro projet
+305: Appui au renforcement des capacités
+306: Appui aux organisation pour formalisation (récépissé de reconnaissance )
+307: Demande d'action en recherche de paternité
+308: Demande de création des AGR au profit des filles mères
+309: Demande de médiation pour résolution de cas
+310: Demande de séances de sensibilisation sur les droits de la femme et de la jeune fille
+311: Demande de suivi-supervision des activités génératrices de revenues
+312: Demande d'etablissement de Convention de partenariat
+313: Prise en charge psychosociale des filles victimes de grossesse contestée
+314: Prise en charge psychosociale des victimes de violence faite à la femme/Fille
+315: Protection des filles victimes des mariages forcés
+316: Résolution des cas de mariage précoce
+317: Candidature aux concours professionnels
+318: Demande d'appui au développement de référentiels et supports de formation et de certification
+319: Demande de convention de partenariat
+320: Formation initiale aux métiers
+321: Appui en matière de développement de la formation professionnelle
+322: Assistance des bureaux d’etudes à la réalisation des etudes en lien avec la Jeunesse, la formation et d’Insertion Professionnelle
+323: Candidature à la formation et l'installation de brigadiers de traction animale par le MAAH
+324: Candidature au placement de jeunes diplômés ou qualifiés en stages d'initiation à la vie professionnelle
+325: Candidature pour la formation de jeunes déscolarisés et non scolarisés à la conduite polyvalente des engins lourds des mines et du BTP
+326: Financement de la formation professionnelle
+327: Formation de brigadiers mobiles d'irrigation de complément
+328: Formation de conducteurs polyvalents d'engins destinés aux mines et aux travaux du BTP
+329: Formation des jeunes en technique d'aviculture Traditionnelle Améliorée
+330: Formation des jeunes pour leur insertion professionnelle post-THIMO
+331: Formation des promoteurs en gestion de microprojets (sous-secteur agropastoral, artisanat, commerce et prestation de service)
+332: Formation des promoteurs
+333: Formation en entreprenariat
+334: Formation en techniques d'élevage de volaille locale
+335: Formation et d'appui au montage de plans d'affaires bancables
+336: Participation au grand prix de l'économie informelle (GPEI)
+337: Placement de jeunes diplômés et/ou qualifiés en stage d'initiation à la vie profossionnelle
+338: Suivi et appui conseil des promoteurs
+339: Demande de reclassement
+340: Aide à la reconversion des militaires retraités ou en fin de carrière
+341: Arrêté de fin de disponibilité
+342: Arrêté de renouvellement de disponibilité
+343: Certificat d'ajournement du SND
+344: Certificat de dispense du SND
+345: Décision de congé administratif
+346: Demande de bonification d'échelon suite à stage de spécialisation
+347: Demande de reconstitution de carrière
+348: Demande de reversement
+349: Demande de révision ou régularisation de situation administrative (RSA)
+350: Demande d'intégration
+351: Demande d'un acte rectificatif
+352: Licenciement dans la fonction publique
+353: Relevé général de services
+354: Retraite pour limite d'âge
+355: Suspension du SND
+356: Système d’accès aux Dossiers individuels des archives numérisées (DIAN)
+357: Système d’Accès aux Dossiers Individuels Numérisés des Agents (SADINA)
+358: Système d’accès en ligne aux informations administrative et salariales (ALIAS)
+359: Transfert du SND
+360: Dépôt des préavis de grève
+361: Publication des récépissés d'associations et des bilans des banques dans le journal officiel
+362: Publication des textes normatifs
+363: Soumission de dossiers en conseil des ministres
+364: Vente et abonnement au Journal Officiel
+365: Dépôt de Bilan financier
+366: Consultation du Conseil constitutionnel en cas d’empêchement du Président du Faso (Article 41 à 43 de la Loi organique)
+367: Contribution des patentes
+368: Impôt sur le Revenu des Valeurs Mobilières (IRVM)
+369: Impôt sur les bénéfices Industriels, Commerciaux et Agricoles (IBICA)
+370: Impôt sur les bénéfices non commerciaux (IBNC)
+371: Impôt sur les Revenus Fonciers (IRF)
+372: Impôt sur les sociétés (IS)
+373: Impôt Unique sur les Traitements et les Salaires (IUTS)
+374: Péage sur route bitumée
+375: Taxe de résidence (TR)
+376: Taxe Patronale d'Apprentissage (TPA)
+377: Taxe sur la Valeur Ajoutée (TVA)
+378: Conception et mise en place des SIG
+379: Demande de Licence d' utilisation de type A1
+380: Demande de Licence d' utilisation de type A2
+381: Demande de Licence d' utilisation de type A3
+382: Demande de Licence d' utilisation de type TPLS
+383: Mise à disposition des fiches de bornes géodesiques ou de nivellement
+384: Offre de formation topographie
+385: Réalisation des travaux topographiques
+386: Demande de levée de gage d'un véhicule moto
+387: Demande d'inscription sous gage d’un véhicule automobile
+388: Fourniture de données, produits et informations météorologiques
+389: Demande organisation et/ou accompagnement des activités de loisirs
+390: Suivi des Structures
+391: Demande d'amélioration du service public
+392: Demande de conciliation entre l'administration publique et les forces sociales et professionnelle.
+393: Demande de réclamation relative à une Lenteur judicaire
+394: Naturalisation
+395: Proposition de réformes législatives ou règlementaires
+396: Réclamation de Frais de mission
+397: Réclamation de prime
+398: Réclamation d'indemnités
+399: Réclamation pour annulation de pénalités
+400: Réclamation pour annulation d’un ordre de recette
+401: Réclamation pour une restitution de biens confisqués
+402: Réclamation relative à contrat / certificat de travail
+403: Réclamation relative à la responsabilité de la puissance publique
+404: Réclamation relative à un accident de travail
+405: Réclamation relative à un capital décès
+406: Réclamation relative à un certificat/visite médicale/prise en charge
+407: Réclamation relative à un contrat de marché public
+408: Réclamation relative à un licenciement pour abandon /refus de rejoindre le poste assigné
+409: Réclamation relative à un licenciement pour détournement de deniers publics et vols
+410: Réclamation relative à un licenciement pour inaptitude physique ou mentale
+411: Réclamation relative à un licenciement pour insuffisance notoire
+412: Réclamation relative à un licenciement pour perte de la nationalité Burkinabè
+413: Réclamation relative à un Paiement de factures
+414: Réclamation relative à un problème d’Assurances – primes / réparation préjudices
+415: Réclamation relative à un reclassement
+416: Réclamation relative à un Règlement pour solde de tout compte
+417: Réclamation relative à un remboursement de cotisation pour pension
+418: Réclamation relative à une affectation / mutation
+419: Réclamation relative à une augmentation de salaire
+420: Réclamation relative à une demande d’autorisation/ouverture d’officines
+421: Réclamation relative à une demande de parcelle
+422: Réclamation relative à une demande de PUH
+423: Réclamation relative à une demande de récépissé
+424: Réclamation relative à une demande d’indemnisation
+425: Réclamation relative à une forclusion pour la pension
+426: Réclamation relative à une inexécution/révision décisions de justice
+427: Réclamation relative à une inscription
+428: Réclamation relative à une intégration/réintégration
+429: Réclamation relative à une levée suspension/reprise de solde
+430: Réclamation relative à une liquidation/RGS/CCP
+431: Réclamation relative à une radiation
+432: Réclamation relative à une rectification de la date de mise à la retraite
+433: Réclamation relative à une régularisation de la situation administrative
+434: Réclamation relative à une réhabilitation administrative
+435: Réclamation relative à une revalorisation/révision de pension
+436: Réclamation relative à une révision/reconstitution de carrière
+437: Réclamation relative à une sanction disciplinaire
+438: Réclamation relative à une successions/réversions/allocation/tutelle
+439: Réclamation relative à une validation d’admission à un examen, test ou concours
+440: Recours gracieux
+441: Saisine du Médiateur du Faso pour des propositions de réformes législatives ou règlementaires
+442: Demande d'un permis de recherche
+443: Prestations diverses en mine et carrières
+444: Prestations diverses en mines et carrières
+445: Réalisation des travaux de prélèvement de géochimie sols, stream sediments, alluvionnaire, roche
+446: Demande de certificat d'accréditation
+447: Demande de licence d'exploitation des ressources halieutiques
+448: Demande de licence pour commerçant / mareyeur
+449: Demande d'un permis de pêche
+450: Demande d'une concession de pêche ou d'aquaculture
+451: Préfinancement des marchés
+452: Encadrement technique et financier d'organisations de jeunesse
+453: Opération Permis de Conduire (OPC)
+454: Opération permis de conduire
+455: Décision en matière commerciale
+456: Demande d'attestation de dépôt légal
+457: Demande d'autorisation de publication des annonces légales et judiciaires
+458: Demande de carte de visiteur agréé
+459: Demande de cession volontaire de salaire
+460: Demande de côte et Paraphe
+461: Demande de garde d'enfant
+462: Demande de Grosse ou de l'Expédition
+463: Demande de pension alimentaire
+464: Demande de permis de communiqué spontané
+465: Demande de récépissé avant première parution
+466: Demande de récusation
+467: Demande de référé
+468: Demande d'un bulletin n°3 du casier judiciaire
+469: Demande d'un certificat de nationalité
+470: Demande d'une décision de justice
+471: Plainte
+472: Pourvoi en Cassation en matière civile,commerciale et sociale
+473: Pourvoi en cassation en matière criminelle ou pénale
+474: Recours de plein contentieux
+475: Recours en interprétation ou en appréciation de la légalité d'un acte administratif
+476: Recours par opposition
+477: Recours pour excès de pouvoir (REP)
+478: Demande de modification de nom ou prénom ou Demande d'ajout de nom ou prénom
+479: Demande de permis de communiqué permanent
+480: Protection des droits fondamentaux de la personne humaine et des libertés publiques (art. 157 Alinéa 2 de Constitution)
+481: Demande d'analyse et d'examen des rapports d'évaluation environnementale stratégique (EES)
+482: Demande d'autorisation de stocker des sources radioactives de catégorie I
+483: Demande d'autorisation de transporter des sources radioactives
+484: Demande d'autorisation d'importation des équipements émetteurs de rayon X (le scanner)
+485: Demande d'autorisation d'importation des sources radioactives
+486: Demande d'autorisation d'utilisation des sources radioactives
+487: Accompagnement des différentes fédérations
+488: Demande d'accompagnement et de sensiblisation à la pratique du sport pour tous
+489: Inscription à une compétition de sports scolaire, universitaire ou de la relève
+490: Promotion du sport et des loisirs
+491: Appels d'urgences
+492: constat d’accidents matériels et corporels de la circulation routière
+493: prise en charge des besoins d’urgence sécuritaires
+494: Demande d'autorisation de collecte des déchets spéciaux
+495: Demande d'avis sur la conformité environnementale
+496: Demande de certificat d'exemption des emballages et sachets plastiques non biodégradables
+497: Demande de certificat d'Homologation des emballages et sachets plastiques biodégradables
+498: La liquidation et le paiement de la pension de retraite
+499: La liquidation et le paiement de la pension de survivants (veuves/veufs et orphelins)
+500: La liquidation et le paiement du capital décès pour le compte de l’Etat
+501: La liquidation et le paiement du remboursement des retenues pour pension
+502: Demande d'autorisation pour l'utilisation d'un Organisme Génétiquement Modifié (OGM) au Burkina Faso
+503: Demande d’un dossier d’autorisation pour l’utilisation d’un Organisme Génétiquement Modifié (OGM) au Burkina Faso
+504: Inspection des sites abritant les Organismes Génétiquement Modifiés (OGM)
+505: CONCOURS RECRUTEMENT ELEVE OFFICIER D'ACTIVE A L'AMGN
+506: Inscription en ligne aux concours de la fonction publique
+507: Recrutement de volontaire nationaux et de bénévoles
+508: Recrutement des appelés volontaires des centres de formation et de production du SND
+509: Recrutement des appelés volontaires du SND appuyant l'administration publique
+510: Demande d'élaboration de la cartographie des risques
+511: Dénonciation de cas de malversations, de corruption ou d'abus de pouvoir
+512: Elaboration de la cartographie des risques ou Audit
+513: Saisine du Conseil Constitutionnel en matière de révision constitutionnelle (article 34 à 36 de la loi organique)
+514: Demande d'autorisation spéciale d'importation
+515: Demande d'homologation des produits de santé
+516: Soins de santé au grand public
+517: Demande d'accès à la plateforme E-vulgarisation
+518: Demande d'accès à la plateforme mAgri
+519: Demande d'accès au service web BASEPA, COUNTRYSTAT, AgriBase
+520: Demande d'accès aux animaux de traits
+521: Demande d'accès aux équipements agricoles
+522: Demande d'accès aux intrants agricoles (semences, engrais)
+523: Demande d'accès sur la plateforme e-aménagement
+524: Demande de contrôle phytosanitaire à l'intérieur du pays
+525: Demande d'équipements d'irrigation
+526: Demande d'inspection phytosanitaire à l'exportation
+527: Demande d'inspection phytosanitaire à l'importation
+528: Demande d'inspection phytosanitaire en transit
+529: Demande d'acquisition d'un bio-digesteur
+530: Demande d'autorisation d'importation des animaux, des produits animaux et des produits d'origine animale
+531: Demande de certificat de mise en observation
+532: Demande de visa d'importation de médicaments vétérinaires
+533: Demande d'établissement d'un certificat à l'exportation
+534: Demande d'établissement d'un certificat de salubrité
+535: Demande d'établissement d'un certificat national de transhumance (CNT)
+536: Demande d'établissement d'un laissez-passer zoo-sanitaire
+537: sensibilisation sur la cybercriminalité
+538: Accompagnement à l’établissement des actes juridiques des enfants
+539: Accompagnement à l’insertion sociale des enfants et jeunes en en situation de rue
+540: Appui de personnes nécessiteuses en vivres et en matériels divers
+541: Demande d'adoption d'enfants burkinabè par des burkinabè
+542: Demande d'adoption d'enfants burkinabè par des non nationaux
+543: Demande d’assistance sanitaire
+544: Demande de cartes d’invalidité
+545: Demande de lait
+546: Demande de parrainage
+547: Demande de placement en famille d'accueil
+548: Demande de placement pour assistance éducative
+549: Demande de sensibilisation
+550: Elaboration de microprojets en faveur des groupes sociaux spécifiques
+551: Enregistrement des personnes handicapées
+552: Placement professionnel des jeunes en difficultés
+553: Prise en charge alimentaire
+554: Prise en charge des enfants victimes de violence
+555: Prise en charge psychosociale des scolaires
+556: Prise en charge scolaire des OEV scolarisés
+557: Réalisation d’appuis conseils au profit des personnes handicapées
+558: Réalisation de constat et d’évaluation de sinistres
+559: Réalisation d’enquêtes sociales au profit des personnes nécessiteuses
+560: Demande de formation sur les outils bureautiques
+561: Demande d'autorisation d'exploiter des établissements touristiques d'hébergements (ETH).
+562: Demande d'autorisation d'exploiter des restaurants de tourisme
+563: Demande de la carte professionnelle de guide de tourisme
+564: Demande de permis de visite touristique, de permis photographique ou de permis cinématographique
+565: Demande de renouvellement de la carte professionnelle de guide de tourisme
+566: Demande de visa de validation de la licence d'agence de voyages et de tourisme
+567: Agrément de transporteur aérien
+568: Agrément d'opérateur d'assistance et / ou d'auto assistance en escale
+569: Conférence publique sur la sécurité routière
+570: Demande d'autorisation d'exploitation
+571: Demande de carte grise internationale de véhicule automobile
+572: Demande de duplicata de carte de transport de véhicule automobile
+573: Demande de duplicata de carte grise de véhicule automobile
+574: Demande de duplicata de carte grise de véhicule moto
+575: Demande de duplicata de permis de conduire national
+576: Demande de permis de conduire international
+577: Demande de première mise en circulation dans la série WW
+578: Demande de remplacement de carte grise de véhicule automobile
+579: Demande de renouvellement de carte de transport de véhicule
+580: Demande d'Immatriculation de véhicule automobile
+581: Demande d'immatriculation de véhicule moto
+582: Demande d'inscription sous gage d'une moto
+583: Demande d'une nouvelle carte de transport de véhicule automobile
+584: Formation sur la sécurité routière
+585: location d'aéronefs à l'Armée de l'Air
+586: Pesage des véhicules lourds de transport de marchandises
+587: Promotion de la sécurité routière
+588: sécurité routière
+589: Sensibilisation sur sécurité routière
