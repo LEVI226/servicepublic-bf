@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class EService extends Model
 {
+    protected $table = 'eservices';
+ 
     protected $fillable = [
         'category_id', 'title', 'slug', 'description', 'url',
         'source_file', 'is_active', 'is_featured', 'order',
