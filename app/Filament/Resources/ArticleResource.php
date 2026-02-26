@@ -30,17 +30,21 @@ class ArticleResource extends Resource
                         ->required()
                         ->maxLength(255)
                         ->live(onBlur: true)
-                        ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', Str::slug($state))),
+                        ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', Str::slug($state)))
+                        ->hint('Titre de l\'article affiché en gros sur la page et dans la liste des actualités.'),
                     Forms\Components\TextInput::make('slug')
                         ->required()
-                        ->unique(ignoreRecord: true),
+                        ->unique(ignoreRecord: true)
+                        ->hint('Identifiant URL généré automatiquement. Ne pas modifier sauf si nécessaire.'),
                     Forms\Components\Textarea::make('excerpt')
                         ->label('Chapeau / Résumé')
-                        ->rows(2),
+                        ->rows(2)
+                        ->hint('Court résumé (1-2 phrases) affiché sur la vignette de l\'article dans la liste. Laissez vide pour auto-générer.'),
                     Forms\Components\FileUpload::make('image')
                         ->label('Image d\'illustration')
                         ->image()
                         ->directory('articles/images')
+                        ->hint('Image principale de l\'article (format paysage recommandé : 800×450px, JPG ou PNG).')
                         ->columnSpanFull(),
                     Forms\Components\RichEditor::make('content')
                         ->label('Contenu')
@@ -49,7 +53,7 @@ class ArticleResource extends Resource
                         ->fileAttachmentsDisk('public')
                         ->fileAttachmentsDirectory('articles/attachments')
                         ->fileAttachmentsVisibility('public')
-
+                        ->hint('Corps complet de l\'article. Utilisez les titres H2/H3 pour structurer le contenu en sections.')
                         ->columnSpanFull(),
                 ]),
             ])->columnSpan(['lg' => 2]),
@@ -57,18 +61,22 @@ class ArticleResource extends Resource
                 Forms\Components\Section::make('Publication')->schema([
                     Forms\Components\Toggle::make('is_published')
                         ->label('Publié')
-                        ->default(false),
+                        ->default(false)
+                        ->hint('Un article non publié est invisible du public et des moteurs de recherche.'),
                     Forms\Components\DateTimePicker::make('published_at')
                         ->label('Date de publication')
                         ->displayFormat('d/m/Y H:i')
-                        ->default(now()),
+                        ->default(now())
+                        ->hint('Date et heure affichées sur l\'article. Peut être dans le futur (planification).'),
                     Forms\Components\Select::make('category_id')
                         ->label('Catégorie')
                         ->relationship('category', 'name')
                         ->searchable()
-                        ->preload(),
+                        ->preload()
+                        ->hint('Thématique à laquelle cet article est rattaché.'),
                     Forms\Components\Toggle::make('is_featured')
-                        ->label('Mise en avant'),
+                        ->label('Mise en avant')
+                        ->hint('Les articles mis en avant apparaissent en tête de liste et dans le bandeau d\'accueil.'),
                 ]),
                 Forms\Components\Section::make('Statistiques')
                     ->schema([

@@ -23,43 +23,50 @@ class EserviceResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->schema([
-            Forms\Components\Section::make()->schema([
+            Forms\Components\Section::make('Informations du e-service')->schema([
                 Forms\Components\TextInput::make('title')
                     ->label('Titre')
                     ->required()
                     ->maxLength(255)
                     ->live(onBlur: true)
-                    ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', Str::slug($state))),
+                    ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', Str::slug($state)))
+                    ->hint('Nom complet du service tel qu\'affiché sur la plateforme (ex: « CEFORE — Création d\'entreprise »).'),
                 Forms\Components\TextInput::make('slug')
                     ->required()
-                    ->unique(ignoreRecord: true),
+                    ->unique(ignoreRecord: true)
+                    ->hint('Identifiant URL unique, généré automatiquement à partir du titre.'),
                 Forms\Components\RichEditor::make('description')
                     ->label('Description')
                     ->toolbarButtons(['bold', 'italic', 'link', 'h2', 'h3', 'bulletList', 'orderedList', 'blockquote', 'attachFiles'])
                     ->fileAttachmentsDisk('public')
                     ->fileAttachmentsDirectory('eservices/attachments')
-                    ->fileAttachmentsVisibility('public'),
-
+                    ->fileAttachmentsVisibility('public')
+                    ->hint('Explication courte du service : à quoi il sert, qui peut y accéder, et comment l\'utiliser.'),
                 Forms\Components\TextInput::make('url')
                     ->label('URL du service')
                     ->url()
                     ->required()
-                    ->placeholder('https://...'),
+                    ->placeholder('https://...')
+                    ->hint('Lien vers la plateforme officielle du e-service (ex: https://www.cefore.bf). Doit commencer par https://.'),
                 Forms\Components\Select::make('category_id')
                     ->label('Catégorie')
                     ->relationship('category', 'name')
                     ->searchable()
-                    ->preload(),
+                    ->preload()
+                    ->hint('Thématique principale du service (Commerce, Emploi, Éducation...).'),
                 Forms\Components\Grid::make(3)->schema([
                     Forms\Components\TextInput::make('order')
-                        ->label('Ordre')
+                        ->label('Ordre d\'affichage')
                         ->numeric()
-                        ->default(0),
+                        ->default(0)
+                        ->hint('0 = affiché en premier dans sa catégorie.'),
                     Forms\Components\Toggle::make('is_active')
                         ->label('Actif')
-                        ->default(true),
+                        ->default(true)
+                        ->hint('Désactiver masque le service sur le site public.'),
                     Forms\Components\Toggle::make('is_featured')
-                        ->label('Mis en avant'),
+                        ->label('Mis en avant')
+                        ->hint('Les services mis en avant apparaissent dans la section « Services populaires » de la page E-Services.'),
                 ]),
             ]),
         ]);

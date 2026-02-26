@@ -31,30 +31,32 @@ class LifeEventResource extends Resource
                         ->required()
                         ->maxLength(255)
                         ->live(onBlur: true)
-                        ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', Str::slug($state))),
+                        ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', Str::slug($state)))
+                        ->hint('Titre de la situation de vie tel qu\'affiché dans la section « Comment faire si ? » (ex: « Je demande un passeport »).'),
                     Forms\Components\TextInput::make('slug')
                         ->required()
-                        ->unique(ignoreRecord: true),
+                        ->unique(ignoreRecord: true)
+                        ->hint('Identifiant URL unique, généré automatiquement à partir du titre.'),
                 ]),
                 Forms\Components\RichEditor::make('description')
-                    ->label('Description')
+                    ->label('Description courte')
                     ->toolbarButtons(['bold', 'italic', 'link', 'h2', 'h3', 'bulletList', 'orderedList', 'blockquote', 'attachFiles'])
                     ->fileAttachmentsDisk('public')
                     ->fileAttachmentsDirectory('lifeevents/attachments')
                     ->fileAttachmentsVisibility('public')
-,
+                    ->hint('Texte court (1-3 phrases) affiché sur la carte dans la liste « Comment faire si ? ».'),
                 Forms\Components\RichEditor::make('content')
                     ->label('Contenu détaillé')
                     ->toolbarButtons(['bold', 'italic', 'link', 'h2', 'h3', 'bulletList', 'orderedList', 'blockquote', 'attachFiles'])
                     ->fileAttachmentsDisk('public')
                     ->fileAttachmentsDirectory('lifeevents/attachments')
                     ->fileAttachmentsVisibility('public')
-
+                    ->hint('Contenu complet affiché sur la page de l\'événement de vie. Peut inclure des conseils, des délais types, etc.')
                     ->columnSpanFull(),
                 Forms\Components\Grid::make(3)->schema([
                     Forms\Components\TextInput::make('icon')
-                        ->label('Icône Bootstrap/FontAwesome')
-                        ->placeholder('Ex: bi bi-passport or fas fa-home')
+                        ->label('Icône Bootstrap')
+                        ->placeholder('Ex: bi bi-passport')
                         ->datalist([
                             'bi bi-briefcase', 'bi bi-person-plus', 'bi bi-heart', 
                             'bi bi-passport', 'bi bi-person-badge', 'bi bi-search', 
@@ -63,25 +65,29 @@ class LifeEventResource extends Resource
                             'bi bi-bank', 'bi bi-shield-check', 'bi bi-file-earmark-text', 
                             'bi bi-globe', 'bi bi-telephone', 'bi bi-folder', 
                             'bi bi-cash', 'bi bi-shop', 'bi bi-mortarboard'
-                        ]),
+                        ])
+                        ->hint('Classe CSS de l\'icône Bootstrap Icons affichée sur la carte (tapez « bi bi- » pour voir les suggestions).'),
                     Forms\Components\TextInput::make('order')
-                        ->label('Ordre')
+                        ->label('Ordre d\'affichage')
                         ->numeric()
-                        ->default(0),
+                        ->default(0)
+                        ->hint('Les événements sont triés par ordre croissant (0 = affiché en premier).'),
                     Forms\Components\Toggle::make('is_active')
                         ->label('Actif')
-                        ->default(true),
+                        ->default(true)
+                        ->hint('Désactiver masque cet événement de vie de la page « Comment faire si ? ».'),
                 ]),
             ]),
             Forms\Components\Section::make('Procédures associées')
-                ->description('Sélectionnez les procédures liées à cet événement de vie.')
+                ->description('Liez les fiches pratiques à réaliser dans le cadre de cet événement de vie.')
                 ->schema([
                     Forms\Components\Select::make('procedures')
-                        ->label('Procédures')
+                        ->label('Fiches pratiques liées')
                         ->relationship('procedures', 'title')
                         ->multiple()
                         ->searchable()
-                        ->preload(),
+                        ->preload()
+                        ->hint('Sélectionnez toutes les fiches pratiques que doit accomplir un citoyen dans cette situation (ex: pour « Je me marie » → CNIB, Acte de naissance, Acte de mariage).'),
                 ]),
         ]);
     }
