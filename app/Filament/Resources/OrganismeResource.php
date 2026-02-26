@@ -30,15 +30,18 @@ class OrganismeResource extends Resource
                         ->required()
                         ->maxLength(255)
                         ->live(onBlur: true)
-                        ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', Str::slug($state))),
+                        ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', Str::slug($state)))
+                        ->hint('Nom officiel complet de l\'organisme.'),
                     Forms\Components\TextInput::make('slug')
                         ->required()
-                        ->unique(ignoreRecord: true),
+                        ->unique(ignoreRecord: true)
+                        ->hint('Identifiant URL généré automatiquement.'),
                 ]),
                 Forms\Components\TextInput::make('acronym')
                     ->label('Sigle')
                     ->maxLength(20)
-                    ->placeholder('Ex: MTDPCE'),
+                    ->placeholder('Ex: MTDPCE')
+                    ->hint('Abréviation courante (ex: CNSS, CEFORE, DGI).'),
                 Forms\Components\RichEditor::make('description')
                     ->label('Description')
                     ->toolbarButtons(['bold', 'italic', 'link', 'h2', 'h3', 'bulletList', 'orderedList', 'blockquote', 'attachFiles'])
@@ -52,19 +55,23 @@ class OrganismeResource extends Resource
                 Forms\Components\Grid::make(2)->schema([
                     Forms\Components\TextInput::make('address')
                         ->label('Adresse')
-                        ->maxLength(255),
+                        ->maxLength(255)
+                        ->hint('Adresse postale complète.'),
                     Forms\Components\TextInput::make('city')
                         ->label('Ville')
-                        ->maxLength(100),
+                        ->maxLength(100)
+                        ->hint('Ville où se situe le siège principal.'),
                 ]),
                 Forms\Components\TextInput::make('region')
                     ->label('Région')
-                    ->maxLength(100),
+                    ->maxLength(100)
+                    ->hint('Région administrative du Burkina Faso.'),
                 Forms\Components\Grid::make(3)->schema([
                     Forms\Components\TextInput::make('phone')
                         ->label('Téléphone')
                         ->tel()
-                        ->maxLength(50),
+                        ->maxLength(50)
+                        ->hint('Format : (+226) XX XX XX XX.'),
                     Forms\Components\TextInput::make('email')
                         ->email()
                         ->maxLength(255),
@@ -77,12 +84,15 @@ class OrganismeResource extends Resource
                 Forms\Components\TextInput::make('hours')
                     ->label('Horaires')
                     ->maxLength(255)
-                    ->placeholder('Lun-Ven 7h30-12h30, 15h-17h30'),
+                    ->placeholder('Lun-Ven 7h30-12h30, 15h-17h30')
+                    ->hint('Horaires d\'ouverture au public.'),
             ]),
             Forms\Components\Section::make('Géolocalisation')->schema([
                 Forms\Components\Grid::make(2)->schema([
-                    Forms\Components\TextInput::make('latitude')->numeric()->placeholder('12.3714'),
-                    Forms\Components\TextInput::make('longitude')->numeric()->placeholder('-1.5197'),
+                    Forms\Components\TextInput::make('latitude')->numeric()->placeholder('12.3714')
+                        ->hint('Coordonnée GPS Nord/Sud.'),
+                    Forms\Components\TextInput::make('longitude')->numeric()->placeholder('-1.5197')
+                        ->hint('Coordonnée GPS Est/Ouest.'),
                 ]),
             ])->collapsed(),
             Forms\Components\Toggle::make('is_active')

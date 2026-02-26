@@ -36,11 +36,13 @@ class ProcedureResource extends Resource
                             ->afterStateUpdated(fn ($state, Forms\Set $set) =>
                                 $set('slug', Str::slug($state))
                             )
+                            ->hint('Nom complet de la démarche tel qu\'il sera affiché au citoyen.')
                             ->columnSpanFull(),
                         Forms\Components\TextInput::make('slug')
                             ->required()
                             ->unique(ignoreRecord: true)
                             ->maxLength(255)
+                            ->hint('Identifiant URL généré automatiquement. Ne modifiez que si nécessaire.')
                             ->columnSpanFull(),
                         Forms\Components\TextInput::make('icon')
                             ->label('Icône Bootstrap/FontAwesome')
@@ -54,25 +56,28 @@ class ProcedureResource extends Resource
                                 'bi bi-globe', 'bi bi-telephone', 'bi bi-folder', 
                                 'bi bi-cash', 'bi bi-shop', 'bi bi-mortarboard'
                             ])
+                            ->hint('Classe CSS de l\'icône. Commencez à taper pour voir les suggestions.')
                             ->columnSpanFull(),
                         Forms\Components\Select::make('category_id')
                             ->label('Catégorie')
                             ->relationship('category', 'name')
                             ->searchable()
                             ->preload()
-                            ->required(),
+                            ->required()
+                            ->hint('Thématique principale (ex: Commerce/Artisanat, Justice…).'),
                         Forms\Components\Select::make('subcategory_id')
                             ->label('Sous-catégorie')
                             ->relationship('subcategory', 'name')
                             ->searchable()
-                            ->preload(),
+                            ->preload()
+                            ->hint('Subdivision optionnelle de la catégorie.'),
                         Forms\Components\RichEditor::make('description')
                             ->label('Description')
                             ->toolbarButtons(['bold', 'italic', 'link', 'h2', 'h3', 'bulletList', 'orderedList', 'blockquote', 'attachFiles'])
                             ->fileAttachmentsDisk('public')
                             ->fileAttachmentsDirectory('procedures/attachments')
                             ->fileAttachmentsVisibility('public')
-
+                            ->hint('Description détaillée de la démarche : objectif, public concerné, contexte.')
                             ->columnSpanFull(),
                     ]),
 
@@ -124,11 +129,13 @@ class ProcedureResource extends Resource
                         Forms\Components\TextInput::make('cost')
                             ->label('Coût')
                             ->placeholder('Ex: 1 000 FCFA')
-                            ->maxLength(100),
+                            ->maxLength(100)
+                            ->hint('Montant en FCFA. Indiquez « Gratuit » si applicable.'),
                         Forms\Components\TextInput::make('delay')
                             ->label('Délai')
                             ->placeholder('Ex: 1 à 3 mois')
-                            ->maxLength(100),
+                            ->maxLength(100)
+                            ->hint('Durée estimée de traitement du dossier.'),
                         Forms\Components\Toggle::make('is_free')
                             ->label('Gratuit'),
                     ]),
@@ -232,7 +239,9 @@ class ProcedureResource extends Resource
 
     public static function getRelations(): array
     {
-        return [];
+        return [
+            \App\Filament\Resources\ProcedureResource\RelationManagers\DocumentsRelationManager::class,
+        ];
     }
 
     public static function getPages(): array

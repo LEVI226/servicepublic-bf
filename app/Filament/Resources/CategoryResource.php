@@ -34,11 +34,13 @@ class CategoryResource extends Resource
                             ->live(onBlur: true)
                             ->afterStateUpdated(fn ($state, Forms\Set $set) =>
                                 $set('slug', Str::slug($state))
-                            ),
+                            )
+                            ->hint('Nom de la thématique affiché sur le site (ex: « Commerce/Artisanat »).'),
                         Forms\Components\TextInput::make('slug')
                             ->required()
                             ->unique(ignoreRecord: true)
-                            ->maxLength(255),
+                            ->maxLength(255)
+                            ->hint('URL générée automatiquement. Ex: commerce-artisanat.'),
                     ]),
                     Forms\Components\RichEditor::make('description')
                         ->label('Description')
@@ -46,7 +48,7 @@ class CategoryResource extends Resource
                         ->fileAttachmentsDisk('public')
                         ->fileAttachmentsDirectory('categories/attachments')
                         ->fileAttachmentsVisibility('public')
-
+                        ->hint('Texte d\'introduction affiché en haut de la page thématique.')
                         ->columnSpanFull(),
                     Forms\Components\TextInput::make('order')
                         ->label('Ordre')
@@ -68,9 +70,11 @@ class CategoryResource extends Resource
                                 'bi bi-bank', 'bi bi-shield-check', 'bi bi-file-earmark-text', 
                                 'bi bi-globe', 'bi bi-telephone', 'bi bi-folder', 
                                 'bi bi-cash', 'bi bi-shop', 'bi bi-mortarboard'
-                            ]),
+                            ])
+                            ->hint('Icône affichée sur la carte thématique. Tapez pour voir les suggestions.'),
                         Forms\Components\ColorPicker::make('color')
-                            ->label('Couleur d\'accentuation'),
+                            ->label('Couleur d\'accentuation')
+                            ->hint('Couleur de la barre d\'accent sur la carte thématique.'),
                     ]),
                     Forms\Components\Toggle::make('is_active')
                         ->label('Catégorie active')
@@ -137,7 +141,9 @@ class CategoryResource extends Resource
 
     public static function getRelations(): array
     {
-        return [];
+        return [
+            \App\Filament\Resources\CategoryResource\RelationManagers\SubcategoriesRelationManager::class,
+        ];
     }
 
     public static function getPages(): array
