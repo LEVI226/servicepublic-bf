@@ -21,13 +21,12 @@ php artisan serve
 - **Admin** → http://127.0.0.1:8000/admin  
   - Email : `admin@servicepublic.gov.bf` / Mot de passe : `password`
 
-## Documentation développeur
+## Documentation
 
-👉 Lire **[GUIDE_DEVELOPPEUR.md](GUIDE_DEVELOPPEUR.md)** pour :
-- Architecture complète du projet
-- Comment ajouter/modifier du contenu
-- Règles pour ne pas casser l'existant
-- Carte des fichiers importants
+| Guide | Pour qui | Contenu |
+|---|---|---|
+| 👉 **[GUIDE_DEVELOPPEUR.md](GUIDE_DEVELOPPEUR.md)** | Développeur Laravel | Architecture, Filament, modifications sûres |
+| 📘 **[GUIDE_UTILISATEUR.md](GUIDE_UTILISATEUR.md)** | Administrateur / Chef de projet | UX, copywriting, workflows, mise à jour des données |
 
 ## Chiffres clés
 
