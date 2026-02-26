@@ -1,186 +1,242 @@
-# 📘 Guide Utilisateur — Service Public BF
+# 📘 Guide Utilisateur & Administrateur — Service Public BF
 
-> Ce document explique **pourquoi** la plateforme a été conçue ainsi :  
-> les choix de nommage, l'UX, le copywriting, les workflows, et comment mettre à jour les données.
+> Document expliquant **pourquoi** la plateforme a été conçue ainsi :
+> choix de nommage, UX/UI, copywriting, workflows, et administration du contenu.
 
 ---
 
 ## Table des matières
 
-1. [Philosophie générale](#1-philosophie-générale)
-2. [Pourquoi ces termes ? (Glossaire raisonné)](#2-pourquoi-ces-termes--glossaire-raisonné)
-3. [Catégories vs Procédures — la distinction fondamentale](#3-catégories-vs-procédures--la-distinction-fondamentale)
-4. [La navbar : logique de navigation](#4-la-navbar--logique-de-navigation)
-5. [Choix UX/UI et présentation](#5-choix-uxui-et-présentation)
+1. [Philosophie de la plateforme](#1-philosophie-de-la-plateforme)
+2. [Glossaire raisonné — Pourquoi ces termes ?](#2-glossaire-raisonné--pourquoi-ces-termes-)
+3. [La distinction Catégories / Procédures / Événements de vie](#3-la-distinction-catégories--procédures--événements-de-vie)
+4. [La navbar — logique de navigation](#4-la-navbar--logique-de-navigation)
+5. [Choix UX/UI et design](#5-choix-uxui-et-design)
 6. [Choix de copywriting](#6-choix-de-copywriting)
-7. [Workflows utilisateur](#7-workflows-utilisateur)
-8. [Mettre à jour les données (scraping)](#8-mettre-à-jour-les-données-scraping)
+7. [Workflows des utilisateurs](#7-workflows-des-utilisateurs)
+8. [Workflows de l'administrateur](#8-workflows-de-ladministrateur)
+9. [Comment scraper et mettre à jour les données](#9-comment-scraper-et-mettre-à-jour-les-données)
+10. [Résumé des décisions clés](#10-résumé-des-décisions-clés)
 
 ---
 
-## 1. Philosophie générale
+## 1. Philosophie de la plateforme
 
-La plateforme repose sur **une règle simple** :
+### Le problème de départ
 
-> Un citoyen ne connaît pas les termes administratifs. Il sait en revanche où il en est dans sa vie.
+Les portails administratifs africains souffrent historiquement de deux défauts majeurs :
 
-Tout le site est donc organisé autour de **deux portes d'entrée** :
+1. **Organisés pour l'administration, pas pour le citoyen** — les menus suivent l'organigramme des ministères, pas la logique de la personne qui cherche une information.
+2. **Vocabulaire technique et intimidant** — termes juridiques, numéros de procédures, sigles sans explication.
 
-| Entrée | Pour quel profil ? | Exemple |
+### La règle de conception
+
+> Un citoyen ne connaît pas les termes administratifs. Il sait en revanche **où il en est dans sa vie**.
+
+Toute la plateforme est donc organisée autour de **deux portes d'entrée complémentaires** :
+
+| Porte | Pour quel profil | Exemple |
 |---|---|---|
 | **Thématiques** | Citoyen qui sait dans quel domaine chercher | "Je cherche quelque chose lié au Commerce" |
-| **Événements de vie** | Citoyen qui part de sa situation | "Je vais me marier, qu'est-ce que je dois faire ?" |
+| **Événements de vie** | Citoyen qui part de sa situation personnelle | "Je vais me marier, que dois-je faire ?" |
 
-Les deux mènent exactement aux **mêmes fiches pratiques** — c'est juste le chemin qui diffère.
+Ces deux chemins mènent aux **mêmes fiches pratiques** — seul le parcours diffère, selon le modèle mental de l'utilisateur.
 
----
+### Les 3 principes de conception
 
-## 2. Pourquoi ces termes ? (Glossaire raisonné)
-
-### « Fiche pratique » et non « Procédure »
-
-**Le problème :** Le terme juridique exact est « procédure administrative ». Mais ce mot est :
-- 🚫 Technique → intimidant pour le citoyen
-- 🚫 Vague → on ne sait pas ce qu'on va trouver
-
-**La solution :** « Fiche pratique » — ce terme dit exactement ce que c'est :
-- ✅ Un document **pratique** (utile, actionnable)
-- ✅ Une **fiche** (courte, lisible, structurée)
-
-> *En interne (code, base de données, admin)*, on garde `Procedure` car c'est le terme métier précis. Sur le site **public**, on dit « Fiche pratique ».
+| Principe | Application concrète |
+|---|---|
+| **Citoyen d'abord** | Le menu suit la vie du citoyen, pas l'organigramme de l'État |
+| **Clarté avant tout** | Les 3 infos clés (Coût, Délai, Public visé) en tête de chaque fiche |
+| **Légitimité officielle** | Armoiries, drapeau, devise — signaux d'autorité institutionnelle |
 
 ---
 
-### « Thématique » et non « Catégorie »
+## 2. Glossaire raisonné — Pourquoi ces termes ?
 
-**Le problème :** Le mot « catégorie » est générique (n'importe quelle app en a). Il ne dit rien sur le **contenu**.
+### « Fiche pratique » — et non « Procédure »
 
-**La solution :** « Thématique » évoque un **domaine de la vie publique** (Commerce, Justice, Santé…). C'est le vocabulaire utilisé sur [service-public.fr](https://service-public.fr) et sur les portails gouvernementaux africains (Sénégal, Côte d'Ivoire).
+**Problème du terme « procédure » :**
+- 🚫 Technique → intimidant pour le citoyen ordinaire
+- 🚫 Ambigu → ne dit pas ce qu'on va trouver concrètement
 
-> En base de données, le modèle s'appelle `Category` (terme technique standard Laravel). Sur le site, on dit **Thématique**.
+**Pourquoi « fiche pratique » :**
+- ✅ **Fiche** = courte, lisible, structurée (format connu de tous)
+- ✅ **Pratique** = utile, actionnable, orienté résultat
 
----
-
-### « Événement de vie » et non « Situation » ou « Parcours »
-
-Ce terme vient directement de la **norme SGMAP française** (Standard général du management public). Il est utilisé par tous les portails gouvernementaux depuis 2010. Il désigne une étape notable dans la vie d'une personne qui génère plusieurs démarches en cascade.
-
-Exemples : naissance, mariage, décès, création d'entreprise.
+> **En coulisses :** dans la base de données, le modèle technique s'appelle `Procedure` (terme métier standard). Sur le site **public**, on dit toujours « Fiche pratique ». Les deux coexistent sans contradiction.
 
 ---
 
-### « Annuaire » et non « Répertoire » ou « Organismes »
+### « Thématique » — et non « Catégorie »
 
-- « Annuaire » est le terme institutionnel universel (annuaire téléphonique → annuaire des services publics)
-- Plus court, plus intuitif, connu de tous
+**Problème du terme « catégorie » :**
+- 🚫 Trop générique — n'importe quelle boutique en ligne a des « catégories »
+- 🚫 Ne communique rien sur le contenu
 
----
+**Pourquoi « thématique » :**
+- ✅ Évoque un **domaine de la vie publique** (Commerce, Justice, Santé…)
+- ✅ Vocabulaire utilisé par service-public.fr et par les portails gouvernementaux de toute la région (Sénégal, Côte d'Ivoire, Maroc)
 
-### « E-Service » et non « Service dématérialisé »
-
-- Court, international, compréhensible même sans traduction
-- Utilisé par l'UEMOA et les organisations régionales
-- Différent d'une « fiche pratique » : l'e-service est un **lien vers une plateforme externe** (paiement en ligne, formulaire numérique…), pas une démarche à faire en présentiel
-
----
-
-### « Espace Entreprises » et non « Guichet Entreprises »
-
-- « Guichet » = image physique, présentiel → pas cohérent avec un portail numérique
-- « Espace » = environnement dédié, inclusif, numérique
+> **En coulisses :** le modèle en base s'appelle `Category`. Sur le site public, on dit « Thématique ».
 
 ---
 
-## 3. Catégories vs Procédures — la distinction fondamentale
+### « Événement de vie » — et non « Situation » ou « Parcours »
+
+Ce terme vient de la **norme SGMAP** (Standard général du management public, France 2010), reprise par l'ensemble des portails gouvernementaux modernes depuis. Il désigne une étape notable dans la vie d'une personne qui génère plusieurs démarches administratives en cascade.
+
+**Exemples :** naissance, mariage, décès, création d'entreprise, départ à la retraite.
+
+La formulation à la **1ère personne** (« Je me marie », « Je crée mon entreprise ») crée une identification immédiate et une empathie avec la situation du citoyen.
+
+---
+
+### « Annuaire » — et non « Répertoire » ou « Organismes »
+
+- « Annuaire » est le terme institutionnel universel (annuaire téléphonique → annuaire des services de l'État)
+- Plus court, plus intuitif, connu de tous sans explication
+- Utilisé par tous les portails gouvernementaux de référence
+
+---
+
+### « E-Service » — et non « Service dématérialisé »
+
+- Court, international, compréhensible sans traduction
+- Utilisé par l'UEMOA et les organisations panafricaines
+- **Distinction clé** avec les fiches pratiques : un e-service est un **lien vers une plateforme externe** (formulaire en ligne, paiement électronique) — pas une démarche à faire en présentiel dont on décrit les étapes.
+
+---
+
+### « Espace Entreprises » — et non « Guichet Entreprises »
+
+- « Guichet » = image physique, présentiel → incohérent avec un portail numérique
+- « Espace » = environnement dédié, inclusif, numérique → cohérent avec la mission du portail
+
+---
+
+### « Fiche pratique » vs « Fiche pratique en ligne »
+
+Dans le tableau de bord admin, on lit :
+- **Procédures actives : 1193** — toutes les fiches, actives ou non
+- **Fiches pratiques en ligne** — uniquement celles avec `is_active = true` (visibles au public)
+
+C'est le même contenu, mais avec un filtre de publication.
+
+---
+
+## 3. La distinction Catégories / Procédures / Événements de vie
+
+### La hiérarchie du contenu
 
 ```
-CATÉGORIE (Thématique)
-│
-│  Exemple : "Commerce & Investissement"
+THÉMATIQUE (Category)
+│  Exemple : « Commerce & Investissement »
 │  → Un domaine administratif large
-│  → A plusieurs sous-catégories
 │
-├── SOUS-CATÉGORIE
-│   │  Exemple : "Import / Export"
-│   │  → Subdivise la thématique
+├── SOUS-CATÉGORIE (Subcategory)
+│   │  Exemple : « Import / Export »
+│   │  → Subdivise la thématique pour naviguer plus vite
 │   │
-│   └── FICHE PRATIQUE (Procédure)
-│          Exemple : "Obtention de la DPI"
-│          → La démarche concrète avec
-│            ses pièces, son coût, son délai
+│   └── FICHE PRATIQUE (Procedure)
+│          Exemple : « Obtention de la Déclaration Préalable d'Importation »
+│          → La démarche concrète avec pièces, coût, délai
+
+ÉVÉNEMENT DE VIE (LifeEvent)                   [chemin alternatif]
+│  Exemple : « J'importe ou j'exporte »
+│  → Regroupe les mêmes fiches pratiques
+│    selon un angle différent : la situation du citoyen
 ```
 
-**La hiérarchie :**
+### Tableau comparatif
 
-| Niveau | Nom public | Nom technique | Rôle |
-|---|---|---|---|
-| 1 | Thématique | `Category` | Domaine administratif (Commerce, Justice…) |
-| 2 | Sous-catégorie | `Subcategory` | Subdivision (Import/Export, Impôts…) |
-| 3 | Fiche pratique | `Procedure` | La démarche concrète |
+| Concept | Nom public | Nom technique | Rôle | Nombre |
+|---|---|---|---|---|
+| Niveau 1 | Thématique | `Category` | Domaine administratif | 16 |
+| Niveau 2 | Sous-catégorie | `Subcategory` | Subdivision | 58 |
+| Niveau 3 | Fiche pratique | `Procedure` | La démarche concrète | 1193 |
+| Chemin B | Événement de vie | `LifeEvent` | Regroupement situationnel | 12 |
 
-> **Pas de redondance.** Une fiche appartient à **une** catégorie et éventuellement **une** sous-catégorie. Elle peut aussi être référencée dans plusieurs événements de vie via la table `life_event_procedure`.
+### Y a-t-il une redondance ?
+
+**Non.** Voici la logique :
+- Une **fiche pratique appartient à une thématique** (ex: "Demande de passeport" → Thématique "État Civil")
+- La même fiche peut **apparaître dans plusieurs événements de vie** (ex: "Demande de passeport" → "Je pars à l'étranger" ET "Je demande ma CNIB")
+- Ce n'est pas de la duplication : c'est du **cross-référencement** — la fiche existe une seule fois en base, elle est juste référencée depuis plusieurs entrées.
 
 ---
 
-## 4. La navbar : logique de navigation
+## 4. La navbar — logique de navigation
 
-La barre de navigation suit l'ordre de **fréquence d'utilisation** :
+### Structure complète
 
 ```
-Accueil | Thématiques ▼ | Événements de vie ▼ | E-services | Annuaire | Espace Entreprises | Actualités
+[Accueil] [Thématiques ▼] [Événements de vie ▼] [E-services] [Annuaire] [Espace Entreprises] [Actualités]
 ```
 
-| Position | Choix | Justification |
+### Justification de chaque position
+
+| Position | Entrée | Justification |
 |---|---|---|
-| **1er** : Accueil | Toujours présent | Ancre, retour au point de départ |
-| **2e** : Thématiques | Accès principal | La majorité des visites cherchent par domaine |
-| **3e** : Événements de vie | Accès alternatif | Pour ceux qui partent de leur situation |
-| **4e** : E-services | Très demandé | Les démarches en ligne sont prioritaires |
-| **5e** : Annuaire | Utile, secondaire | Accès aux coordonnées, pas de démarche |
-| **6e** : Espace Entreprises | Audience ciblée | Profil différent du citoyen lambda |
-| **Dernier** : Actualités | Information, pas démarche | Ne devrait pas primer sur l'action |
+| 1ère | **Accueil** | Ancre universelle, retour au point de départ |
+| 2e | **Thématiques** | Accès principal — la majorité des visites vient d'une recherche par domaine |
+| 3e | **Événements de vie** | Accès alternatif — pour ceux qui partent de leur situation de vie |
+| 4e | **E-services** | Très demandé — les démarches en ligne sont prioritaires |
+| 5e | **Annuaire** | Utile mais secondaire — accès aux coordonnées, pas à des démarches |
+| 6e | **Espace Entreprises** | Audience ciblée (entrepreneurs) — différente du citoyen famille |
+| Dernier | **Actualités** | Information → ne doit pas primer sur l'action |
 
-**Les deux menus déroulants** (Thématiques, Événements de vie) affichent les **8 premiers** pour ne pas surcharger visuellement.
+### Les menus déroulants
+
+Les deux menus déroulants (Thématiques, Événements de vie) affichent les **8 premiers** éléments pour ne pas surcharger visuellement la navigation. L'utilisateur peut voir tout le contenu en cliquant directement sur le titre.
 
 ---
 
-## 5. Choix UX/UI et présentation
+## 5. Choix UX/UI et design
 
-### Bande tricolore en haut
+### La bande tricolore (rouge-blanc-vert)
 
-La bande rouge-blanc-vert en haut de page est une convention des portails gouvernementaux (France, Sénégal, Maroc…). Elle signale immédiatement : **site officiel de l'État**.
+C'est une convention des portails gouvernementaux francophones (France, Sénégal, Maroc, Côte d'Ivoire). Elle signale immédiatement : **site officiel du gouvernement**. Elle positionne le site avant même que l'utilisateur lise le titre.
 
-### Barre officielle (bandeau noir)
+### La barre officielle
 
 ```
-Drapeau BF | BURKINA FASO — Unité – Progrès – Justice | Téléphone | Email
+🇧🇫 BURKINA FASO — Unité – Progrès – Justice  |  (+226) 25 30 66 30  |  contact@servicepublic.gov.bf
 ```
 
-Présente sur **toutes les pages**, car c'est la signature d'autorité de l'État.
+Présente sur **toutes les pages**, car c'est la signature d'autorité de l'État. Son fond sombre (presque noir) tranche visuellement avec le reste — elle ne se confond pas avec le contenu.
 
-### Armoiries comme logo
+### Les armoiries comme logo (et non un logo graphique)
 
-Le choix de l'armoirie (et non un logo graphique) renforce la **légitimité institutionnelle**. Les armoiries sont un symbole d'État reconnu internationalement.
+Le choix de l'armoirie nationale (et non un logo graphique moderne) renforce la **légitimité institutionnelle**. Les armoiries sont un symbole d'État reconnu internationalement, immédiatement associé à l'autorité officielle.
 
-### Cartes pour les thématiques (page d'accueil)
+### Les cartes thématiques (page d'accueil)
 
-Chaque thématique est une card avec icône, couleur et compteur de fiches. Pourquoi ?
-- L'icône = reconnaissance immédiate sans lire le texte
-- La couleur = différenciation rapide entre domaines
-- Le compteur = montre que la plateforme est **riche en contenu**
+Chaque thématique est une carte avec :
+- **Icône** → reconnaissance immédiate sans lire le texte
+- **Couleur distinctive** → différenciation rapide entre domaines
+- **Compteur de fiches** → montre que la plateforme est riche en contenu
 
-### Page de fiche pratique : les "info boxes" coût/délai/public
+### Les « info boxes » Coût / Délai / Public visé
 
-Ces trois blocs en haut de fiche (avant même la description) répondent aux **3 questions que tout citoyen se pose en premier** :
-1. Combien ça coûte ?
-2. Combien de temps ça prend ?
-3. Est-ce que c'est pour moi ?
+En haut de chaque fiche pratique, avant même la description, apparaissent 3 blocs colorés. Cette décision répond aux **3 questions que tout citoyen se pose en premier** :
 
-Répondre immédiatement à ces questions évite de lire un texte long pour rien.
+1. 💰 Combien ça coûte ?
+2. ⏱️ Combien de temps ça prend ?
+3. 👤 Est-ce que c'est pour moi ?
 
-### « Voir aussi » sur les fiches
+Répondre immédiatement à ces questions évite de lire un long texte pour rien. C'est le principe du **progressive disclosure** : les informations les plus importantes d'abord.
 
-Le bloc de fiches connexes encourage à explorer des démarches complémentaires — augmente l'engagement et aide le citoyen à ne rien oublier.
+### Le bloc « Voir aussi »
+
+En bas de chaque fiche : des suggestions de fiches connexes. Cela :
+- Aide le citoyen à ne rien oublier dans ses démarches
+- Augmente l'engagement et le temps passé sur le site
+- Crée des liens sémantiques entre les démarches liées
+
+### Responsive mobile
+
+Plus de **60% des utilisateurs** africains naviguent sur smartphone. Toutes les pages s'adaptent automatiquement (Bootstrap 5 breakpoints). Les cartes passent de la grille 4 colonnes (desktop) à 1 colonne (mobile).
 
 ---
 
@@ -188,191 +244,317 @@ Le bloc de fiches connexes encourage à explorer des démarches complémentaires
 
 ### Ton général
 
-| ❌ À éviter | ✅ Utilisé | Pourquoi |
+| ❌ À éviter | ✅ Utilisé sur la plateforme | Pourquoi |
 |---|---|---|
-| "L'usager doit fournir…" | "Vous devez fournir…" | Plus direct, moins administratif |
-| "Procédure n°2847" | "Demander son passeport" | Centré sur l'action du citoyen |
-| "Service dématérialisé" | "E-service" | Court, moderne |
-| "Effectuer une requête" | "Faire une demande" | Accessible à tous |
+| « L'usager doit fournir… » | « Vous devez fournir… » | Plus direct, moins administratif |
+| « Procédure n°2847 » | « Demande de passeport ordinaire » | Centré sur l'action du citoyen |
+| « Service dématérialisé » | « E-service » | Court, moderne, accessible |
+| « Effectuer une requête » | « Faire une demande » | Accessible à tous les niveaux |
+| « Suite aux dispositions de l'article… » | « En tant que citoyen burkinabè… » | Empathique, pas juridique |
 
 ### Titres des fiches pratiques
 
-Les titres commencent par un **verbe d'action** ou un **nom d'objet** :
-- "Demande de passeport ordinaire" ✅
-- "Obtention du RCCM" ✅
-- "Comment obtenir le casier judiciaire ?" ❌ (trop long)
+Tous les titres commencent par un **nom d'action** ou un **verbe d'action** :
+- ✅ « Demande d'un passeport ordinaire »
+- ✅ « Obtention du certificat de nationalité »
+- ✅ « Inscription aux concours de la Fonction Publique »
+- ❌ « Comment faire pour obtenir le casier judiciaire ? » (trop long, trop imprécis)
 
 ### Événements de vie — formulation à la 1ère personne
 
-Toutes les cartes événements utilisent le « Je » :
-- "Je crée mon entreprise" → Empathie, identification immédiate
-- "Je déclare une naissance" → Le citoyen se retrouve dans le titre
+Toutes les cartes d'événements utilisent le « Je » :
+- « Je crée mon entreprise » → Le citoyen s'identifie immédiatement à la situation
+- « Je déclare une naissance » → Empathie, personnalisation, sentiment d'être compris
+
+### Les sections des fiches
+
+| Section | Voix | Exemple |
+|---|---|---|
+| Description | Neutre, informatif | « Ce document atteste de... » |
+| Documents requis | Direct, liste | « Voici les pièces à fournir : » |
+| Coût | Factuel | « 300 FCFA » ou « Gratuit » |
+| Conditions | Inclusif | « Est concerné par cette démarche... » |
+| Plus d'information | Orienté action | « Adressez-vous à... Pour plus d'infos... » |
 
 ---
 
-## 7. Workflows utilisateur
+## 7. Workflows des utilisateurs
 
-### Workflow 1 : Trouver une démarche par thématique
-
-```
-Page d'accueil
-→ Clic sur "Thématiques" dans la navbar
-→ Clic sur "Commerce & Investissement"
-→ Page de la thématique avec liste de fiches
-→ Clic sur "Obtention de la DPI"
-→ Fiche complète avec pièces + coût + délai
-```
-
-### Workflow 2 : Trouver une démarche par situation de vie
+### Workflow 1 — Trouver une démarche par thématique
 
 ```
 Page d'accueil
-→ Clic sur "Événements de vie"
-→ Clic sur "Je me marie"
-→ Page de l'événement avec toutes les démarches liées
-→ Sélection d'une fiche (ex: "Déclaration de mariage à l'état civil")
-→ Fiche complète
+  → Clic sur « Thématiques » dans la navbar  (ou sur une carte en page d'accueil)
+  → Sélection d'une thématique (ex: « Commerce & Investissement »)
+  → Affichage des fiches de cette thématique (filtrable par sous-catégorie)
+  → Clic sur une fiche (ex: « Déclaration Préalable d'Importation »)
+  → Page détail : coût, délai, documents à fournir, conditions, procédure
 ```
 
-### Workflow 3 : Recherche directe
+### Workflow 2 — Trouver une démarche par situation de vie
 
 ```
-Barre de recherche sur la page d'accueil
-→ Saisie : "casier judiciaire"
-→ Résultats filtrés par pertinence
-→ Clic sur la fiche correspondante
+Page d'accueil
+  → Section « Comment faire si ? »  (ou Navbar → Événements de vie)
+  → Clic sur une situation (ex: « Je crée mon entreprise »)
+  → Page de l'événement : liste de toutes les démarches associées
+  → Clic sur une fiche (ex: « Immatriculation au RCCM via CEFORE »)
+  → Page détail de la fiche
 ```
 
-### Workflow 4 : Trouver un organisme
+### Workflow 3 — Recherche directe
 
 ```
-Navbar → "Annuaire"
-→ Recherche par nom ou ville
-→ Fiche de l'organisme : adresse, téléphone, horaires
+Barre de recherche (page d'accueil ou navbar)
+  → Saisie : « casier judiciaire »
+  → Résultats classés par pertinence (full-text MySQL)
+  → Clic sur la fiche correspondante
+  → Page détail
 ```
 
-### Workflow 5 : Administrateur — Ajouter une fiche
+### Workflow 4 — Trouver un organisme
 
 ```
-/admin → Connexion
-→ "Fiches pratiques" → "Créer"
-→ Remplir : titre, catégorie, description, pièces, coût, délai
-→ Activer "Visible en ligne"
-→ Enregistrer
-→ La fiche est immédiatement visible sur le site
+Navbar → « Annuaire »
+  → Barre de recherche par nom ou type d'organisme
+  → Fiche de l'organisme : adresse, téléphone, email, site web, horaires
+```
+
+### Workflow 5 — Accéder à un e-service
+
+```
+Navbar → « E-services »
+  → Filtrage par catégorie (Commerce, Éducation, Emploi...)
+  → Clic sur le service (ex: « CAMPUSFASO »)
+  → Redirection vers la plateforme officielle externe
+```
+
+### Workflow 6 — Entreprises
+
+```
+Navbar → « Espace Entreprises »
+  → Fiches démarches spécifiques aux entreprises
+    (RCCM, IFU, Importation, Marchés publics...)
 ```
 
 ---
 
-## 8. Mettre à jour les données (scraping)
+## 8. Workflows de l'administrateur
+
+### Accéder au panneau admin
+
+```
+http://127.0.0.1:8000/admin
+  → Email : admin@servicepublic.gov.bf
+  → Mot de passe : password
+```
+
+### Ajouter une nouvelle fiche pratique
+
+```
+Admin → Contenu éditorial → Fiches pratiques → [+ Créer]
+
+Remplir :
+  ① Titre          → « Demande d'un extrait d'acte de naissance »
+  ② Catégorie      → « État Civil & Nationalité »
+  ③ Sous-catégorie → « Actes d'état civil » (optionnel)
+  ④ Description    → Texte explicatif HTML
+  ⑤ Documents requis → Liste HTML des pièces
+  ⑥ Coût           → « Gratuit » ou « 500 FCFA »
+  ⑦ Délai          → « Immédiat » ou « 48 heures »
+  ⑧ Conditions     → Qui peut en bénéficier
+  ⑨ Plus d'infos   → Adresse du service compétent
+  ⑩ Statut         → Activer « Visible en ligne »
+
+→ [Créer]  ←  La fiche est IMMÉDIATEMENT visible sur le site
+```
+
+### Modifier une fiche existante
+
+```
+Admin → Fiches pratiques → Rechercher par titre → Clic sur [Modifier]
+→ Mettre à jour les champs souhaités
+→ [Enregistrer]
+```
+
+### Attacher un document PDF à une fiche
+
+```
+Admin → Outils & Médias → Documents & Formulaires → [+ Créer]
+  → Titre du document : « Formulaire demande de passeport »
+  → Procédure liée  : [Sélectionner la fiche correspondante]
+  → Fichier         : [Uploader le PDF — max 10 Mo]
+→ [Créer]
+```
+
+### Lier des procédures à un événement de vie
+
+```
+Admin → Événements de vie → [Modifier un événement]
+  → Section « Fiches pratiques liées »
+  → Rechercher et sélectionner les fiches à associer
+→ [Enregistrer]
+```
+
+### Créer une page statique (ex: Mentions légales)
+
+```
+Admin → Contenu éditorial → Pages statiques → [+ Créer]
+  → Titre   : « Mentions légales »
+  → Slug    : « mentions-legales »  (URL sera /mentions-legales)
+  → Contenu : Texte HTML complet
+  → Publiée : Oui
+→ [Créer]
+```
+
+### Publier une actualité
+
+```
+Admin → Contenu éditorial → Actualités → [+ Créer]
+  → Titre             → Titre de l'actualité
+  → Chapeau           → Résumé (1-2 phrases pour la vignette)
+  → Image             → Photo illustrative
+  → Contenu           → Article complet (éditeur rich text)
+  → Date publication  → Aujourd'hui ou planifier
+  → Publié            → Activer pour publier
+→ [Créer]
+```
+
+### Ajouter une question FAQ
+
+```
+Admin → Contenu éditorial → FAQ → [+ Créer]
+  → Question   → Formuler comme un citoyen la poserait
+  → Réponse    → Réponse claire avec listes si étapes multiples
+  → Catégorie  → Thématique parent (optionnel)
+  → Ordre      → Position dans la liste (0 = premier)
+  → Active     → Oui
+→ [Créer]
+```
+
+---
+
+## 9. Comment scraper et mettre à jour les données
 
 ### Sources de données officielles
 
-| Source | URL | Contenu disponible |
+| Source | URL | Contenu |
 |---|---|---|
-| **Site original SP BF** | https://www.servicepublic.gov.bf | Procédures, organismes, catégories |
-| **Portail OHADA** | https://www.ohada.com | Procédures commerciales et juridiques |
-| **Guichet Unique CEFORE** | https://www.cefore.bf | Création d'entreprise |
+| **Site officiel SP BF** | https://www.servicepublic.gov.bf | Procédures, catégories, organismes |
+| **CEFORE** | https://www.cefore.bf | Création d'entreprise, RCCM |
+| **DGI Burkina** | https://www.dgi.gov.bf | Fiscalité, IFU, IUTS |
+| **Police Nationale** | https://www.police.bf | Passeport, CNIB |
+| **Justice** | http://www.infos-pratiques.justice.gov.bf | Casier judiciaire, nationalité |
 
-### Méthode recommandée : Python + BeautifulSoup
+### Méthode 1 — Saisie manuelle (recommandée pour quelques fiches)
 
-```python
-# Exemple de scraper basique pour les procédures
-import requests
-from bs4 import BeautifulSoup
-import json
-
-BASE_URL = "https://www.servicepublic.gov.bf"
-
-def scrape_procedures(category_url):
-    response = requests.get(category_url, timeout=10)
-    soup = BeautifulSoup(response.text, 'html.parser')
-
-    procedures = []
-    for card in soup.select('.procedure-card'):  # adapter le sélecteur CSS
-        procedures.append({
-            'title':              card.select_one('h2, h3').text.strip()   if card.select_one('h2, h3') else '',
-            'description':        card.select_one('.description').text.strip() if card.select_one('.description') else '',
-            'documents_required': card.select_one('.pieces').text.strip()  if card.select_one('.pieces') else '',
-            'cost':               card.select_one('.cout').text.strip()    if card.select_one('.cout') else '',
-            'delay':              card.select_one('.delai').text.strip()   if card.select_one('.delai') else '',
-        })
-
-    return procedures
-
-# Sauvegarder en JSON
-data = scrape_procedures(BASE_URL + "/categorie/commerce")
-with open('procedures_scraped.json', 'w', encoding='utf-8') as f:
-    json.dump(data, f, ensure_ascii=False, indent=2)
+```
+Admin → Fiches pratiques → Créer
+→ Compléter les champs manuellement depuis la source officielle
 ```
 
-### Méthode d'import dans la plateforme
-
-Une fois les données scraped en JSON, deux options pour les importer :
-
-**Option A — Via l'outil d'import intégré (recommandé)**
+### Méthode 2 — Import CSV/JSON via l'interface admin
 
 ```
 Admin → Outils & Médias → Import de données
-→ Upload du fichier CSV/JSON
-→ Mapping des colonnes
-→ Import
+→ Préparer un fichier CSV avec les colonnes :
+  title, description, cost, delay, documents_required, conditions, category_id
+→ Uploader et mapper les colonnes
+→ Importer
 ```
 
-**Option B — Via un seeder Laravel (pour gros volumes)**
+### Méthode 3 — Script Python (grandes quantités)
 
-```php
-// database/seeders/ProceduresImportSeeder.php
-$data = json_decode(file_get_contents('procedures_scraped.json'), true);
+```python
+# Scraper basique adapté au site servicepublic.gov.bf
+# Le site utilise JavaScript → nécessite Playwright ou Selenium
 
-foreach ($data as $item) {
-    Procedure::updateOrCreate(
-        ['slug' => Str::slug($item['title'])],  // ← cherche par slug
-        [
-            'title'               => $item['title'],
-            'description'         => $item['description'],
-            'documents_required'  => $item['documents_required'],
-            'cost'                => $item['cost'],
-            'delay'               => $item['delay'],
-            'category_id'         => 1,  // ← catégorie à définir
-            'is_active'           => true,
-        ]
-    );
-}
+from playwright.sync_api import sync_playwright
+import json
+
+def scrape_procedures():
+    procedures = []
+    
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page()
+        
+        # Naviguer vers une catégorie
+        page.goto("https://servicepublic.gov.bf/particuliers/commerce-investissement")
+        page.wait_for_load_state("networkidle")
+        
+        # Récupérer la liste des fiches
+        links = page.query_selector_all("a.procedure-link")
+        urls = [link.get_attribute("href") for link in links]
+        
+        for url in urls:
+            page.goto(url)
+            page.wait_for_load_state("networkidle")
+            
+            procedures.append({
+                "title":              page.query_selector("h1").inner_text() if page.query_selector("h1") else "",
+                "description":        page.query_selector(".description").inner_text() if page.query_selector(".description") else "",
+                "cost":               page.query_selector(".cout").inner_text() if page.query_selector(".cout") else "",
+                "delay":              page.query_selector(".delai").inner_text() if page.query_selector(".delai") else "",
+                "documents_required": page.query_selector(".pieces").inner_text() if page.query_selector(".pieces") else "",
+            })
+        
+        browser.close()
+    
+    # Sauvegarder
+    with open("procedures_scraped.json", "w", encoding="utf-8") as f:
+        json.dump(procedures, f, ensure_ascii=False, indent=2)
+    
+    print(f"{len(procedures)} procédures récupérées.")
+
+scrape_procedures()
 ```
 
 ```bash
-php artisan db:seed --class=ProceduresImportSeeder
+# Installation
+pip install playwright
+playwright install chromium
+
+# Exécution
+python scraper.py
 ```
 
-### Règles d'or pour le scraping
+### Méthode 4 — Seeder Laravel (après scraping)
+
+```bash
+# Importer le JSON scraped en base de données
+php artisan db:seed --class=ScrapedDataSeeder
+
+# Ou créer son propre seeder
+php artisan db:seed --class=MonImportSeeder
+```
+
+### Règles impératives pour le scraping
 
 > [!IMPORTANT]
-> 1. **Respecter le `robots.txt`** du site cible
-> 2. **Mettre un délai** entre les requêtes (`time.sleep(2)` en Python) pour ne pas surcharger le serveur
-> 3. **Toujours tester** avec `is_active = false` pour vérifier les données avant publication
-> 4. Utiliser `updateOrCreate()` (pas `create()`) pour éviter les doublons
-> 5. Vérifier manuellement un échantillon des fiches importées
-
-### Automatiser les mises à jour mensuelles
-
-```bash
-# Cron job (Linux/Mac) — tous les 1er du mois à 3h du matin
-0 3 1 * * /usr/bin/php /var/www/servicepublic-bf/artisan schedule:run
-
-# Dans app/Console/Kernel.php
-$schedule->command('import:procedures')->monthly();
-```
+> 1. **Vérifier le `robots.txt`** avant de commencer : https://servicepublic.gov.bf/robots.txt
+> 2. **Mettre un délai** entre les requêtes (2-3 secondes) pour ne pas surcharger le serveur
+> 3. **Toujours importer d'abord avec `is_active = false`** — vérifier les données avant publication
+> 4. Utiliser **`updateOrCreate()`** (jamais `create()` seul) pour éviter les doublons
+> 5. **Vérifier manuellement** un échantillon de 10% des fiches importées
 
 ---
 
-## Résumé des choix clés
+## 10. Résumé des décisions clés
 
-| Décision | Choix fait | Alternative rejetée | Raison |
+| Décision | Choix retenu | Alternative rejetée | Raison |
 |---|---|---|---|
-| Nom du contenu | Fiche pratique | Procédure | Plus accessible au citoyen |
-| Classement principal | Thématiques | Alphabétique | Le citoyen pense par domaine |
-| Classement secondaire | Événements de vie | Types de démarches | Centré sur l'humain |
-| Ton rédactionnel | "Vous" / verbes d'action | Passif administratif | Proximité et clarté |
-| Logo | Armoiries officielles | Logo graphique | Légitimité institutionnelle |
-| Architecture DB | 1 table `procedures` | Tables séparées par type | Simplicité + flexibilité |
+| Nom du contenu principal | **Fiche pratique** | Procédure | Plus accessible, moins intimidant |
+| Organisation principale | **Thématiques** | Alphabétique / Ministères | Le citoyen pense par domaine de vie |
+| Organisation secondaire | **Événements de vie** | Types de démarches | Centré sur la situation humaine |
+| Vocabulaire officiel | **Thématique** | Catégorie | Institutionnel, différenciant |
+| Lien vers services externes | **E-service** | Service dématérialisé | Court, international, clair |
+| Logo | **Armoiries nationales** | Logo graphique moderne | Légitimité d'État immédiate |
+| Architecture BDD | **1 table `procedures`** | Tables séparées par type | Simplicité + recherche unifiée |
+| Ton rédactionnel | **« Vous » / verbes d'action** | Passif administratif | Proximité, clarté, accessibilité |
+| Priorité page fiche | **Coût + Délai + Public en tête** | Description en premier | Les 3 questions prioritaires du citoyen |
+| Admin | **Filament 3 (Laravel)** | Nova / Backpack | Open-source, complet, moderne |
+
+---
+
+*Dernière mise à jour : Février 2026 — Service Public BF v2*

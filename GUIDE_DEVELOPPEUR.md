@@ -1,8 +1,12 @@
 # 🇧🇫 Service Public BF — Guide Développeur
 
-> **Projet** : Portail officiel des démarches administratives du Burkina Faso
-> **Stack** : Laravel 11 · Filament 3 · Bootstrap 5 · MySQL
-> **Repo GitHub** : https://github.com/LEVI226/servicepublic-bf
+> **Portail officiel des démarches administratives du Burkina Faso**
+>
+> **Stack :** Laravel 11 · Filament 3 (admin) · Bootstrap 5 (frontend) · MySQL 8
+>
+> **Repo :** https://github.com/LEVI226/servicepublic-bf
+>
+> **Auteur initial :** Ulric Levi (architecte réseau & product owner)
 
 ---
 
@@ -10,24 +14,34 @@
 
 1. [Installation locale](#1-installation-locale)
 2. [Architecture du projet](#2-architecture-du-projet)
-3. [Modèles de données (base de données)](#3-modèles-de-données)
+3. [Base de données — Modèles & Relations](#3-base-de-données--modèles--relations)
 4. [Fonctionnalités implémentées](#4-fonctionnalités-implémentées)
-5. [Panneau Admin (Filament)](#5-panneau-admin-filament)
-6. [Structure des vues (Frontend)](#6-structure-des-vues-frontend)
-7. [Comment modifier sans casser](#7-comment-modifier-sans-casser)
-8. [Comptes de test](#8-comptes-de-test)
+5. [Panneau Admin — Filament](#5-panneau-admin--filament)
+6. [Frontend — Structure des vues](#6-frontend--structure-des-vues)
+7. [Routes — Cartographie](#7-routes--cartographie)
+8. [Modifier sans casser](#8-modifier-sans-casser)
+9. [Import de données](#9-import-de-données)
+10. [Comptes & Rôles](#10-comptes--rôles)
+11. [Carte des fichiers importants](#11-carte-des-fichiers-importants)
+12. [FAQ Développeur](#12-faq-développeur)
 
 ---
 
 ## 1. Installation locale
 
 ### Prérequis
-- PHP 8.1+
-- MySQL 8.0+
-- Composer
-- Node.js (optionnel, les assets CSS/JS sont déjà compilés)
 
-### Étapes
+| Outil | Version minimum | Vérification |
+|---|---|---|
+| PHP | 8.1+ | `php -v` |
+| MySQL | 8.0+ | `mysql --version` |
+| Composer | 2.x | `composer --version` |
+| Node.js | 18+ (optionnel) | `node -v` |
+| Git | toute version | `git --version` |
+
+> **Note :** Les assets CSS/JS sont pré-compilés dans `public/css/` et `public/js/`. Node.js n'est nécessaire que si vous souhaitez recompiler les assets.
+
+### Installation pas-à-pas
 
 ```bash
 # 1. Cloner le dépôt
@@ -37,30 +51,46 @@ cd servicepublic-bf
 # 2. Installer les dépendances PHP
 composer install
 
-# 3. Configurer l'environnement
+# 3. Copier et configurer l'environnement
 cp .env.example .env
 php artisan key:generate
 
-# 4. Configurer la base de données dans .env
+# 4. Éditer .env — configurer la base de données
 # DB_DATABASE=servicepublic_bf
 # DB_USERNAME=root
-# DB_PASSWORD=
+# DB_PASSWORD=votre_mot_de_passe
 
-# 5. Créer la base & seeder les données
+# 5. Créer la base de données (dans MySQL)
+mysql -u root -p -e "CREATE DATABASE servicepublic_bf CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+
+# 6. Exécuter les migrations et les seeders (données initiales)
 php artisan migrate:fresh --seed
 
-# 6. Lier le stockage (pour les uploads)
+# 7. Lier le stockage public (pour les uploads de fichiers)
 php artisan storage:link
 
-# 7. Vider les caches
+# 8. Vider tous les caches
 php artisan optimize:clear
 
-# 8. Lancer le serveur
+# 9. Lancer le serveur de développement
 php artisan serve
 ```
 
-Accès : http://127.0.0.1:8000
-Admin : http://127.0.0.1:8000/admin
+### Accès après installation
+
+| Accès | URL | Identifiants |
+|---|---|---|
+| Site public | http://127.0.0.1:8000 | — |
+| Panel Admin | http://127.0.0.1:8000/admin | admin@servicepublic.gov.bf / password |
+
+### Commandes XAMPP (Windows)
+
+Si vous utilisez XAMPP (sans PHP dans le PATH) :
+```bash
+# Remplacer "php" par le chemin complet
+C:\xampp\php\php.exe artisan serve
+C:\xampp\php\php.exe artisan migrate:fresh --seed
+```
 
 ---
 
@@ -68,126 +98,240 @@ Admin : http://127.0.0.1:8000/admin
 
 ```
 servicepublic-bf/
+│
 ├── app/
-│   ├── Filament/                  ← Panneau d'administration
-│   │   ├── Resources/             ← Un fichier par type de contenu
-│   │   │   ├── ProcedureResource.php
-│   │   │   ├── CategoryResource.php
-│   │   │   ├── OrganismeResource.php
-│   │   │   └── ...
-│   │   └── Widgets/               ← Widgets du tableau de bord
-│   │       ├── StatsOverview.php
-│   │       └── ProceduresParCategorieChart.php
+│   ├── Filament/                          ← PANNEAU ADMIN
+│   │   ├── Resources/                     ← Un fichier = un type de contenu CRUD
+│   │   │   ├── ProcedureResource.php      ← Fiches pratiques (le plus important)
+│   │   │   ├── CategoryResource.php       ← Thématiques
+│   │   │   ├── SubcategoryResource.php    ← Sous-catégories
+│   │   │   ├── OrganismeResource.php      ← Annuaire des organismes
+│   │   │   ├── LifeEventResource.php      ← Événements de vie
+│   │   │   ├── ArticleResource.php        ← Actualités / Blog
+│   │   │   ├── FaqResource.php            ← FAQ
+│   │   │   ├── PageResource.php           ← Pages statiques (Mentions légales...)
+│   │   │   ├── EserviceResource.php       ← E-Services en ligne
+│   │   │   └── DocumentResource.php       ← Documents & Formulaires PDF
+│   │   ├── Widgets/                       ← Widgets tableau de bord
+│   │   │   ├── StatsOverview.php          ← Compteurs (procs, organismes...)
+│   │   │   └── ProceduresParCategorieChart.php ← Graphique camembert
+│   │   └── Pages/
+│   │       └── Dashboard.php              ← Page d'accueil admin
+│   │
 │   ├── Http/
-│   │   └── Controllers/           ← Contrôleurs du site public
+│   │   └── Controllers/                   ← CONTRÔLEURS SITE PUBLIC
 │   │       ├── HomeController.php
-│   │       ├── ProcedureController.php
-│   │       └── ...
-│   ├── Models/                    ← Modèles Eloquent (= tables DB)
+│   │       ├── ProcedureController.php    ← Affiche fiches + recherche
+│   │       ├── CategoryController.php
+│   │       ├── LifeEventController.php
+│   │       ├── OrganismeController.php
+│   │       ├── EServiceController.php
+│   │       ├── ArticleController.php
+│   │       └── PageController.php         ← Pages statiques dynamiques
+│   │
+│   ├── Models/                            ← MODÈLES ELOQUENT (= tables BDD)
 │   │   ├── Procedure.php
 │   │   ├── Category.php
+│   │   ├── Subcategory.php
 │   │   ├── Organisme.php
-│   │   └── ...
+│   │   ├── LifeEvent.php
+│   │   ├── Article.php
+│   │   ├── Faq.php
+│   │   ├── Page.php
+│   │   ├── EService.php
+│   │   └── Document.php
+│   │
 │   └── Providers/
-│       └── ViewComposerServiceProvider.php  ← Données injectées dans la navbar
+│       └── ViewComposerServiceProvider.php ← Injecte catégories/events dans navbar
+│
 ├── database/
-│   ├── migrations/                ← Structure des tables
-│   └── seeders/                   ← Données initiales (1193 procédures, 182 organismes...)
+│   ├── migrations/                        ← Schéma de chaque table
+│   └── seeders/
+│       ├── DatabaseSeeder.php             ← Point d'entrée (appelle les autres)
+│       ├── CategorySeeder.php             ← 16 thématiques
+│       ├── SubcategorySeeder.php          ← 58 sous-catégories
+│       ├── ProceduresImportSeeder.php     ← 1193 fiches pratiques
+│       ├── OrganismesSeeder.php           ← 182 organismes
+│       ├── LifeEventSeeder.php            ← 12 événements de vie
+│       ├── LifeEventProcedureSeeder.php   ← Liaisons événements ↔ procédures
+│       ├── AdminUserSeeder.php            ← Compte administrateur
+│       └── ScrapedDataSeeder.php          ← Données enrichies (coûts, documents...)
+│
 ├── resources/
 │   └── views/
 │       ├── layouts/
-│       │   └── app.blade.php      ← LAYOUT PRINCIPAL (header, navbar, footer)
-│       ├── pages/                 ← Une page = un dossier
-│       │   ├── home/
-│       │   ├── fiches/            ← Page de détail d'une fiche pratique
+│       │   └── app.blade.php              ← ⭐ LAYOUT MAÎTRE (navbar, header, footer)
+│       ├── pages/                         ← UNE PAGE = UN DOSSIER
+│       │   ├── home/index.blade.php       ← Accueil
+│       │   ├── fiches/
+│       │   │   ├── index.blade.php        ← Liste des fiches
+│       │   │   └── show.blade.php         ← Détail d'une fiche
 │       │   ├── thematiques/
 │       │   ├── evenements/
 │       │   ├── annuaire/
-│       │   └── ...
-│       └── components/            ← Composants réutilisables (cartes, hero...)
+│       │   ├── eservices/
+│       │   ├── entreprises/
+│       │   ├── articles/
+│       │   └── static/                    ← Pages statiques (mentions légales...)
+│       └── components/                    ← COMPOSANTS RÉUTILISABLES
+│           ├── ui/hero-banner.blade.php
+│           ├── cards/procedure.blade.php
+│           ├── quick-info-row.blade.php   ← Ligne Coût/Délai en haut des fiches
+│           └── breadcrumb-jsonld.blade.php
+│
 ├── routes/
-│   └── web.php                    ← Toutes les routes du site
+│   └── web.php                            ← ⭐ TOUTES LES ROUTES
+│
 └── public/
-    ├── css/                       ← Bootstrap + style.min.css compilé
-    └── img/                       ← Logo, armoiries, drapeau
+    ├── css/style.min.css                  ← CSS compilé (NE PAS MODIFIER)
+    ├── js/
+    └── img/                               ← Logo, armoiries, drapeau
 ```
 
 ---
 
-## 3. Modèles de données
+## 3. Base de données — Modèles & Relations
 
-### Table principale : `procedures`
-
-| Colonne | Type | Description |
-|---|---|---|
-| `title` | string | Nom de la démarche |
-| `slug` | string | URL (ex: `demande-passeport`) |
-| `description` | text | Description HTML |
-| `documents_required` | text | Liste HTML des pièces à fournir |
-| `cost` | string | Coût (ex: "1 500 FCFA" ou "Gratuit") |
-| `delay` | string | Délai de traitement |
-| `conditions` | text | Conditions d'éligibilité HTML |
-| `steps` | json | Étapes sous forme de tableau JSON |
-| `more_info` | text | Informations supplémentaires |
-| `is_active` | boolean | Visible sur le site public |
-| `category_id` | FK | Thématique parente |
-| `subcategory_id` | FK | Sous-catégorie |
-
-### Relations clés
+### Schéma relationnel
 
 ```
 Category (thématique)
-  └── Subcategory (sous-catégorie)
-  └── Procedure (fiche pratique)
-       └── Document (fichier PDF téléchargeable)
+├── Subcategory (sous-catégorie) [1..N]
+└── Procedure (fiche pratique) [1..N]
+     ├── Document (PDF téléchargeable) [0..N]
+     └── LifeEvent (événement de vie) [N..N via life_event_procedure]
 
-LifeEvent (événement de vie)
-  └── Procedure (many-to-many via life_event_procedure)
-
-Procedure ──────── Category
-         ──────── Subcategory
-         ──────── LifeEvent (pivot)
-         ──────── Document
+Organisme (annuaire)         ← indépendant
+Article (actualité)          ← indépendant
+Faq                          ← lié à Category (optionnel)
+EService                     ← lié à Category
+Page (page statique)         ← indépendant
 ```
+
+### Table `procedures` (détail)
+
+| Colonne | Type | Description |
+|---|---|---|
+| `id` | bigint PK | Identifiant unique |
+| `category_id` | FK | Thématique parente |
+| `subcategory_id` | FK nullable | Sous-catégorie |
+| `title` | string(500) | Nom de la démarche |
+| `slug` | string(500) unique | URL (ex: `demande-passeport`) |
+| `description` | text | Description HTML |
+| `documents_required` | text nullable | Liste HTML des pièces à fournir |
+| `cost` | text nullable | Coût (ex: "1 500 FCFA" ou "Gratuit") |
+| `delay` | string nullable | Délai de traitement |
+| `conditions` | text nullable | Conditions d'éligibilité HTML |
+| `more_info` | text nullable | Informations supplémentaires |
+| `icon` | string nullable | Classe CSS icône Bootstrap |
+| `is_free` | boolean | Gratuit ou non |
+| `is_active` | boolean | Visible sur le site public |
+| `is_featured` | boolean | Mis en avant sur la page d'accueil |
+| `views_count` | integer | Compteur de vues |
+| `deleted_at` | timestamp | SoftDelete (archivage) |
+
+### Table `categories`
+
+| Colonne | Type | Description |
+|---|---|---|
+| `name` | string | Nom (ex: "Commerce & Investissement") |
+| `slug` | string unique | URL |
+| `description` | text | Description HTML |
+| `icon` | string | Classe CSS icône Bootstrap |
+| `color` | string | Couleur Bootstrap (ex: "success") |
+| `order` | integer | Ordre d'affichage |
+| `is_active` | boolean | Visible sur le site |
+
+### Table `organismes`
+
+| Colonne | Type | Description |
+|---|---|---|
+| `name` | string | Nom de l'organisme |
+| `type` | string | Type (Ministère, Direction, Agence...) |
+| `phone` | string | Numéro de téléphone |
+| `email` | string | Email de contact |
+| `address` | text | Adresse physique |
+| `website` | string | Site web officiel |
+| `acronym` | string | Sigle (ex: "DGPN") |
 
 ---
 
 ## 4. Fonctionnalités implémentées
 
 ### Site public
-- ✅ **Accueil** : moteur de recherche, thématiques en card, stats
-- ✅ **Thématiques** : 16 catégories, filtrage par sous-catégorie
-- ✅ **Fiches pratiques** : avec description, pièces, coût, délai, conditions
-- ✅ **Événements de vie** : 12 parcours, chacun lié à des procédures
-- ✅ **Annuaire** : 182 organismes avec coordonnées
-- ✅ **E-Services** : services dématérialisés par catégorie
-- ✅ **Espace Entreprises** : démarches liées aux entreprises
-- ✅ **Actualités** : blog institutionnel
-- ✅ **FAQ** : questions/réponses
-- ✅ **Recherche** : full-text sur les procédures
-- ✅ **SEO** : OpenGraph, JSON-LD, sitemaps
-- ✅ **Accessibilité** : skip-to-content, aria-labels
 
-### Admin
-- ✅ **Tableau de bord** : 4 compteurs + graphique procédures/catégorie
-- ✅ **Gestion catégories** + sous-catégories (relation directe)
-- ✅ **Gestion fiches pratiques** + documents liés
-- ✅ **Gestion organismes** (annuaire)
-- ✅ **Gestion événements de vie**
-- ✅ **Gestion articles** (actualités)
-- ✅ **Gestion FAQ**
-- ✅ **Gestion pages statiques**
-- ✅ **Gestion documents/formulaires** (upload PDF)
-- ✅ **Import de données CSV**
-- ✅ **Gestion utilisateurs + rôles** (FilamentShield)
+| Fonctionnalité | URL | Description |
+|---|---|---|
+| **Accueil** | `/` | Barre de recherche, thématiques en cards, stats, procédures populaires |
+| **Thématiques** | `/thematiques` | 16 catégories avec icônes et compteurs de fiches |
+| **Fiches pratiques** | `/fiches` | Liste + recherche full-text |
+| **Détail fiche** | `/fiches/{slug}` | Description, pièces, coût, délai, conditions |
+| **Événements de vie** | `/evenements-de-vie` | 12 situations de vie (Je me marie, Je crée une entreprise...) |
+| **Annuaire** | `/annuaire` | 182 organismes avec recherche |
+| **E-Services** | `/eservices` | Services dématérialisés par catégorie |
+| **Espace Entreprises** | `/entreprises` | Procédures dédiées aux entreprises |
+| **Actualités** | `/actualites` | Blog institutionnel |
+| **FAQ** | `/faq` | Questions/Réponses |
+| **Recherche** | `/recherche?q=...` | Recherche full-text MySQL |
+| **Pages statiques** | `/{slug}` | Mentions légales, accessibilité... |
+
+### Panneau Admin (`/admin`)
+
+| Section | Description | Raccourci |
+|---|---|---|
+| **Tableau de bord** | 4 compteurs + graphique procédures/catégorie | `/admin` |
+| **Fiches pratiques** | CRUD complet + documents liés | `/admin/procedures` |
+| **Catégories** | Avec gestionnaire de sous-catégories | `/admin/categories` |
+| **Sous-catégories** | Gestion indépendante | `/admin/subcategories` |
+| **Organismes** | Annuaire complet | `/admin/organismes` |
+| **Événements de vie** | Avec liaison multi-procédures | `/admin/life-events` |
+| **Actualités** | Blog avec éditeur rich text | `/admin/articles` |
+| **FAQ** | Questions ordonnées par drag & drop | `/admin/faqs` |
+| **Pages statiques** | Contenu HTML libre | `/admin/pages` |
+| **E-Services** | Liens vers services externes | `/admin/eservices` |
+| **Documents & Formulaires** | Upload PDF (10 Mo max) | `/admin/documents` |
+| **Import de données** | CSV/JSON | `/admin/import` |
+| **Utilisateurs** | Gestion des comptes admin | `/admin/users` |
+| **Rôles & Permissions** | FilamentShield | `/admin/roles` |
+
+### Fonctionnalités techniques
+
+- ✅ **SEO complet** : balises Open Graph, JSON-LD (breadcrumb, article), canonical URLs, sitemap
+- ✅ **Recherche full-text MySQL** : index FULLTEXT sur `title`, `description`, `documents_required`
+- ✅ **SoftDelete** : les procédures et articles supprimés sont archivés (récupérables)
+- ✅ **Upload de fichiers** : PDF jusqu'à 10 Mo, images avec redimensionnement auto
+- ✅ **Permissions granulaires** : FilamentShield gère les droits CRUD par type de contenu
+- ✅ **Cache** : configuration pour optimiser les performances en production
+- ✅ **Accessibilité** : skip-to-content, aria-labels sur les formulaires
 
 ---
 
-## 5. Panneau Admin (Filament)
+## 5. Panneau Admin — Filament
 
-### Ajouter un nouveau type de contenu
+### Comprendre la structure d'une Resource
 
-**Exemple : ajouter un modèle `Video`**
+Chaque type de contenu est géré par une `Resource` Filament dans `app/Filament/Resources/`. Une Resource comporte **3 parties** :
+
+```php
+class ProcedureResource extends Resource
+{
+    // ① CONFIGURATION : quel modèle, quel menu, quel libellé
+    protected static ?string $model = Procedure::class;
+    protected static ?string $navigationGroup = 'Contenu éditorial';
+    protected static ?string $navigationLabel = 'Fiches pratiques';
+
+    // ② FORM : les champs du formulaire de création/édition
+    public static function form(Form $form): Form { ... }
+
+    // ③ TABLE : les colonnes de la liste
+    public static function table(Table $table): Table { ... }
+
+    // ④ PAGES : quelles pages existent (liste, créer, éditer)
+    public static function getPages(): array { ... }
+}
+```
+
+### Ajouter un nouveau type de contenu (exemple : Vidéo)
 
 ```bash
 # 1. Créer la migration
@@ -196,44 +340,97 @@ php artisan make:migration create_videos_table
 # 2. Créer le modèle
 php artisan make:model Video
 
-# 3. Créer la ressource Filament
-php artisan make:filament-resource Video
+# 3. Créer la resource Filament
+php artisan make:filament-resource Video --generate
 
-# 4. Générer les permissions Shield
+# 4. Générer les permissions
 php artisan shield:generate --all
-# Choisir "admin" quand demandé
+# Répond "yes" ou appuyer Entrée pour chaque question
 
-# 5. Assigner les permissions au super_admin
-# (déjà fait si le rôle super_admin existe)
+# 5. Vider les caches
+php artisan optimize:clear
 ```
 
-### Structure d'une Resource Filament (exemple simplifié)
+### Ajouter un champ dans une fiche pratique
+
+Éditer `app/Filament/Resources/ProcedureResource.php`, dans la méthode `form()` :
 
 ```php
-// app/Filament/Resources/VideoResource.php
+// Exemple : ajouter un champ "Organisme responsable"
+Forms\Components\TextInput::make('responsible_organisme')
+    ->label('Organisme responsable')
+    ->maxLength(255)
+    ->hint('Nom de l\'administration qui traite cette démarche.'),
+```
+
+> ⚠️ Si le champ n'existe pas en base, créer d'abord une migration :
+> ```bash
+> php artisan make:migration add_responsible_organisme_to_procedures_table
+> ```
+
+### Structure d'une Resource complète (patron)
+
+```php
+<?php
+namespace App\Filament\Resources;
+
+use App\Models\Video;
+use Filament\Forms;
+use Filament\Tables;
+use Filament\Resources\Resource;
+use Illuminate\Support\Str;
+
 class VideoResource extends Resource
 {
     protected static ?string $model = Video::class;
-    protected static ?string $navigationGroup = 'Outils & Médias'; // ← groupe dans sidebar
+    protected static ?string $navigationIcon = 'heroicon-o-film';
+    protected static ?string $navigationGroup = 'Outils & Médias';
     protected static ?string $navigationLabel = 'Vidéos';
+    protected static ?string $modelLabel = 'Vidéo';
+    protected static ?int $navigationSort = 3;
 
-    public static function form(Form $form): Form {
+    public static function form(Form $form): Form
+    {
         return $form->schema([
             Forms\Components\TextInput::make('title')
+                ->label('Titre')
                 ->required()
-                ->hint('Titre de la vidéo'),           // ← texte d'aide sous le champ
+                ->maxLength(255)
+                ->live(onBlur: true)
+                ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', Str::slug($state)))
+                ->hint('Titre de la vidéo tel qu\'affiché sur la plateforme.'),
+            Forms\Components\TextInput::make('slug')
+                ->required()
+                ->unique(ignoreRecord: true)
+                ->hint('URL générée automatiquement.'),
             Forms\Components\FileUpload::make('path')
-                ->disk('public'),
+                ->label('Fichier vidéo')
+                ->disk('public')
+                ->directory('videos')
+                ->hint('Format MP4 recommandé. Taille max : 50 Mo.'),
+            Forms\Components\Toggle::make('is_active')
+                ->label('Actif')
+                ->default(true)
+                ->hint('Désactiver pour masquer du site public.'),
         ]);
     }
 
-    public static function table(Table $table): Table {
+    public static function table(Table $table): Table
+    {
         return $table->columns([
-            Tables\Columns\TextColumn::make('title')->searchable(),
+            Tables\Columns\TextColumn::make('title')
+                ->searchable()->sortable()->weight('bold'),
+            Tables\Columns\IconColumn::make('is_active')
+                ->label('Actif')->boolean(),
+        ])
+        ->actions([
+            Tables\Actions\EditAction::make(),
+            Tables\Actions\DeleteAction::make(),
         ]);
     }
 
-    public static function getPages(): array {
+    public static function getPages(): array
+    {
         return [
             'index'  => Pages\ListVideos::route('/'),
             'create' => Pages\CreateVideo::route('/create'),
@@ -243,40 +440,43 @@ class VideoResource extends Resource
 }
 ```
 
+### Relation Manager (onglet dans un formulaire)
+
+Pour gérer les documents liés depuis le formulaire d'une fiche :
+
+```php
+// Dans ProcedureResource
+public static function getRelations(): array
+{
+    return [
+        DocumentsRelationManager::class, // Onglet "Documents" dans l'édition
+    ];
+}
+```
+
 ---
 
-## 6. Structure des vues (Frontend)
+## 6. Frontend — Structure des vues
 
 ### Modifier le contenu d'une page
 
-| Quoi modifier | Où modifier |
+| Page / Élément | Fichier à modifier |
 |---|---|
-| Header + Navbar | `resources/views/layouts/app.blade.php` (lignes 37–119) |
-| Footer | `resources/views/layouts/app.blade.php` (lignes 130–175) |
-| Page d'accueil | `resources/views/pages/home/index.blade.php` |
-| Page thématique | `resources/views/pages/thematiques/` |
-| Fiche pratique (détail) | `resources/views/pages/fiches/show.blade.php` |
-| Événement de vie | `resources/views/pages/evenements/` |
-| Annuaire | `resources/views/pages/annuaire/` |
-| CSS global | `public/css/style.min.css` ← **NE PAS MODIFIER** le .min directement |
-| Variables CSS | Dans le fichier source SCSS/CSS avant compilation |
-
-### Composants Blade réutilisables
-
-```
-resources/views/components/
-├── ui/
-│   ├── hero-banner.blade.php      ← Bannière titre en haut des pages
-│   └── ...
-├── cards/
-│   └── procedure.blade.php        ← Carte de fiche pratique
-├── quick-info-row.blade.php       ← Ligne Coût/Délai/Public d'une fiche
-└── breadcrumb-jsonld.blade.php    ← SEO breadcrumb
-```
+| **Navbar + Header + Footer** | `resources/views/layouts/app.blade.php` |
+| **Page d'accueil** | `resources/views/pages/home/index.blade.php` |
+| **Liste des fiches** | `resources/views/pages/fiches/index.blade.php` |
+| **Détail d'une fiche** | `resources/views/pages/fiches/show.blade.php` |
+| **Page d'une thématique** | `resources/views/pages/thematiques/show.blade.php` |
+| **Événements de vie** | `resources/views/pages/evenements/` |
+| **Annuaire** | `resources/views/pages/annuaire/` |
+| **E-Services** | `resources/views/pages/eservices/` |
+| **Actualités** | `resources/views/pages/articles/` |
+| **Ligne Coût/Délai (fiches)** | `resources/views/components/quick-info-row.blade.php` |
+| **Carte de fiche (mini)** | `resources/views/components/cards/procedure.blade.php` |
 
 ### Ajouter un lien dans la navbar
 
-Éditer `resources/views/layouts/app.blade.php`, entre les `<li class="nav-item">` existants :
+Éditer `resources/views/layouts/app.blade.php`, dans la section `<ul class="navbar-nav">` :
 
 ```html
 <li class="nav-item">
@@ -287,94 +487,308 @@ resources/views/components/
 </li>
 ```
 
+### Ajouter une nouvelle page publique
+
+**Étape 1** — Créer le contrôleur :
+```bash
+php artisan make:controller MaPageController
+```
+
+**Étape 2** — Dans `app/Http/Controllers/MaPageController.php` :
+```php
+public function index()
+{
+    $procedures = Procedure::active()->latest()->take(10)->get();
+    return view('pages.ma-page.index', compact('procedures'));
+}
+```
+
+**Étape 3** — Créer la vue : `resources/views/pages/ma-page/index.blade.php`
+```blade
+@extends('layouts.app')
+@section('title', 'Ma Page')
+@section('content')
+    {{-- votre HTML ici --}}
+@endsection
+```
+
+**Étape 4** — Ajouter la route dans `routes/web.php` :
+```php
+Route::get('/ma-page', [MaPageController::class, 'index'])->name('ma-page');
+```
+
 ---
 
-## 7. Comment modifier sans casser
+## 7. Routes — Cartographie
 
-### ✅ Règle d'or : toujours vider les caches après modification
+```php
+// routes/web.php — toutes les routes du site public
+
+// Pages principales
+GET /                           → HomeController@index        (Accueil)
+GET /thematiques                → CategoryController@index    (Liste thématiques)
+GET /thematiques/{slug}         → CategoryController@show     (Détail thématique)
+GET /fiches                     → ProcedureController@index   (Liste fiches)
+GET /fiches/{slug}              → ProcedureController@show    (Détail fiche)
+GET /evenements-de-vie          → LifeEventController@index   (Liste événements)
+GET /evenements-de-vie/{slug}   → LifeEventController@show    (Détail événement)
+GET /annuaire                   → OrganismeController@index   (Annuaire)
+GET /annuaire/{slug}            → OrganismeController@show    (Détail organisme)
+GET /eservices                  → EServiceController@index    (E-Services)
+GET /entreprises                → (vue directe)              (Espace Entreprises)
+GET /actualites                 → ArticleController@index     (Blog)
+GET /actualites/{slug}          → ArticleController@show      (Article)
+GET /faq                        → (vue directe)              (FAQ)
+GET /recherche                  → ProcedureController@search  (Recherche)
+
+// Pages statiques (dynamiques depuis la BDD)
+GET /{slug}                     → PageController@show         (Pages statiques)
+
+// Admin (géré par Filament)
+GET /admin                      → Dashboard admin
+GET /admin/*                    → Resources Filament
+```
+
+---
+
+## 8. Modifier sans casser
+
+### Règle d'or
 
 ```bash
+# Toujours vider les caches après chaque modification
 php artisan optimize:clear
 ```
 
-### Modifications sûres (risque faible)
+### ✅ Modifications sûres (aucun risque)
 
-| Action | Commande / Fichier |
+| Action | Fichier / Commande |
 |---|---|
-| Modifier du texte dans une vue | Éditer directement le `.blade.php` |
-| Ajouter un champ dans un formulaire admin | Modifier `form()` dans la Resource Filament |
-| Ajouter une colonne dans un tableau admin | Modifier `table()` dans la Resource Filament |
-| Changer l'ordre des menus admin | Modifier `$navigationSort` dans la Resource |
-| Changer le groupe d'un menu admin | Modifier `$navigationGroup` dans la Resource |
+| Modifier du texte dans une vue | Éditer le `.blade.php` directement |
+| Ajouter/modifier un champ de formulaire admin | Modifier `form()` dans la Resource |
+| Ajouter une colonne dans un tableau admin | Modifier `table()` dans la Resource |
+| Changer l'ordre des menus admin | Modifier `$navigationSort` |
+| Changer le groupe d'un menu admin | Modifier `$navigationGroup` |
+| Mettre à jour les données via l'admin | Panneau d'administration |
 
-### Modifications à faire prudemment
+### ⚠️ Modifications avec précautions
 
 | Action | Précaution |
 |---|---|
-| Modifier un modèle Eloquent | Vérifier que les `$fillable` contiennent les nouveaux champs |
-| Ajouter une colonne en base | Créer une migration (`php artisan make:migration`) et ne PAS toucher les migrations existantes |
-| Modifier les routes | `routes/web.php` — vérifier que les noms de routes utilisés dans les vues restent identiques |
-| Modifier le layout app.blade.php | Impact sur TOUTES les pages — tester sur mobile |
+| Modifier un modèle Eloquent | Vérifier que `$fillable` contient les nouveaux champs |
+| Ajouter une colonne en BDD | Créer une migration (`make:migration`) — ne jamais toucher les migrations existantes |
+| Modifier les routes | Vérifier que les noms de routes utilisés dans les vues (partout où `route('...')` est appelé) restent identiques |
+| Modifier `layouts/app.blade.php` | Impacte TOUTES les pages — tester sur mobile |
 
-### ⚠️ Ne JAMAIS modifier directement
+### 🚫 Ne jamais toucher
 
-- Les fichiers dans `vendor/` (dépendances Composer)
-- Les fichiers `database/migrations/` déjà exécutés
-- Le fichier `public/css/style.min.css` directement
+- `vendor/` — dépendances Composer (géré par `composer install`)
+- `bootstrap/cache/` — cache auto-généré
+- `public/css/style.min.css` — CSS compilé (reconstruire via `npm run build` si nécessaire)
+- Migrations existantes déjà exécutées en production
 
-### Workflow de modification recommandé
+### Workflow Git recommandé
 
 ```bash
-# 1. Créer une branche Git
-git checkout -b feature/ma-modification
+# 1. Créer une branche dédiée
+git checkout -b feature/nom-de-la-modification
 
 # 2. Faire les modifications
 
-# 3. Vider les caches
+# 3. Vider les caches et tester
 php artisan optimize:clear
-
-# 4. Tester localement
 php artisan serve
 
-# 5. Commiter
-git add . && git commit -m "feat: description de la modification"
+# 4. Commiter avec un message clair
+git add .
+git commit -m "feat: description de ce qui a changé"
 
-# 6. Pousser sur GitHub
-git push origin feature/ma-modification
+# 5. Pousser sur GitHub
+git push origin feature/nom-de-la-modification
+
+# 6. Sur GitHub : créer une Pull Request vers main
 ```
 
 ---
 
-## 8. Comptes de test
+## 9. Import de données
+
+### Via l'interface admin
+
+```
+Admin → Outils & Médias → Import de données
+→ Choisir : CSV ou JSON
+→ Faire correspondre les colonnes
+→ Importer
+```
+
+### Via un Seeder Laravel (gros volumes)
+
+```php
+// database/seeders/MonImportSeeder.php
+<?php
+namespace Database\Seeders;
+use App\Models\Procedure;
+use Illuminate\Support\Str;
+
+class MonImportSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $data = json_decode(file_get_contents(database_path('data/procedures.json')), true);
+
+        foreach ($data as $item) {
+            Procedure::updateOrCreate(
+                ['slug' => Str::slug($item['title'])],   // cherche par slug
+                [
+                    'title'              => $item['title'],
+                    'description'        => $item['description'] ?? null,
+                    'documents_required' => $item['documents_required'] ?? null,
+                    'cost'               => $item['cost'] ?? null,
+                    'delay'              => $item['delay'] ?? null,
+                    'category_id'        => $item['category_id'] ?? 1,
+                    'is_active'          => true,
+                ]
+            );
+        }
+
+        $this->command->info('Import terminé : ' . count($data) . ' procédures traitées.');
+    }
+}
+```
+
+```bash
+php artisan db:seed --class=MonImportSeeder
+```
+
+### Seeder données enrichies (déjà disponible)
+
+```bash
+# Enrichit 5 procédures populaires + importe 26 e-services officiels
+php artisan db:seed --class=ScrapedDataSeeder
+```
+
+---
+
+## 10. Comptes & Rôles
+
+### Comptes existants
 
 | Rôle | Email | Mot de passe |
 |---|---|---|
-| Super Admin | admin@servicepublic.gov.bf | password |
+| **Super Admin** | admin@servicepublic.gov.bf | password |
 
-> Pour créer un nouvel administrateur :
-> ```bash
-> php artisan make:filament-user
-> ```
+### Créer un nouvel administrateur
+
+```bash
+php artisan make:filament-user
+# Suivre les invites (email, nom, mot de passe)
+```
+
+### Assigner le rôle super_admin manuellement
+
+```bash
+# Depuis la racine du projet
+php assign_role.php
+# ou via le panneau Admin → Filament Shield → Utilisateurs
+```
+
+### Rôles disponibles
+
+| Rôle | Droits |
+|---|---|
+| `super_admin` | Accès complet à tout |
+| `admin` | Accès standard (peut être limité par Shield) |
+| Rôles personnalisés | Configurables via Admin → Rôles |
+
+### Créer un rôle personnalisé
+
+```
+Admin → Filament Shield → Rôles → Créer
+→ Nommer le rôle
+→ Cocher les permissions CRUD souhaitées par resource
+→ Enregistrer
+→ Assigner à un utilisateur dans Admin → Utilisateurs
+```
 
 ---
 
-## 🗺️ Carte des fichiers importants
+## 11. Carte des fichiers importants
 
 ```
-MODIFICATIONS FRÉQUENTES :
-├── routes/web.php                              ← Routes du site
-├── resources/views/layouts/app.blade.php      ← Navbar & footer
-├── resources/views/pages/home/index.blade.php ← Page d'accueil
-├── app/Filament/Resources/                    ← Admin : tous les CRUD
-└── database/seeders/                          ← Données initiales
+⭐ FICHIERS QUE VOUS MODIFIEREZ SOUVENT
+├── routes/web.php                                      ← Routes du site public
+├── resources/views/layouts/app.blade.php               ← Navbar, header, footer
+├── resources/views/pages/home/index.blade.php          ← Page d'accueil
+├── resources/views/pages/fiches/show.blade.php         ← Fiche pratique (détail)
+├── app/Filament/Resources/ProcedureResource.php        ← Admin : fiches pratiques
+├── app/Filament/Resources/CategoryResource.php         ← Admin : thématiques
+└── database/seeders/ScrapedDataSeeder.php              ← Import données enrichies
 
-CONFIGURATION :
-├── .env                                        ← Variables d'environnement
-├── config/filament-shield.php                 ← Permissions admin
-└── config/app.php                             ← Config Laravel
+⚙️ CONFIGURATION
+├── .env                                                 ← Variables d'environnement
+├── config/app.php                                       ← Config Laravel (nom, locale)
+├── config/filament-shield.php                          ← Config permissions admin
+└── config/filament.php                                  ← Config panneau admin
 
-NE PAS TOUCHER :
-├── vendor/                                    ← Dépendances
-├── bootstrap/cache/                           ← Cache auto-généré
-└── storage/framework/                         ← Sessions/cache
+🔒 NE PAS TOUCHER
+├── vendor/                                             ← Dépendances Composer
+├── bootstrap/cache/                                    ← Cache auto-généré
+├── storage/framework/                                  ← Sessions et cache disque
+└── public/css/style.min.css                           ← CSS compilé
 ```
+
+---
+
+## 12. FAQ Développeur
+
+**Q : Le site affiche une erreur « storage/logs ne peut pas être créé »**
+```bash
+php artisan storage:link
+chmod -R 775 storage bootstrap/cache   # Linux/Mac seulement
+```
+
+**Q : Les modifications admin n'apparaissent pas**
+```bash
+php artisan optimize:clear
+# Puis rafraîchir avec Ctrl+Shift+R (cache navigateur forcé)
+```
+
+**Q : J'ai créé une Resource mais elle n'apparaît pas dans le menu admin**
+```bash
+php artisan shield:generate --all
+php artisan optimize:clear
+# Vérifier que l'utilisateur a le rôle super_admin
+```
+
+**Q : Comment modifier le thème couleur de l'admin ?**
+
+Éditer `app/Providers/Filament/AdminPanelProvider.php` :
+```php
+->colors([
+    'primary' => Color::Green, // Changer la couleur principale
+])
+```
+
+**Q : Comment ajouter un widget sur le tableau de bord ?**
+```bash
+php artisan make:filament-widget MonWidget --stats-overview
+# Puis l'enregistrer dans app/Providers/Filament/AdminPanelProvider.php
+```
+
+**Q : Comment réinitialiser complètement la base de données ?**
+```bash
+php artisan migrate:fresh --seed
+# ⚠️ DÉTRUIT toutes les données ! Uniquement en développement.
+```
+
+**Q : La recherche ne trouve pas mes nouvelles procédures**
+```bash
+# Reconstruire l'index full-text (MySQL)
+php artisan migrate:fresh --seed
+# ou ajouter manuellement via Admin → Fiches pratiques
+```
+
+---
+
+*Dernière mise à jour : Février 2026 — Version 2.0*
