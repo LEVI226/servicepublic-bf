@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Fiches par thème')
+@section('title', 'Thématiques')
 
 @section('content')
     <x-ui.hero-banner 
-        title="Catégories" 
+        title="Thématiques" 
         subtitle="Explorez toutes les fiches pratiques classées par domaine administratif." 
     />
 
@@ -16,7 +16,7 @@
                 </div>
             @empty
                 <div class="col-12">
-                    <p class="text-center text-muted">Aucune catégorie disponible.</p>
+                    <p class="text-center text-muted">Aucune thématique disponible.</p>
                 </div>
             @endforelse
         </div>

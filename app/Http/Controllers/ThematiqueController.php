@@ -10,6 +10,7 @@ class ThematiqueController extends Controller
     public function index()
     {
         $categories = Category::active()
+            ->where('id', '<=', 20) // Only the 20 curated main thématiques
             ->has('procedures')
             ->ordered()
             ->withCount('procedures')
