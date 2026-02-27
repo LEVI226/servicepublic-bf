@@ -42,8 +42,15 @@ class HomeController extends Controller
             ->limit(6)
             ->get());
 
+        $stats = Cache::remember('home.stats', 3600, fn() => [
+            'procedures' => Procedure::active()->count(),
+            'eservices' => Eservice::active()->count(),
+            'regions' => \App\Models\Region::count() ?: 13,
+            'provinces' => \App\Models\Province::count() ?: 45,
+        ]);
+
         return view('pages.home.index', compact(
-            'lifeEvents', 'categories', 'procedures', 'articles', 'eservices'
+            'lifeEvents', 'categories', 'procedures', 'articles', 'eservices', 'stats'
         ));
     }
 

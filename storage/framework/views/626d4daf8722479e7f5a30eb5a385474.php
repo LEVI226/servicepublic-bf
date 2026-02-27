@@ -60,7 +60,7 @@
             
             <div class="d-none d-lg-flex gap-3">
                 <a href="<?php echo e(route('faq')); ?>" class="btn btn-sm btn-outline-secondary rounded-pill px-3">Aide & FAQ</a>
-                <a href="<?php echo e(route('contact')); ?>" class="btn btn-sm btn-outline-secondary rounded-pill px-3">Contact</a>
+                <a href="/admin" class="btn btn-sm btn-outline-primary rounded-pill px-3"><i class="bi bi-gear me-1"></i>Administration</a>
             </div>
         </div>
     </header>

@@ -1,16 +1,16 @@
-<?php $__env->startSection('title', 'Fiches par thème'); ?>
+<?php $__env->startSection('title', 'Thématiques'); ?>
 
 <?php $__env->startSection('content'); ?>
     <?php if (isset($component)) { $__componentOriginala8902021db87385247be9a842af50129 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginala8902021db87385247be9a842af50129 = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.ui.hero-banner','data' => ['title' => 'Catégories','subtitle' => 'Explorez toutes les fiches pratiques classées par domaine administratif.']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.ui.hero-banner','data' => ['title' => 'Thématiques','subtitle' => 'Explorez toutes les fiches pratiques classées par domaine administratif.']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('ui.hero-banner'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['title' => 'Catégories','subtitle' => 'Explorez toutes les fiches pratiques classées par domaine administratif.']); ?>
+<?php $component->withAttributes(['title' => 'Thématiques','subtitle' => 'Explorez toutes les fiches pratiques classées par domaine administratif.']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginala8902021db87385247be9a842af50129)): ?>
@@ -49,7 +49,7 @@
                 </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                 <div class="col-12">
-                    <p class="text-center text-muted">Aucune catégorie disponible.</p>
+                    <p class="text-center text-muted">Aucune thématique disponible.</p>
                 </div>
             <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
         </div>

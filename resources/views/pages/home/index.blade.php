@@ -23,7 +23,7 @@
     </section>
 
     <!-- 📊 Stats Bar -->
-    <x-stats-bar />
+    <x-stats-bar :stats="$stats" />
 
     <!-- 📂 Catégories (Navigation Principale) -->
     <section class="section-padding bg-soft">
