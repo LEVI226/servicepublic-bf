@@ -16,7 +16,7 @@ class SubcategoryResource extends Resource
     protected static ?string $model = Subcategory::class;
     protected static ?string $navigationIcon = 'heroicon-o-tag';
     protected static ?string $navigationGroup = 'Contenu éditorial';
-    protected static ?string $navigationLabel = 'Sous-catégories';
+    protected static ?string $navigationLabel = 'Sous-thématiques';
     protected static ?string $modelLabel = 'Sous-catégorie';
     protected static ?string $pluralModelLabel = 'Sous-catégories';
     protected static ?int $navigationSort = 1;

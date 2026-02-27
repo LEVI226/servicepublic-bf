@@ -8,7 +8,7 @@ use Filament\Widgets\ChartWidget;
 
 class ProceduresParCategorieChart extends ChartWidget
 {
-    protected static ?string $heading = 'Procédures par catégorie';
+    protected static ?string $heading = 'Fiches pratiques par thématique';
     protected static ?int $sort = 2;
     protected int | string | array $columnSpan = 'full';
 
@@ -23,7 +23,7 @@ class ProceduresParCategorieChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Procédures',
+                    'label' => 'Fiches pratiques',
                     'data' => $categories->pluck('procedures_count')->toArray(),
                     'backgroundColor' => [
                         '#009E49', '#FCD116', '#EF2B2D', '#0063CB',
