@@ -349,6 +349,18 @@ http://127.0.0.1:8000/admin
   → Mot de passe : password
 ```
 
+### Système de rôles et permissions
+
+Le panneau admin utilise **FilamentShield** (basé sur Spatie Permission) :
+
+| Rôle | Accès | Qui |
+|---|---|---|
+| **super_admin** | Tout voir, créer, modifier, supprimer | Administrateur principal |
+| **editor** | Voir & modifier le contenu (fiches, articles, FAQ) | Rédacteur |
+
+> ✅ Après un clone, lancer `php artisan migrate:fresh --seed` — les permissions et rôles sont créés automatiquement par `ShieldSeeder`.
+> Le rôle `super_admin` a un **bypass total** : il peut tout faire sans restriction.
+
 ### Ajouter une nouvelle fiche pratique
 
 ```
@@ -554,6 +566,7 @@ php artisan db:seed --class=MonImportSeeder
 | Ton rédactionnel | **« Vous » / verbes d'action** | Passif administratif | Proximité, clarté, accessibilité |
 | Priorité page fiche | **Coût + Délai + Public en tête** | Description en premier | Les 3 questions prioritaires du citoyen |
 | Admin | **Filament 3 (Laravel)** | Nova / Backpack | Open-source, complet, moderne |
+| Permissions | **ShieldSeeder + Gate::before** | Permissions manuelles | Clone fonctionnel automatiquement |
 
 ---
 

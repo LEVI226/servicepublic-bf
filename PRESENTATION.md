@@ -83,10 +83,12 @@ MVC Laravel
 ├── Models/           → Eloquent ORM (Procedure, Category, Organisme...)
 ├── Controllers/      → Logique de rendu des pages publiques
 ├── Filament Resources/ → Interface admin (CRUD automatisé)
+├── Policies/         → 13 fichiers de permissions (un par Resource)
 ├── Views/            → Templates Blade (Bootstrap 5)
 └── Database/
     ├── Migrations/   → Schéma de la BDD (versionné)
-    └── Seeders/      → Données initiales (1193 procédures, 182 organismes...)
+    ├── Seeders/      → Données + permissions (1193 procédures, 182 organismes, 160+ permissions...)
+    └── ShieldSeeder  → Génère toutes les permissions admin automatiquement
 ```
 
 ### Relations de données
@@ -147,11 +149,16 @@ servicepublic-bf/
 │   ├── Filament/Resources/    ← 10 modules d'administration
 │   ├── Http/Controllers/      ← 8 contrôleurs site public
 │   ├── Models/                ← 10 modèles Eloquent
-│   └── Providers/             ← Services (ViewComposer pour navbar)
+│   ├── Policies/              ← 13 Policy files (permissions Shield)
+│   └── Providers/
+│       ├── AppServiceProvider.php  ← ⚠️ Gate::before super_admin bypass
+│       └── ViewComposerServiceProvider.php
 │
 ├── 📂 database/
 │   ├── migrations/            ← 12 migrations (schéma versionné)
-│   └── seeders/               ← 9 seeders (1193 procédures, 182 org...)
+│   └── seeders/               ← 11 seeders (données + permissions + rôles)
+│       ├── ShieldSeeder.php   ← ⭐ Génère 160+ permissions + rôles
+│       └── ScrapedDataSeeder.php ← Données enrichies
 │
 ├── 📂 resources/views/
 │   ├── layouts/app.blade.php  ← Layout maître (navbar, header, footer)
@@ -182,15 +189,16 @@ servicepublic-bf/
 
 > ⚠️ Changer le mot de passe en production via : Admin → Utilisateurs → Modifier
 
-### Système de permissions (FilamentShield)
+### Système de permissions (FilamentShield + Spatie Permission)
 
-Chaque resource admin a des permissions individuelles configurables :
-- **Voir** la liste
-- **Créer** un enregistrement
-- **Modifier** un enregistrement
-- **Supprimer** un enregistrement
+Le panneau admin utilise un système de permissions granulaire :
+- **160+ permissions** générées automatiquement par `ShieldSeeder` (voir, créer, modifier, supprimer par resource)
+- **13 fichiers Policy** (un par Resource) pour contrôler l'accès
+- **Rôle `super_admin`** = accès total (bypass via `Gate::before` dans `AppServiceProvider`)
+- **Rôle `editor`** = peut voir/créer/modifier fiches, articles, FAQ, documents
+- Rôles personnalisés configurables via Admin → Filament Shield → Rôles
 
-Les rôles (super_admin, admin, éditeur...) regroupent ces permissions.
+> ✅ Après un clone + `migrate:fresh --seed`, le panneau admin est **immédiatement fonctionnel** avec tous les menus visibles.
 
 ---
 
@@ -207,6 +215,7 @@ cp .env.example .env
 php artisan key:generate
 
 # Base de données (configurer .env d'abord)
+# Cette commande crée tout : tables, données, permissions, rôles admin
 php artisan migrate:fresh --seed
 php artisan storage:link
 

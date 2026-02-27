@@ -63,7 +63,8 @@ php artisan key:generate
 # 5. Créer la base de données (dans MySQL)
 mysql -u root -p -e "CREATE DATABASE servicepublic_bf CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
 
-# 6. Exécuter les migrations et les seeders (données initiales)
+# 6. Exécuter les migrations et les seeders (données + permissions)
+# ⚠️ Cette commande crée TOUT : tables, données, permissions Shield, rôles admin
 php artisan migrate:fresh --seed
 
 # 7. Lier le stockage public (pour les uploads de fichiers)
@@ -142,20 +143,29 @@ servicepublic-bf/
 │   │   └── Document.php
 │   │
 │   └── Providers/
+│       ├── AppServiceProvider.php         ← Gate::before super_admin + cache
 │       └── ViewComposerServiceProvider.php ← Injecte catégories/events dans navbar
+│
+│── Policies/                              ← 13 POLICY FILES (permissions Shield)
+│   ├── ProcedurePolicy.php
+│   ├── CategoryPolicy.php
+│   └── ... (un par Resource)
 │
 ├── database/
 │   ├── migrations/                        ← Schéma de chaque table
 │   └── seeders/
-│       ├── DatabaseSeeder.php             ← Point d'entrée (appelle les autres)
-│       ├── CategorySeeder.php             ← 16 thématiques
-│       ├── SubcategorySeeder.php          ← 58 sous-catégories
-│       ├── ProceduresImportSeeder.php     ← 1193 fiches pratiques
-│       ├── OrganismesSeeder.php           ← 182 organismes
-│       ├── LifeEventSeeder.php            ← 12 événements de vie
-│       ├── LifeEventProcedureSeeder.php   ← Liaisons événements ↔ procédures
-│       ├── AdminUserSeeder.php            ← Compte administrateur
-│       └── ScrapedDataSeeder.php          ← Données enrichies (coûts, documents...)
+│       ├── DatabaseSeeder.php             ← ⭐ Point d'entrée (appelle tous les autres)
+│       ├── UserSeeder.php                 ← Comptes admin + éditeur
+│       ├── ShieldSeeder.php               ← ⭐ Permissions FilamentShield + rôles Spatie
+│       ├── CategoriesTableSeeder.php      ← 16 thématiques
+│       ├── SubcategoriesTableSeeder.php   ← 58 sous-catégories
+│       ├── ProceduresTableSeeder.php      ← 1193 fiches pratiques
+│       ├── OrganismesTableSeeder.php      ← 182 organismes
+│       ├── LifeEventsTableSeeder.php      ← 12 événements de vie
+│       ├── EservicesTableSeeder.php       ← 26+ e-services
+│       ├── FaqsTableSeeder.php            ← FAQ
+│       ├── ArticlesTableSeeder.php        ← Actualités
+│       └── ScrapedDataSeeder.php          ← Données enrichies (coûts réels, docs...)
 │
 ├── resources/
 │   └── views/
@@ -725,11 +735,12 @@ Admin → Filament Shield → Rôles → Créer
 ├── app/Filament/Resources/CategoryResource.php         ← Admin : thématiques
 └── database/seeders/ScrapedDataSeeder.php              ← Import données enrichies
 
-⚙️ CONFIGURATION
+⚙️ CONFIGURATION & PERMISSIONS
 ├── .env                                                 ← Variables d'environnement
 ├── config/app.php                                       ← Config Laravel (nom, locale)
-├── config/filament-shield.php                          ← Config permissions admin
-└── config/filament.php                                  ← Config panneau admin
+├── app/Providers/AppServiceProvider.php                ← ⚠️ Gate::before super_admin bypass
+├── database/seeders/ShieldSeeder.php                   ← ⚠️ Permissions + rôles Spatie
+└── app/Policies/                                       ← 13 fichiers Policy (1 par Resource)
 
 🔒 NE PAS TOUCHER
 ├── vendor/                                             ← Dépendances Composer
@@ -754,11 +765,32 @@ php artisan optimize:clear
 # Puis rafraîchir avec Ctrl+Shift+R (cache navigateur forcé)
 ```
 
-**Q : J'ai créé une Resource mais elle n'apparaît pas dans le menu admin**
+**Q : J'ai cloné le projet et le panneau admin ne montre pas tous les menus**
+
+C'est un problème de permissions. La commande `migrate:fresh --seed` devrait tout générer automatiquement grâce à `ShieldSeeder`. Si ça ne marche pas :
 ```bash
-php artisan shield:generate --all
+# 1. Vérifier que le seed a bien tourné
+php artisan migrate:fresh --seed
+
+# 2. Vider les caches
 php artisan optimize:clear
-# Vérifier que l'utilisateur a le rôle super_admin
+
+# 3. Redémarrer le serveur
+php artisan serve
+```
+
+Si le problème persiste, vérifier que :
+- `app/Providers/AppServiceProvider.php` contient le `Gate::before` pour `super_admin`
+- `database/seeders/ShieldSeeder.php` est bien appelé dans `DatabaseSeeder.php`
+
+**Q : J'ai créé une Resource mais elle n'apparaît pas dans le menu admin**
+
+1. Ajouter les permissions dans `database/seeders/ShieldSeeder.php` (ajouter le nom du modèle dans le tableau `$resources`)
+2. Créer le Policy correspondant dans `app/Policies/`
+3. Puis :
+```bash
+php artisan migrate:fresh --seed
+php artisan optimize:clear
 ```
 
 **Q : Comment modifier le thème couleur de l'admin ?**
@@ -780,6 +812,7 @@ php artisan make:filament-widget MonWidget --stats-overview
 ```bash
 php artisan migrate:fresh --seed
 # ⚠️ DÉTRUIT toutes les données ! Uniquement en développement.
+# Recrée tout : tables, données, permissions, rôles.
 ```
 
 **Q : La recherche ne trouve pas mes nouvelles procédures**
@@ -788,6 +821,14 @@ php artisan migrate:fresh --seed
 php artisan migrate:fresh --seed
 # ou ajouter manuellement via Admin → Fiches pratiques
 ```
+
+**Q : Comment fonctionne le système de permissions ?**
+
+Le projet utilise **FilamentShield** (basé sur **Spatie Permission**) :
+- Chaque Resource Filament a un **Policy** qui vérifie les droits (ex: `CategoryPolicy.php`)
+- Les noms de permissions suivent le format `{action}_{model}` (ex: `view_any_category`, `create_procedure`)
+- Le rôle `super_admin` bypass toutes les vérifications via `Gate::before()` dans `AppServiceProvider`
+- Le `ShieldSeeder` crée automatiquement 160+ permissions et les assigne au rôle
 
 ---
 
