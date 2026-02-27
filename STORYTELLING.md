@@ -215,6 +215,22 @@ C'est un espace pour **uploader des fichiers PDF** (formulaires officiels pré-r
 
 ---
 
+## 🏛️ Alignement avec les Standards Internationaux (Modèle Service-Public)
+
+Service Public BF a été conçu pour répondre aux exigences les plus strictes du modèle de référence (Service-Public.fr), tout en l'adaptant aux réalités du Burkina Faso.
+
+### Missions régaliennes remplies
+- **Informer** : 1 193 fiches pratiques actualisées sur les droits et devoirs.
+- **Orienter** : Un annuaire complet de 182 organismes pour un premier niveau d'accès aux services compétents.
+- **Faciliter** : Navigation par parcours de vie ("Comment faire si ?") pour une approche centrée sur l'usager.
+
+### Valeurs piliers
+- **La Simplicité** : Une interface moderne, responsive et un langage administratif simplifié.
+- **La Neutralité** : Une description objective des prestations sans parti pris politique.
+- **La Gratuité** : L'accès à l'information et à l'orientation est totalement libre et gratuit.
+
+---
+
 ## 📊 Arguments clés pour la présentation
 
 ### Le volume
