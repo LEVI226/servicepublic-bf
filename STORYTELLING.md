@@ -135,7 +135,7 @@ C'est l'espace où les administrateurs gèrent le contenu du site **sans toucher
 |---|---|---|
 | **Tableau de bord** | Page d'accueil admin | Statistiques en temps réel : combien de fiches, organismes, etc. |
 | **Thématiques** | Les grandes familles | Les 16 grands domaines : Commerce, Justice, Santé, Travail… Sur le site public → menu « Thématiques » |
-| **Sous-catégories** | Subdivisions | Chaque thématique a des sous-sections. Ex : « Commerce » → « Import/Export », « Création d'entreprise » |
+| **Sous-thématiques** | Subdivisions | Chaque thématique a des sous-sections. Ex : « Commerce » → « Import/Export », « Création d'entreprise » |
 | **Fiches pratiques** | Le contenu principal | Les 1 193 démarches. Chaque fiche = 1 démarche administrative (passeport, acte de naissance…) |
 | **Actualités** | Blog institutionnel | Articles d'information publiés sur le site |
 | **FAQ** | Questions fréquentes | Questions/réponses à afficher sur la page FAQ |

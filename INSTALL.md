@@ -183,7 +183,7 @@ Après connexion à `/admin`, vous devez voir dans la barre latérale :
 ```
 ✅ Tableau de bord
 ✅ Filament Shield → Rôles (2)
-✅ Contenu éditorial → Catégories, Sous-catégories (58), Fiches pratiques (1193), Actualités, FAQ (6), Pages statiques
+✅ Contenu éditorial → Thématiques, Sous-thématiques (58), Fiches pratiques (1193), Actualités, FAQ (6), Pages statiques
 ✅ Événements de vie → Comment faire si ?
 ✅ Administration → Annuaire (Organismes)
 ✅ Outils & Médias → E-Services, Documents & Formulaires, Import de données
@@ -316,7 +316,7 @@ php artisan make:filament-resource Video --generate
 | `UserSeeder` | Comptes admin et éditeur | 2 |
 | `ShieldSeeder` | Permissions + rôles Spatie | 160+ |
 | `CategoriesTableSeeder` | Thématiques | 16 |
-| `SubcategoriesTableSeeder` | Sous-catégories | 58 |
+| `SubcategoriesTableSeeder` | Sous-thématiques | 58 |
 | `ProceduresTableSeeder` | Fiches pratiques | 1 193 |
 | `OrganismesTableSeeder` | Organismes publics | 182 |
 | `LifeEventsTableSeeder` | Événements de vie | 12 |

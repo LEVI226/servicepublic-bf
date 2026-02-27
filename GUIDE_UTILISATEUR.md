@@ -9,7 +9,7 @@
 
 1. [Philosophie de la plateforme](#1-philosophie-de-la-plateforme)
 2. [Glossaire raisonné — Pourquoi ces termes ?](#2-glossaire-raisonné--pourquoi-ces-termes-)
-3. [La distinction Catégories / Procédures / Événements de vie](#3-la-distinction-catégories--procédures--événements-de-vie)
+3. [La distinction Thématiques / Fiches pratiques / Événements de vie](#3-la-distinction-thématiques--fiches-pratiques--événements-de-vie)
 4. [La navbar — logique de navigation](#4-la-navbar--logique-de-navigation)
 5. [Choix UX/UI et design](#5-choix-uxui-et-design)
 6. [Choix de copywriting](#6-choix-de-copywriting)
@@ -118,14 +118,14 @@ La formulation à la **1ère personne** (« Je me marie », « Je crée mon entr
 ### « Fiche pratique » vs « Fiche pratique en ligne »
 
 Dans le tableau de bord admin, on lit :
-- **Procédures actives : 1193** — toutes les fiches, actives ou non
+- **Fiches pratiques : 1193** — toutes les démarches publiées sur le site
 - **Fiches pratiques en ligne** — uniquement celles avec `is_active = true` (visibles au public)
 
 C'est le même contenu, mais avec un filtre de publication.
 
 ---
 
-## 3. La distinction Catégories / Procédures / Événements de vie
+## 3. La distinction Thématiques / Fiches pratiques / Événements de vie
 
 ### La hiérarchie du contenu
 
@@ -134,7 +134,7 @@ THÉMATIQUE (Category)
 │  Exemple : « Commerce & Investissement »
 │  → Un domaine administratif large
 │
-├── SOUS-CATÉGORIE (Subcategory)
+├── SOUS-THÉMATIQUE (Subcategory)
 │   │  Exemple : « Import / Export »
 │   │  → Subdivise la thématique pour naviguer plus vite
 │   │
@@ -153,7 +153,7 @@ THÉMATIQUE (Category)
 | Concept | Nom public | Nom technique | Rôle | Nombre |
 |---|---|---|---|---|
 | Niveau 1 | Thématique | `Category` | Domaine administratif | 16 |
-| Niveau 2 | Sous-catégorie | `Subcategory` | Subdivision | 58 |
+| Niveau 2 | Sous-thématique | `Subcategory` | Subdivision | 58 |
 | Niveau 3 | Fiche pratique | `Procedure` | La démarche concrète | 1193 |
 | Chemin B | Événement de vie | `LifeEvent` | Regroupement situationnel | 12 |
 

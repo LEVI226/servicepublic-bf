@@ -22,7 +22,7 @@
 |---|---|---|
 | **Fiches pratiques** | 1 193 | Importées depuis le site officiel |
 | **Thématiques** | 16 | Organisées par domaine administratif |
-| **Sous-catégories** | 58 | Subdivisions des thématiques |
+| **Sous-thématiques** | 58 | Subdivisions des thématiques |
 | **Organismes** | 182 | Annuaire des services de l'État |
 | **Événements de vie** | 12 | Parcours guidés situationnels |
 | **E-Services** | 26+ | Services dématérialisés officiels |
@@ -49,7 +49,7 @@
 |---|---|
 | 📊 **Tableau de bord** | Statistiques en temps réel + graphique |
 | 📝 **Fiches pratiques** | Création/édition avec éditeur rich text |
-| 🗂️ **Catégories** | Gestion des thématiques et sous-catégories |
+| 🗂️ **Thématiques** | Gestion des 16 grands domaines et sous-thématiques |
 | 🏢 **Annuaire** | Gestion des organismes |
 | 🧭 **Événements de vie** | Avec liaison multi-procédures |
 | 📰 **Actualités** | Blog avec planification de publication |

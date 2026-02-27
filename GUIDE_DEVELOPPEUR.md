@@ -105,7 +105,7 @@ servicepublic-bf/
 │   │   ├── Resources/                     ← Un fichier = un type de contenu CRUD
 │   │   │   ├── ProcedureResource.php      ← Fiches pratiques (le plus important)
 │   │   │   ├── CategoryResource.php       ← Thématiques
-│   │   │   ├── SubcategoryResource.php    ← Sous-catégories
+│   │   │   ├── SubcategoryResource.php    ← Sous-thématiques
 │   │   │   ├── OrganismeResource.php      ← Annuaire des organismes
 │   │   │   ├── LifeEventResource.php      ← Événements de vie
 │   │   │   ├── ArticleResource.php        ← Actualités / Blog
@@ -291,8 +291,8 @@ Page (page statique)         ← indépendant
 |---|---|---|
 | **Tableau de bord** | 4 compteurs + graphique procédures/catégorie | `/admin` |
 | **Fiches pratiques** | CRUD complet + documents liés | `/admin/procedures` |
-| **Catégories** | Avec gestionnaire de sous-catégories | `/admin/categories` |
-| **Sous-catégories** | Gestion indépendante | `/admin/subcategories` |
+| **Thématiques** | Les 16 grands domaines (était « Catégories ») | `/admin/categories` |
+| **Sous-thématiques** | Subdivisions des thématiques (était « Sous-catégories ») | `/admin/subcategories` |
 | **Organismes** | Annuaire complet | `/admin/organismes` |
 | **Événements de vie** | Avec liaison multi-procédures | `/admin/life-events` |
 | **Actualités** | Blog avec éditeur rich text | `/admin/articles` |
