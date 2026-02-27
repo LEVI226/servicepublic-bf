@@ -17,6 +17,10 @@ class DatabaseSeeder extends Seeder
         // Utilisateur admin par défaut
         $this->call(UserSeeder::class);
 
+        // ⚠️ Permissions FilamentShield — DOIT tourner après UserSeeder
+        // Sans ceci, le panneau admin n'affiche pas tous les menus !
+        $this->call(ShieldSeeder::class);
+
         // Données réelles extraites de la base locale
         $this->call([
             CategoriesTableSeeder::class,
@@ -28,5 +32,13 @@ class DatabaseSeeder extends Seeder
             FaqsTableSeeder::class,
             ArticlesTableSeeder::class,
         ]);
+
+        // Liaisons événements de vie ↔ procédures
+        if (class_exists(LifeEventProcedureSeeder::class)) {
+            $this->call(LifeEventProcedureSeeder::class);
+        }
+
+        // Données enrichies (coûts réels, documents, e-services officiels)
+        $this->call(ScrapedDataSeeder::class);
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Gate;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Eservice;
@@ -23,6 +24,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::useBootstrapFive();
+
+        // ⚠️ CRITICAL : Bypass all permission checks for super_admin
+        // Sans ceci, le panneau admin ne montre pas tous les menus après un clone
+        Gate::before(function ($user, $ability) {
+            return $user->hasRole('super_admin') ? true : null;
+        });
 
         if (str_contains(request()->getHost(), 'ngrok')) {
             \Illuminate\Support\Facades\URL::forceScheme('https');
