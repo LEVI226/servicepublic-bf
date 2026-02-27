@@ -11,23 +11,27 @@ class ProvincesTableSeeder extends Seeder
     public function run(): void
     {
         $regions = [
-            'Boucle du Mouhoun' => ['Balé', 'Banwa', 'Kossi', 'Mouhoun', 'Nayala', 'Sourou'],
-            'Cascades'          => ['Comoé', 'Léraba'],
-            'Centre'            => ['Kadiogo'],
-            'Centre-Est'        => ['Boulgou', 'Koulpélogo', 'Kouritenga'],
-            'Centre-Nord'       => ['Bam', 'Namentenga', 'Sanmatenga'],
-            'Centre-Ouest'      => ['Boulkiemdé', 'Sanguié', 'Sissili', 'Ziro'],
-            'Centre-Sud'        => ['Bazèga', 'Nahouri', 'Zoundwéogo'],
-            'Est'               => ['Gnagna', 'Gourma', 'Komondjari', 'Kompienga', 'Tapoa'],
-            'Hauts-Bassins'     => ['Houet', 'Kénédougou', 'Tuy'],
-            'Nord'              => ['Loroum', 'Passoré', 'Yatenga', 'Zondoma'],
-            'Plateau-Central'   => ['Ganzourgou', 'Kourwéogo', 'Oubritenga'],
-            'Sahel'             => ['Oudalan', 'Seno', 'Soum', 'Yagha'],
-            'Sud-Ouest'         => ['Bougouriba', 'Ioba', 'Noumbiel', 'Poni'],
+            'Bankui (Dédougou)'       => ['Balé', 'Banwa', 'Mouhoun'],
+            'Sourou (Tougan)'         => ['Kossin (ex-Kossi)', 'Nayala', 'Sourou'],
+            'Guiriko (Bobo-Dioulasso)' => ['Houet', 'Kénédougou', 'Tuy'],
+            'Tannounyan (Banfora)'    => ['Comoé', 'Léraba'],
+            'Djôrô (Gaoua)'           => ['Bougouriba', 'Ioba', 'Noumbiel', 'Poni'],
+            'Nando (Koudougou)'       => ['Boulkiemdé', 'Sanguié', 'Sissili', 'Ziro'],
+            'Nazinon (Manga)'         => ['Bazèga', 'Nahouri', 'Zoundwéogo'],
+            'Kadiogo (Ouagadougou)'   => ['Kadiogo'],
+            'Oubri (Ziniaré)'         => ['Bassitenga (ex-Oubritenga)', 'Ganzourgou', 'Kourwéogo'],
+            'Kuilsé (Kaya)'           => ['Bam', 'Namentenga', 'Sandbondtenga (ex-Sanmatenga)'],
+            'Yaadga (Ouahigouya)'     => ['Loroum', 'Passoré', 'Yatenga', 'Zondoma'],
+            'Nakambé (Tenkodogo)'     => ['Boulgou', 'Koulpélogo', 'Kouritenga'],
+            'Goulmou (Fada N\'Gourma)' => ['Gourma', 'Koom-piënga (ex-Kompienga)'],
+            'Sirba (Bogandé)'         => ['Gnagna', 'Komondjari'],
+            'Tapoa (Diapaga)'         => ['Tapoa', 'Dyamongou'],
+            'Liptako (Dori)'          => ['Oudalan', 'Seno', 'Yagha'],
+            'Soum (Djibo)'            => ['Djelgodji (ex-Soum)', 'Karo-Peli'],
         ];
 
         DB::table('provinces')->delete();
-        DB::table('regions')->delete(); // On reset aussi les régions pour être sûr de l'ID mapping
+        DB::table('regions')->delete();
 
         $regionOrder = 1;
         foreach ($regions as $regionName => $provinces) {

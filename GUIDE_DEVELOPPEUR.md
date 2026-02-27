@@ -140,7 +140,7 @@ servicepublic-bf/
 │   │   ├── Faq.php
 │   │   ├── Page.php
 │   │   ├── EService.php
-│   │   ├── Province.php                   ← 45 provinces
+│   │   ├── Province.php                   ← 47 provinces (Réforme 2025)
 │   │   └── Document.php
 │   │
 │   └── Providers/
@@ -166,7 +166,7 @@ servicepublic-bf/
 │       ├── EservicesTableSeeder.php       ← 26+ e-services
 │       ├── FaqsTableSeeder.php            ← FAQ
 │       ├── ArticlesTableSeeder.php        ← Actualités
-│       ├── ProvincesTableSeeder.php       ← 45 provinces
+│       ├── ProvincesTableSeeder.php       ← 17 régions / 47 provinces
 │       └── ScrapedDataSeeder.php          ← Données enrichies (coûts réels, docs...)
 │
 ├── resources/

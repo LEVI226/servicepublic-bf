@@ -218,7 +218,7 @@ C'est un espace pour **uploader des fichiers PDF** (formulaires officiels pré-r
 ## 📊 Arguments clés pour la présentation
 
 ### Le volume
-> 1 193 fiches pratiques, 182 organismes, 12 parcours de vie, 26 e-services, 45 provinces → c'est le portail le plus complet d'Afrique de l'Ouest francophone.
+> 1 193 fiches pratiques, 182 organismes, 12 parcours de vie, 26 e-services, 17 régions, 47 provinces → c'est le portail le plus complet d'Afrique de l'Ouest francophone.
 
 ### L'accessibilité
 > Double navigation (thématique + situation), recherche full-text, design responsive, français simplifié → tout citoyen peut trouver sa démarche en 3 clics.

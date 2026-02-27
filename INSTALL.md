@@ -323,7 +323,7 @@ php artisan make:filament-resource Video --generate
 | `EservicesTableSeeder` | E-services en ligne | 26+ |
 | `FaqsTableSeeder` | Questions fréquentes | 6 |
 | `ArticlesTableSeeder` | Actualités | 6 |
-| `ProvincesTableSeeder` | Provinces du Burkina Faso | 45 |
+| `ProvincesTableSeeder` | Provinces du Burkina Faso | 47 |
 | `ScrapedDataSeeder` | Données enrichies (coûts réels) | ~30 |
 
 > **Pas besoin de dump SQL.** Tout est recréé par `migrate:fresh --seed`.

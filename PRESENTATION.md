@@ -26,8 +26,8 @@
 | **Organismes** | 182 | Annuaire des services de l'État |
 | **Événements de vie** | 12 | Parcours guidés situationnels |
 | **E-Services** | 26+ | Services dématérialisés officiels |
-| **Régions** | 13 | Tout le territoire burkinabè |
-| **Provinces** | 45 | Maillage territorial complet |
+| **Régions** | 17 | Réforme administrative 2024/2025 |
+| **Provinces** | 47 | Maillage territorial complet |
 
 ### Site public — Fonctionnalités
 

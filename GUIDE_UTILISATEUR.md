@@ -154,7 +154,8 @@ THÉMATIQUE (Category)
 |---|---|---|---|---|
 | Niveau 1 | Thématique | `Category` | Domaine administratif | 20 |
 | Niveau 2 | Sous-thématique | `Subcategory` | Subdivision | 58 |
-| Niveau 3 | Fiche pratique | `Procedure` | La démarche concrète | 1193 |
+| Niveau 3 | Fiche pratique | `Procedure` | La démarche concreète | 1193 |
+| Chemins | Régions / Provinces | `Region`/`Province` | Divisions administratives | 17 / 47 |
 | Chemin B | Événement de vie | `LifeEvent` | Regroupement situationnel | 12 |
 
 ### Y a-t-il une redondance ?
