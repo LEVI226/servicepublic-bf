@@ -39,3 +39,18 @@ php artisan serve
 | Organismes | 182 |
 | Événements de vie | 12 |
 | Articles | 6 |
+
+## 📸 Captures d'écran
+
+### Accueil (Hero & Statistiques)
+![Accueil Hero](docs/screenshots/homepage_hero.png)
+![Statistiques Dynamiques](docs/screenshots/homepage_stats.png)
+
+### Missions et Valeurs
+![Missions et Valeurs](docs/screenshots/missions_valeurs.png)
+
+### Administration
+![Tableau de Bord Admin](docs/screenshots/admin_dashboard.png)
+
+### Navigation
+![Lien Footer Missions](docs/screenshots/footer_link.png)
