@@ -138,6 +138,7 @@
                         <li class="mb-2"><a href="{{ route('actualites.index') }}" class="text-white-50 text-decoration-none small">Actualités</a></li>
                         <li class="mb-2"><a href="{{ route('evenements.index') }}" class="text-white-50 text-decoration-none small">Événements de vie</a></li>
                         <li class="mb-2"><a href="{{ route('thematiques.index') }}" class="text-white-50 text-decoration-none small">Thématiques</a></li>
+                        <li class="mb-2"><a href="{{ route('pages.show', 'missions-et-valeurs') }}" class="text-white-50 text-decoration-none small fw-bold text-warning">Missions et Valeurs</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-2">

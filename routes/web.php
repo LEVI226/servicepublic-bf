@@ -103,3 +103,7 @@ Route::get('/mentions-legales', fn() => view('pages.mentions-legales'))->name('m
 Route::get('/accessibilite', fn() => view('pages.accessibilite'))->name('accessibilite');
 Route::get('/plan-du-site', [HomeController::class, 'planDuSite'])->name('plan-du-site');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+
+// Pages dynamiques (BDD)
+Route::get('/p/{slug}', [\App\Http\Controllers\PageController::class, 'show'])->name('pages.show');
+
