@@ -140,6 +140,7 @@ servicepublic-bf/
 │   │   ├── Faq.php
 │   │   ├── Page.php
 │   │   ├── EService.php
+│   │   ├── Province.php                   ← 45 provinces
 │   │   └── Document.php
 │   │
 │   └── Providers/
@@ -165,6 +166,7 @@ servicepublic-bf/
 │       ├── EservicesTableSeeder.php       ← 26+ e-services
 │       ├── FaqsTableSeeder.php            ← FAQ
 │       ├── ArticlesTableSeeder.php        ← Actualités
+│       ├── ProvincesTableSeeder.php       ← 45 provinces
 │       └── ScrapedDataSeeder.php          ← Données enrichies (coûts réels, docs...)
 │
 ├── resources/

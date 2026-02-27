@@ -26,14 +26,15 @@
 | **Organismes** | 182 | Annuaire des services de l'État |
 | **Événements de vie** | 12 | Parcours guidés situationnels |
 | **E-Services** | 26+ | Services dématérialisés officiels |
-| **Régions couvertes** | 13 | Tout le territoire burkinabè |
+| **Régions** | 13 | Tout le territoire burkinabè |
+| **Provinces** | 45 | Maillage territorial complet |
 
 ### Site public — Fonctionnalités
 
 | Fonctionnalité | Description |
 |---|---|
 | 🔍 **Moteur de recherche** | Recherche full-text sur toutes les fiches pratiques |
-| 🗂️ **Navigation par thématique** | 16 domaines administratifs (Commerce, Justice, Santé...) |
+| 🗂️ **Navigation par thématique** | 20 domaines administratifs (Commerce, Justice, Santé...) |
 | 🧭 **Événements de vie** | 12 parcours guidés (Je me marie, Je crée une entreprise...) |
 | 📋 **Fiches pratiques** | Coût, délai, documents requis, conditions pour chaque démarche |
 | 🏢 **Annuaire** | Coordonnées de 182 organismes publics |

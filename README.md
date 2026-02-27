@@ -34,6 +34,7 @@ php artisan serve
 |---|---|
 | Fiches pratiques | 1 193 |
 | Thématiques | 20 |
+| Provinces | 45 |
 | Organismes | 182 |
 | Événements de vie | 12 |
 | Articles | 6 |
