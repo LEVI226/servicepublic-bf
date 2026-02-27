@@ -133,8 +133,7 @@ C'est l'espace où les administrateurs gèrent le contenu du site **sans toucher
 
 | Menu admin | Correspond à | Explication simple |
 |---|---|---|
-| **Tableau de bord** | Page d'accueil admin | Statistiques en temps réel : combien de fiches, organismes, etc. |
-| **Thématiques** | Les grandes familles | Les 16 grands domaines : Commerce, Justice, Santé, Travail… Sur le site public → menu « Thématiques » |
+| **Thématiques** | Les grandes familles | Les 20 grands domaines : Commerce, Justice, Santé, Travail… Sur le site public → menu « Thématiques » |
 | **Sous-thématiques** | Subdivisions | Chaque thématique a des sous-sections. Ex : « Commerce » → « Import/Export », « Création d'entreprise » |
 | **Fiches pratiques** | Le contenu principal | Les 1 193 démarches. Chaque fiche = 1 démarche administrative (passeport, acte de naissance…) |
 | **Actualités** | Blog institutionnel | Articles d'information publiés sur le site |
@@ -212,7 +211,7 @@ C'est un espace pour **uploader des fichiers PDF** (formulaires officiels pré-r
 > Dans le code (base de données, modèles), on utilise le terme technique `Category`. Sur le site et dans l'admin, on affiche « Thématique » car c'est plus institutionnel et compréhensible pour un gestionnaire de contenu francophone.
 
 **Q : C'est quoi la différence entre « Sous-catégorie » et « Thématique » ?**
-> Une **thématique** = un grand domaine (ex : « Commerce & Investissement »). Une **sous-catégorie** = une subdivision (ex : « Import/Export », « Création d'entreprise »). C'est un système parent → enfant.
+> Une **thématique** = un grand domaine (ex : « Commerce & Investissement »). Une **sous-thématique** = une subdivision (ex : « Import/Export », « Création d'entreprise »). C'est un système parent → enfant.
 
 ---
 

@@ -315,7 +315,7 @@ php artisan make:filament-resource Video --generate
 |---|---|---|
 | `UserSeeder` | Comptes admin et éditeur | 2 |
 | `ShieldSeeder` | Permissions + rôles Spatie | 160+ |
-| `CategoriesTableSeeder` | Thématiques | 16 |
+| `CategoriesTableSeeder` | Thématiques | 20 |
 | `SubcategoriesTableSeeder` | Sous-thématiques | 58 |
 | `ProceduresTableSeeder` | Fiches pratiques | 1 193 |
 | `OrganismesTableSeeder` | Organismes publics | 182 |

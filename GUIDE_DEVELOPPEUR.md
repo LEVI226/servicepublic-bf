@@ -144,7 +144,7 @@ servicepublic-bf/
 │   │
 │   └── Providers/
 │       ├── AppServiceProvider.php         ← Gate::before super_admin + cache
-│       └── ViewComposerServiceProvider.php ← Injecte catégories/events dans navbar
+│       └── ViewComposerServiceProvider.php ← Injecte thématiques/events dans navbar
 │
 │── Policies/                              ← 13 POLICY FILES (permissions Shield)
 │   ├── ProcedurePolicy.php
@@ -157,8 +157,8 @@ servicepublic-bf/
 │       ├── DatabaseSeeder.php             ← ⭐ Point d'entrée (appelle tous les autres)
 │       ├── UserSeeder.php                 ← Comptes admin + éditeur
 │       ├── ShieldSeeder.php               ← ⭐ Permissions FilamentShield + rôles Spatie
-│       ├── CategoriesTableSeeder.php      ← 16 thématiques
-│       ├── SubcategoriesTableSeeder.php   ← 58 sous-catégories
+│       ├── CategoriesTableSeeder.php      ← 20 thématiques
+│       ├── SubcategoriesTableSeeder.php   ← 58 sous-thématiques
 │       ├── ProceduresTableSeeder.php      ← 1193 fiches pratiques
 │       ├── OrganismesTableSeeder.php      ← 182 organismes
 │       ├── LifeEventsTableSeeder.php      ← 12 événements de vie
@@ -195,6 +195,7 @@ servicepublic-bf/
 └── public/
     ├── css/style.min.css                  ← CSS compilé (NE PAS MODIFIER)
     ├── js/
+    │   └── admin-tooltips.js              ← Tooltips de la sidebar admin
     └── img/                               ← Logo, armoiries, drapeau
 ```
 
@@ -273,7 +274,7 @@ Page (page statique)         ← indépendant
 | Fonctionnalité | URL | Description |
 |---|---|---|
 | **Accueil** | `/` | Barre de recherche, thématiques en cards, stats, procédures populaires |
-| **Thématiques** | `/thematiques` | 16 catégories avec icônes et compteurs de fiches |
+| **Thématiques** | `/thematiques` | 20 thématiques principales avec icônes et compteurs de fiches |
 | **Fiches pratiques** | `/fiches` | Liste + recherche full-text |
 | **Détail fiche** | `/fiches/{slug}` | Description, pièces, coût, délai, conditions |
 | **Événements de vie** | `/evenements-de-vie` | 12 situations de vie (Je me marie, Je crée une entreprise...) |
@@ -829,6 +830,18 @@ Le projet utilise **FilamentShield** (basé sur **Spatie Permission**) :
 - Les noms de permissions suivent le format `{action}_{model}` (ex: `view_any_category`, `create_procedure`)
 - Le rôle `super_admin` bypass toutes les vérifications via `Gate::before()` dans `AppServiceProvider`
 - Le `ShieldSeeder` crée automatiquement 160+ permissions et les assigne au rôle
+
+**Q : Comment fonctionnent les tooltips de la sidebar admin ?**
+
+Le fichier `public/js/admin-tooltips.js` est injecté via `AdminPanelProvider.php` (`renderHook`). Il ajoute un attribut `title` (bulle d'aide au survol) à chaque élément de navigation. Pour modifier une description, éditer le dictionnaire `tooltips` dans le fichier JS.
+
+**Q : Pourquoi le bouton « Contact » a été remplacé par « Administration » ?**
+
+Dans `resources/views/layouts/app.blade.php`, le bouton header pointe vers `/admin` (panneau Filament). C'est plus utile pour un accès rapide au back-office depuis le site public.
+
+**Q : Pourquoi la page Thématiques n'affiche que 20 éléments alors qu'il y a 82 catégories en BDD ?**
+
+Les IDs 1-20 sont les 20 thématiques principales (créées manuellement). Les IDs 21-82 sont des sous-catégories importées par scraping. Le `ThematiqueController` filtre avec `where('id', '<=', 20)` pour n'afficher que les thématiques curatées. Les 62 autres restent en BDD pour la recherche et les détails.
 
 ---
 

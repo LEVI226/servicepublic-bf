@@ -152,7 +152,7 @@ THÉMATIQUE (Category)
 
 | Concept | Nom public | Nom technique | Rôle | Nombre |
 |---|---|---|---|---|
-| Niveau 1 | Thématique | `Category` | Domaine administratif | 16 |
+| Niveau 1 | Thématique | `Category` | Domaine administratif | 20 |
 | Niveau 2 | Sous-thématique | `Subcategory` | Subdivision | 58 |
 | Niveau 3 | Fiche pratique | `Procedure` | La démarche concrète | 1193 |
 | Chemin B | Événement de vie | `LifeEvent` | Regroupement situationnel | 12 |

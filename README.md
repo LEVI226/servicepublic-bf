@@ -33,6 +33,7 @@ php artisan serve
 | Contenu | Quantité |
 |---|---|
 | Fiches pratiques | 1 193 |
+| Thématiques | 20 |
 | Organismes | 182 |
 | Événements de vie | 12 |
 | Articles | 6 |

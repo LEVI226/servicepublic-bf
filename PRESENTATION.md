@@ -21,7 +21,7 @@
 | Élément | Volume | Source |
 |---|---|---|
 | **Fiches pratiques** | 1 193 | Importées depuis le site officiel |
-| **Thématiques** | 16 | Organisées par domaine administratif |
+| **Thématiques** | 20 | Organisées par domaine administratif |
 | **Sous-thématiques** | 58 | Subdivisions des thématiques |
 | **Organismes** | 182 | Annuaire des services de l'État |
 | **Événements de vie** | 12 | Parcours guidés situationnels |
@@ -42,14 +42,16 @@
 | 📰 **Actualités** | Blog institutionnel |
 | ❓ **FAQ** | Questions fréquentes |
 | 📄 **Pages statiques** | Mentions légales, accessibilité... |
+| 🔧 **Administration** | Accès direct au back-office depuis le header |
 
 ### Panneau d'administration
 
 | Module | Description |
 |---|---|
-| 📊 **Tableau de bord** | Statistiques en temps réel + graphique |
+| 📊 **Tableau de bord** | Statistiques en temps réel + graphiques (fiches par thématique) |
 | 📝 **Fiches pratiques** | Création/édition avec éditeur rich text |
-| 🗂️ **Thématiques** | Gestion des 16 grands domaines et sous-thématiques |
+| 🗂️ **Thématiques** | Gestion des 20 domaines cardinaux (ex-catégories) |
+| 💡 **Aides UI** | Tooltips dynamiques au survol dans la sidebar |
 | 🏢 **Annuaire** | Gestion des organismes |
 | 🧭 **Événements de vie** | Avec liaison multi-procédures |
 | 📰 **Actualités** | Blog avec planification de publication |
