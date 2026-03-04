@@ -42,7 +42,10 @@ class ThematiqueController extends Controller
         ];
 
         return view('pages.thematiques.show', compact(
-            'category', 'subcategories', 'procedures', 'breadcrumb'
+            'category',
+            'subcategories',
+            'procedures',
+            'breadcrumb'
         ));
     }
 }

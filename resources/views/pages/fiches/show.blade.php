@@ -5,6 +5,20 @@
 
 @push('jsonld')
     <x-breadcrumb-jsonld :items="$breadcrumb" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "{{ $procedure->title }}",
+        "description": "{{ Str::limit(strip_tags($procedure->description), 300) }}",
+        "inLanguage": "fr-BF",
+        "provider": {
+            "@type": "GovernmentOrganization",
+            "name": "Service Public Burkina Faso",
+            "url": "{{ config('app.url') }}"
+        }
+    }
+    </script>
 @endpush
 
 @section('content')

@@ -8,9 +8,10 @@ use Filament\Widgets\ChartWidget;
 
 class ProceduresParCategorieChart extends ChartWidget
 {
+    protected static ?string $pollingInterval = null;
     protected static ?string $heading = 'Fiches pratiques par thématique';
     protected static ?int $sort = 2;
-    protected int | string | array $columnSpan = 'full';
+    protected int|string|array $columnSpan = 'full';
 
     protected function getData(): array
     {
@@ -26,8 +27,14 @@ class ProceduresParCategorieChart extends ChartWidget
                     'label' => 'Fiches pratiques',
                     'data' => $categories->pluck('procedures_count')->toArray(),
                     'backgroundColor' => [
-                        '#009E49', '#FCD116', '#EF2B2D', '#0063CB',
-                        '#18753C', '#F59E0B', '#8B5CF6', '#EC4899',
+                        '#009E49',
+                        '#FCD116',
+                        '#EF2B2D',
+                        '#0063CB',
+                        '#18753C',
+                        '#F59E0B',
+                        '#8B5CF6',
+                        '#EC4899',
                     ],
                 ],
             ],

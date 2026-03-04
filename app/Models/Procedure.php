@@ -58,7 +58,10 @@ class Procedure extends Model
 
     public function getUrlAttribute(): string
     {
-        return route('procedures.show', $this->slug);
+        if ($this->category) {
+            return route('fiches.show', [$this->category->slug, $this->slug]);
+        }
+        return route('thematiques.index');
     }
 
     public function incrementViews(): void

@@ -19,13 +19,14 @@ class RegionResource extends Resource
     protected static ?string $navigationLabel = 'Régions';
     protected static ?string $modelLabel = 'Région';
     protected static ?int $navigationSort = 2;
+    protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Form $form): Form
     {
         return $form->schema([
             Forms\Components\TextInput::make('nom')->required()
                 ->live(onBlur: true)
-                ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', Str::slug($state))),
+                ->afterStateUpdated(fn($state, Forms\Set $set) => $set('slug', Str::slug($state))),
             Forms\Components\TextInput::make('slug')->required()->unique(ignoreRecord: true),
             Forms\Components\TextInput::make('chef_lieu')->required(),
             Forms\Components\TextInput::make('ordre')->numeric()->default(0),
@@ -39,10 +40,10 @@ class RegionResource extends Resource
             Tables\Columns\TextColumn::make('nom')->searchable()->sortable()->weight('bold'),
             Tables\Columns\TextColumn::make('chef_lieu')->sortable(),
         ])
-        ->defaultSort('ordre')
-        ->reorderable('ordre')
-        ->actions([Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])
-        ->bulkActions([Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()])]);
+            ->defaultSort('ordre')
+            ->reorderable('ordre')
+            ->actions([Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])
+            ->bulkActions([Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()])]);
     }
 
     public static function getPages(): array

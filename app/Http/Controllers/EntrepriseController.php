@@ -14,13 +14,13 @@ class EntrepriseController extends Controller
         // Hard-coding slugs known to be enterprise-related or filtering by a flag if it exists.
         // For now, we'll fetch only categories relevant to Business/Commerce (Entreprises & Commerce, Fiscalité, etc.)
         $b2bCategories = ['entreprises-commerce', 'fiscalite-finances', 'travail-emploi'];
-        
+
         $categories = Category::active()
             ->whereIn('slug', $b2bCategories)
             ->ordered()
             ->withCount('procedures')
             ->get();
-        
+
         $popularProcedures = Procedure::active()
             ->whereHas('category', function ($q) use ($b2bCategories) {
                 $q->whereIn('slug', $b2bCategories);
@@ -38,10 +38,11 @@ class EntrepriseController extends Controller
 
         // Fetch Business Life Events specifically
         $lifeEvents = LifeEvent::withCount('procedures')->active()
-            ->where('title', 'LIKE', '%entreprise%')
-            ->orWhere('title', 'LIKE', '%société%')
-            ->orWhere('title', 'LIKE', '%export%')
-            ->orWhere('title', 'LIKE', '%import%')
+            ->where(function ($q) {
+                $q->where('title', 'LIKE', '%entreprise%')
+                    ->orWhere('title', 'LIKE', '%commerce%')
+                    ->orWhere('title', 'LIKE', '%société%');
+            })
             ->get();
 
         return view('pages.entreprises.index', compact('lifeEvents', 'categories', 'popularProcedures', 'eservices'));
@@ -51,7 +52,7 @@ class EntrepriseController extends Controller
     {
         // Filter subcategories and themes only relevant to businesses
         $b2bCategories = ['entreprises-commerce', 'fiscalite-finances', 'travail-emploi', 'agriculture-elevage', 'transport-mobilite'];
-        
+
         $categories = Category::active()
             ->whereIn('slug', $b2bCategories)
             ->ordered()

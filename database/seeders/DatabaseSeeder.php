@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             ArticlesTableSeeder::class,
             ProvincesTableSeeder::class,
             MissionsPageSeeder::class,
+            SiteSettingsSeeder::class,
         ]);
 
         // Liaisons événements de vie ↔ procédures

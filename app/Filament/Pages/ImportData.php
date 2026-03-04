@@ -24,11 +24,11 @@ class ImportData extends Page implements HasForms
     protected static string $view = 'filament.pages.import-data';
 
     // State
-    public ?string $uploadedFile = null;
-    public ?string $selectedImporter = null;
-    public ?array $jsonData = null;
-    public ?array $analysis = null;
-    public ?array $importReport = null;
+    public mixed $uploadedFile;
+    public mixed $selectedImporter;
+    public mixed $jsonData;
+    public mixed $analysis;
+    public mixed $importReport;
     public string $step = 'upload'; // upload → preview → result
 
     public function form(Form $form): Form
@@ -43,14 +43,14 @@ class ImportData extends Page implements HasForms
                 ->maxSize(50 * 1024) // 50MB max
                 ->helperText('Formats acceptés : .json (catégories, procédures, e-services, organismes, événements de vie)')
                 ->reactive()
-                ->visible(fn () => $this->step === 'upload'),
+                ->visible(fn() => $this->step === 'upload'),
 
             Select::make('selectedImporter')
                 ->label('Type de données (auto-détecté)')
                 ->options($service->availableImporters())
                 ->helperText('Le type est détecté automatiquement. Changez-le uniquement si la détection est incorrecte.')
                 ->reactive()
-                ->visible(fn () => $this->step === 'preview'),
+                ->visible(fn() => $this->step === 'preview'),
         ]);
     }
 
@@ -106,7 +106,8 @@ class ImportData extends Page implements HasForms
      */
     public function reAnalyze(): void
     {
-        if (!$this->jsonData || !$this->selectedImporter) return;
+        if (!$this->jsonData || !$this->selectedImporter)
+            return;
 
         $service = new DataImportService();
         $this->analysis = $service->analyze($this->selectedImporter, $this->jsonData);

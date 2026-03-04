@@ -1,20 +1,60 @@
+# Dépendances
 /node_modules
+/vendor
+
+# Build frontend
 /public/build
 /public/hot
+
+# Fichiers générés
 /public/storage
 /storage/*.key
-/vendor
+/storage/framework/cache/data
+/storage/framework/sessions
+/storage/framework/testing
+/storage/framework/views
+/storage/logs
+/bootstrap/cache/*.php
+
+# Environnement
 .env
 .env.backup
 .env.production
+.env.staging
+
+# PHP Cache
 .phpunit.result.cache
+/.phpunit.cache
+
+# Composer binaire (non nécessaire, utiliser la version système)
+composer.phar
+
+# Homestead / Vagrant
 Homestead.json
 Homestead.yaml
 auth.json
+
+# Logs npm/yarn
 npm-debug.log
 yarn-error.log
+
+# Éditeurs
 /.fleet
 /.idea
 /.vscode
 
+# Dossiers d'archives dev
 /_archives_dev
+
+# Fichiers temporaires Word (~$...)
+~$*.docx
+~$*.doc
+~$*.xlsx
+~$*.xls
+
+# Fichiers de vérification temporaires
+.check*.php
+
+# OS
+.DS_Store
+Thumbs.db

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Procedure;
 use App\Models\Eservice;
+use App\Models\Document;
 
 class DemarcheController extends Controller
 {
@@ -25,12 +26,26 @@ class DemarcheController extends Controller
 
     public function formulaires()
     {
-        // Formulaires feature — will be handled via Documents model in future sprint
-        return view('pages.demarches.formulaires', ['documents' => collect()]);
+        $documents = Document::whereNotNull('file_path')
+            ->orderBy('title')
+            ->paginate(20);
+
+        return view('pages.demarches.formulaires', compact('documents'));
     }
 
     public function download(string $slug)
     {
-        abort(404, 'Téléchargement non disponible.');
+        $document = Document::where('slug', $slug)
+            ->firstOrFail();
+
+        $path = storage_path('app/public/' . $document->file_path);
+
+        if (!file_exists($path)) {
+            abort(404, 'Fichier non disponible.');
+        }
+
+        $document->increment('downloads_count');
+
+        return response()->download($path, $document->title . '.' . pathinfo($document->file_path, PATHINFO_EXTENSION));
     }
 }
