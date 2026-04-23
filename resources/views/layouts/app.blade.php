@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="@yield('meta_description', 'Service Public du Burkina Faso — Portail officiel des démarches administratives, fiches pratiques et services en ligne.')">
+    <title>@yield('title', 'Service Public — Burkina Faso')</title>
+    <link rel="icon" type="image/png" href="{{ asset('img/armoirie.png') }}">
+
+    {{-- SEO & OpenGraph --}}
+    <link rel="canonical" href="{{ url()->current() }}">
+    <meta property="og:title" content="@yield('title', 'Service Public — Burkina Faso')">
+    <meta property="og:description"
+        content="@yield('meta_description', 'Portail officiel des démarches administratives, fiches pratiques et services en ligne.')">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="@yield('og_image', asset('img/armoirie.png'))">
+    <meta property="og:locale" content="fr_BF">
+    <meta property="og:site_name" content="Service Public Burkina Faso">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title', 'Service Public — Burkina Faso')">
+    <meta name="twitter:description" content="@yield('meta_description', 'Portail officiel des démarches administratives du Burkina Faso.')">
+    <meta name="twitter:image" content="@yield('og_image', asset('img/armoirie.png'))">
+    @stack('jsonld')
+
+    {{-- Local Institutional Fonts & Core CSS --}}
+    <link href="{{ asset('css/fonts.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Restored Bootstrap Icons & Font Awesome for legacy icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
+    <style>
+        /* Fix pour les icônes Heroicons suite à la suppression de FontAwesome */
+        .w-6 { width: 1.5rem !important; height: 1.5rem !important; }
+        .h-6 { height: 1.5rem !important; width: 1.5rem !important; }
+        .w-5 { width: 1.25rem !important; height: 1.25rem !important; }
+        .h-5 { height: 1.25rem !important; width: 1.25rem !important; }
+        .w-4 { width: 1rem !important; height: 1rem !important; }
+        .h-4 { height: 1rem !important; width: 1rem !important; }
+        .w-3 { width: 0.75rem !important; height: 0.75rem !important; }
+        .h-3 { height: 0.75rem !important; width: 0.75rem !important; }
+        .w-10 { width: 2.5rem !important; height: 2.5rem !important; }
+        .h-10 { height: 2.5rem !important; width: 2.5rem !important; }
+        .w-12 { width: 3rem !important; height: 3rem !important; }
+        .h-12 { height: 3rem !important; width: 3rem !important; }
+        .inline-block { display: inline-block !important; }
+        .align-text-bottom { vertical-align: text-bottom !important; }
+    </style>
+    @stack('styles')
+</head>
+
+<body>
+
+    {{-- Skip to Content (Accessibility) --}}
+    <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
+
+    <div class="tricolor-band"></div>
+
+    <div class="official-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="devise d-flex align-items-center text-muted">
+                <img src="{{ asset('img/drapeau.png') }}" alt="Drapeau du Burkina Faso" height="20" class="me-2">
+                <span class="d-none d-sm-inline fw-bold">BURKINA FASO — La Patrie ou la Mort, nous vaincrons</span>
+                <span class="d-inline d-sm-none fw-bold">La Patrie ou la Mort</span>
+            </div>
+            <div class="d-none d-md-flex gap-4">
+                <a href="tel:+22625306630" class="text-muted text-decoration-none hover-text-dark"><i
+                        class="bi bi-telephone me-1"></i> (+226) 25 30 66 30</a>
+                <a href="mailto:contact@servicepublic.gov.bf" class="text-muted text-decoration-none hover-text-dark"><i
+                        class="bi bi-envelope me-1"></i> contact@servicepublic.gov.bf</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="{{ route('home') }}" class="d-flex align-items-center text-decoration-none">
+                <img src="{{ asset('img/armoirie.png') }}" alt="Armoiries du Burkina Faso" height="60" class="me-3">
+                <div>
+                    <div class="h4 fw-bold text-uppercase mb-0 text-dark ls-1">Service Public</div>
+                    <div class="small fw-semibold text-muted text-uppercase" style="letter-spacing: 1px;">Gouvernement
+                        du Burkina Faso</div>
+                </div>
+            </a>
+
+            <div class="d-none d-lg-flex gap-3">
+                <a href="{{ route('faq') }}" class="btn btn-sm btn-outline-secondary rounded-pill px-3">Aide & FAQ</a>
+                @auth
+                    <a href="/admin" class="btn btn-sm btn-outline-secondary rounded-pill px-3"><i
+                            class="bi bi-gear me-1"></i>Administration</a>
+                @endauth
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-wrapper">
+        <nav class="navbar navbar-expand-lg nav-bar navbar-dark" aria-label="Navigation principale">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Ouvrir le menu de navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav me-auto mb-0 w-100 justify-content-between py-1">
+                        <li class="nav-item">
+                            <a href="{{ route('home') }}"
+                                class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Accueil</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle {{ request()->routeIs('thematiques.*') ? 'active' : '' }}"
+                                href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Thématiques
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('thematiques.index') }}">Toutes les
+                                        thématiques</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                @foreach($navCategories ?? [] as $cat)
+                                    <li><a class="dropdown-item"
+                                            href="{{ route('thematiques.show', $cat->slug) }}">{{ $cat->name }}</a></li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle {{ request()->routeIs('evenements.*') ? 'active' : '' }}"
+                                href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Événements de vie
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('evenements.index') }}">Tous les
+                                        événements</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                @foreach($navLifeEvents ?? [] as $navEvent)
+                                    <li><a class="dropdown-item"
+                                            href="{{ route('evenements.show', $navEvent->slug) }}">{{ $navEvent->title }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('eservices.index') }}"
+                                class="nav-link {{ request()->routeIs('eservices.*') ? 'active' : '' }}">E-services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('entreprises.index') }}" class="nav-link {{ request()->routeIs('entreprises.*') ? 'active' : '' }}"><x-heroicon-o-briefcase class="w-5 h-5 me-1 inline-block align-text-bottom" /> Espace Entreprises</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('annuaire.index') }}" class="nav-link {{ request()->routeIs('annuaire.*') ? 'active' : '' }}">Annuaire</a>
+                        </li>
+                        <li class="nav-item d-flex align-items-center ms-lg-3">
+                            <a href="{{ route('actualites.index') }}" class="nav-link {{ request()->routeIs('actualites.*') ? 'active' : '' }}"><x-heroicon-o-newspaper class="w-5 h-5 me-1 inline-block align-text-bottom" /> Actualités</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main id="main-content">
+        @yield('content')
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top row g-4 mb-5">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ asset('img/armoirie.png') }}" alt="Logo de l'administration" height="40" width="40" loading="lazy" class="me-3 opacity-50">
+                        <span class="h6 fw-bold mb-0 text-uppercase ls-1">Service Public</span>
+                    </div>
+                    <p class="text-white-50 small">Le portail officiel pour vos démarches administratives au Burkina Faso.</p>
+                    
+                    <div class="newsletter-footer mt-4">
+                        <h6 class="text-white fw-bold mb-3">RESTEZ INFORMÉ</h6>
+                        @if(session('newsletter_success'))
+                            <div class="alert alert-success alert-dismissible fade show py-2 small border-0 mb-3" role="alert">
+                                {{ session('newsletter_success') }}
+                                <button type="button" class="btn-close small p-2" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
+                        <form action="{{ route('newsletter.store') }}" method="POST" class="d-flex gap-2">
+                            @csrf
+                            <input type="email" name="email" class="form-control form-control-sm bg-dark border-secondary text-white" placeholder="votre@email.bf" required>
+                            <button type="submit" class="btn btn-warning btn-sm fw-bold px-3">S'inscrire</button>
+                        </form>
+                        @error('email')
+                            <div class="text-danger x-small mt-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 ms-lg-auto">
+                    <h6 class="fw-bold mb-3 text-white">Découvrir</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="{{ route('actualites.index') }}"
+                                class="text-white-50 text-decoration-none small">Actualités</a></li>
+                        <li class="mb-2"><a href="{{ route('evenements.index') }}"
+                                class="text-white-50 text-decoration-none small">Événements de vie</a></li>
+                        <li class="mb-2"><a href="{{ route('thematiques.index') }}"
+                                class="text-white-50 text-decoration-none small">Thématiques</a></li>
+                        <li class="mb-2"><a href="{{ route('a-propos') }}"
+                                class="text-white-50 text-decoration-none small">À propos</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold mb-3 text-white">Administration</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="{{ route('annuaire.index') }}"
+                                class="text-white-50 text-decoration-none small">Annuaire</a></li>
+                        <li class="mb-2"><a href="{{ route('eservices.index') }}"
+                                class="text-white-50 text-decoration-none small">Services en ligne</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold mb-3 text-white">Aide</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="{{ route('faq') }}"
+                                class="text-white-50 text-decoration-none small">Foire aux questions (FAQ)</a></li>
+                        <li class="mb-2"><a href="{{ route('contact') }}"
+                                class="text-white-50 text-decoration-none small">Nous contacter</a></li>
+                        <li class="mb-2"><a href="{{ route('plan-du-site') }}"
+                                class="text-white-50 text-decoration-none small">Plan du site</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom text-center">
+                <div class="mb-2 text-white-50">&copy; {{ date('Y') }} Service Public. Gouvernement du Burkina Faso.
+                </div>
+                <div class="d-flex justify-content-center gap-3 text-white-50 small">
+                    <a href="{{ route('mentions-legales') }}" class="footer-link text-white-50 mb-0">Mentions
+                        légales</a>
+                    <a href="{{ route('accessibilite') }}" class="footer-link text-white-50 mb-0">Accessibilité</a>
+                    <a href="{{ route('contact') }}" class="footer-link text-white-50 mb-0">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    {{-- Scroll to top button --}}
+    <button id="backToTop" class="btn btn-success rounded-circle shadow"
+        style="position:fixed; bottom:2rem; right:2rem; display:none; z-index:999; width:48px; height:48px;"
+        aria-label="Retour en haut de page">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script>
+        const _btn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => _btn.style.display = window.scrollY > 300 ? 'flex' : 'none');
+        _btn.addEventListener('click', () => window.scrollTo({  top: 0, behavior: 'smooth'  }));
+    </script>
+    @stack('scripts')
+</body>
+
+</html>

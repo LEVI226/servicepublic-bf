@@ -1,0 +1,1910 @@
+[
+  {
+    "name": "Agence Nationale de Biosécurité",
+    "type": "Secrétariat",
+    "contact_url": "contact/agence-nationale-de-biosecurite.html",
+    "phones": [],
+    "emails": [],
+    "address": "Secteur 30",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Agence Nationale de l'Aviation Civile",
+    "type": "Institution",
+    "contact_url": "contact/agence-nationale-de-laviation-civile.html",
+    "phones": [
+      "50 30 64 88",
+      "50 31 63 32"
+    ],
+    "emails": [
+      "info@anacburkina.org"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "50 30 64 88",
+    "email": "info@anacburkina.org"
+  },
+  {
+    "name": "Agence Nationale de Promotion des Technologies de l’Information et de la Communication",
+    "type": "Institution",
+    "contact_url": "contact/agence-nationale-de-promotion-des-technologies-de-linformation-et-de-la-communication.html",
+    "phones": [
+      "+226 50 33 13 87",
+      "+226 50 49 00 24"
+    ],
+    "emails": [
+      "infos@anptic.gov.bf"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 50 33 13 87",
+    "email": "infos@anptic.gov.bf"
+  },
+  {
+    "name": "Autorité de Régulation de la Commande Publique",
+    "type": "Institution",
+    "contact_url": "contact/autorite-de-regulation-de-la-commande-publique-arcop.html",
+    "phones": [
+      "+226 25 33 11 67"
+    ],
+    "emails": [
+      "arcop@arcop.bf"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "ARCOP",
+    "phone": "+226 25 33 11 67",
+    "email": "arcop@arcop.bf"
+  },
+  {
+    "name": "Autorité de Régulation des Communications Electroniques et des Postes",
+    "type": "Institution",
+    "contact_url": "contact/autorite-de-regulation-des-communications-electroniques-et-des-postes.html",
+    "phones": [
+      "+226 25 37 53 60"
+    ],
+    "emails": [
+      "secretariat@arcep.bf"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 25 37 53 60",
+    "email": "secretariat@arcep.bf"
+  },
+  {
+    "name": "Autorité nationale de Radioprotection et de Sûreté Nucléaire",
+    "type": "Institution",
+    "contact_url": "contact/autorite-nationale-de-radioprotection-et-de-surete-nucleaire.html",
+    "phones": [
+      "25 46 81 05"
+    ],
+    "emails": [
+      "contact@arsn-bf.net"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 46 81 05",
+    "email": "contact@arsn-bf.net"
+  },
+  {
+    "name": "Autorité Supérieure de Contrôle d'Etat et de Lutte contre la Corruption",
+    "type": "Institution",
+    "contact_url": "contact/autorite-superieure-de-controle-detat-et-de-lutte-contre-la-corruption.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Bureau National des Evaluations Environnementales",
+    "type": "Institution",
+    "contact_url": "contact/bureau-national-des-evaluations-environnementales.html",
+    "phones": [
+      "25414843"
+    ],
+    "emails": [],
+    "address": "03 BP 7044 Ouagadougou 03",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25414843",
+    "email": ""
+  },
+  {
+    "name": "Centre de facilitation des actes de construire",
+    "type": "Institution",
+    "contact_url": "contact/centre-de-facilitation-des-actes-de-construire-cefac.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "CEFAC",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Centre de formalités des entreprises",
+    "type": "Institution",
+    "contact_url": "contact/centre-de-formalites-des-entreprises-cefore.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "CEFORE",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Centre de Santé et de Promotion Sociale",
+    "type": "Institution",
+    "contact_url": "contact/centre-de-sante-et-de-promotion-sociale.html",
+    "phones": [
+      "70 12 23 93"
+    ],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "70 12 23 93",
+    "email": ""
+  },
+  {
+    "name": "Centre Hospitalier Régional / Centre Hospitalier Universitaire",
+    "type": "Institution",
+    "contact_url": "contact/centre-hospitalier-regional-centre-hospitalier-universitaire.html",
+    "phones": [
+      "+226 70 12 64 59",
+      "25 31 16 55"
+    ],
+    "emails": [
+      "chuyobf@gmail.com"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 70 12 64 59",
+    "email": "chuyobf@gmail.com"
+  },
+  {
+    "name": "Le Centre d'Évaluation et de Formation Professionnelle de Ouagadougou",
+    "type": "Centre",
+    "contact_url": "contact/le-centre-devaluation-et-de-formation-professionnelle-de-ouagadougou.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Le Médiateur du Faso",
+    "type": "Institution",
+    "contact_url": "contact/le-mediateur-du-faso.html",
+    "phones": [
+      "0226 25 31"
+    ],
+    "emails": [],
+    "address": "01 BP 5577 Ouagadougou Burkina Faso",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "0226 25 31",
+    "email": ""
+  },
+  {
+    "name": "Le Programme National de Volontariat au Burkina Faso",
+    "type": "Programme",
+    "contact_url": "contact/le-programme-national-de-volontariat-au-burkina-faso.html",
+    "phones": [
+      "26 25 36 40"
+    ],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "26 25 36 40",
+    "email": ""
+  },
+  {
+    "name": "Médiateur du Faso",
+    "type": "",
+    "contact_url": "contact/mediateur-du-faso.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://www.presidence.gov.bf",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Ministère de l''Administration Territoriale et de la Décentralisation",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-de-ladministration-territoriale-et-de-la-decentralisation.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Ministère de l'Agriculture et de l'Aménagement Hydraulique",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-de-lagriculture-et-de-lamenagement-hydraulique.html",
+    "phones": [
+      "25 49 99 00"
+    ],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 49 99 00",
+    "email": ""
+  },
+  {
+    "name": "Ministère de l'Eau et de l'Assainissement",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-de-leau-et-de-lassainissement.html",
+    "phones": [
+      "+226 25 49 89 00"
+    ],
+    "emails": [
+      "contact@mea.gov.bf"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 25 49 89 00",
+    "email": "contact@mea.gov.bf"
+  },
+  {
+    "name": "Ministère de l'Economie, des Finances et du Développement",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-de-leconomie-des-finances-et-du-developpement.html",
+    "phones": [
+      "+226 25 32 42 11",
+      "+226 25 31 44 80"
+    ],
+    "emails": [
+      "info@dgep.gov.bf"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 25 32 42 11",
+    "email": "info@dgep.gov.bf"
+  },
+  {
+    "name": "Ministère de l'Education Nationale et de l'Alphabétisation",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-de-leducation-nationale-et-de-lalphabetisation.html",
+    "phones": [
+      "25 48 09 08"
+    ],
+    "emails": [],
+    "address": "03 BP 7032 Ouagadougou 03, Immeuble de l'éducation, Avenue de l'indépendance, Ouagadougou",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 48 09 08",
+    "email": ""
+  },
+  {
+    "name": "Ministère de l'Enseignement Supérieur, de la Recherche Scientifique et de l'Innovation",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-de-lenseignement-superieur-de-la-recherche-scientifique-et-de-linnovation.html",
+    "phones": [],
+    "emails": [],
+    "address": "Ouaga 03 BP 7130 Ouaga 03, Immeuble de l'Education, Avenue de l'Indépendance, Arrondissement de Baskuy, Commune de Ouagadougou",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Ministère de l'Environnement, de l'Economie Verte et du Changement Climatique",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-de-lenvironnement-de-leconomie-verte-et-du-changement-climatique.html",
+    "phones": [
+      "25 33 54 84",
+      "25 32 40 74"
+    ],
+    "emails": [],
+    "address": "03 BP 7044 Ouagadougou 03",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 33 54 84",
+    "email": ""
+  },
+  {
+    "name": "Ministère de l'Urbanisme et de l'Habitat",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-de-lurbanisme-et-de-lhabitat.html",
+    "phones": [
+      "26 25 30 57",
+      "26 25 32 68"
+    ],
+    "emails": [],
+    "address": "Ouagadougou",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "26 25 30 57",
+    "email": ""
+  },
+  {
+    "name": "Ministère de la Communication et des Relations avec le Parlement",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-de-la-communication-et-des-relations-avec-le-parlement.html",
+    "phones": [],
+    "emails": [
+      "mcrp@communication.gov.bf"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": "mcrp@communication.gov.bf"
+  },
+  {
+    "name": "Ministère de la Culture, des Arts et du Tourisme",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-de-la-culture-des-arts-et-du-tourisme.html",
+    "phones": [
+      "25 31 84 29"
+    ],
+    "emails": [
+      "contact@mcat.bf"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 31 84 29",
+    "email": "contact@mcat.bf"
+  },
+  {
+    "name": "Ministère de la Défense Nationale et des Anciens Combattants",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-de-la-defense-nationale-et-des-anciens-combattants.html",
+    "phones": [
+      "+226 25 40 79 72"
+    ],
+    "emails": [
+      "cabinet.mdnac.226@gmail.com"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 25 40 79 72",
+    "email": "cabinet.mdnac.226@gmail.com"
+  },
+  {
+    "name": "Ministère de la Fonction Publique, du Travail et de la Protection Sociale",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-de-la-fonction-publique-du-travail-et-de-la-protection-sociale.html",
+    "phones": [
+      "25 30 19 52"
+    ],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 30 19 52",
+    "email": ""
+  },
+  {
+    "name": "Ministère de la Jeunesse, de la Formation et de l'Insertion Professionnelle",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-de-la-jeunesse-de-la-formation-et-de-linsertion-professionnelle.html",
+    "phones": [],
+    "emails": [
+      "dcpmjeunesse@gmail.com"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": "dcpmjeunesse@gmail.com"
+  },
+  {
+    "name": "Ministère de la Justice, des Droits Humains et de la Promotion Civique",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-de-la-justice-des-droits-humains-et-de-la-promotion-civique.html",
+    "phones": [
+      "+226 25 30 22 13"
+    ],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 25 30 22 13",
+    "email": ""
+  },
+  {
+    "name": "Ministère de la Santé",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-de-la-sante.html",
+    "phones": [
+      "25 32 63 40"
+    ],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 32 63 40",
+    "email": ""
+  },
+  {
+    "name": "Ministère de la Sécurité",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-de-la-securite.html",
+    "phones": [
+      "+226 25 31 68 91"
+    ],
+    "emails": [
+      "infos@securite.gov.bf"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 25 31 68 91",
+    "email": "infos@securite.gov.bf"
+  },
+  {
+    "name": "Ministère des Affaires Etrangères, de la Coopération",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-des-affaires-etrangeres-de-la-cooperation-et-des-burkinabe-de-lexterieur.html",
+    "phones": [
+      "25 31 80 17"
+    ],
+    "emails": [],
+    "address": "Avenue du Burkina",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 31 80 17",
+    "email": ""
+  },
+  {
+    "name": "Ministère des Infrastructures",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-des-infrastructures.html",
+    "phones": [
+      "25 31 05 63",
+      "25 32 49 54"
+    ],
+    "emails": [],
+    "address": "Avenue de l'Indépendance Immeuble du 15 Octobre, Ouagadougou",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 31 05 63",
+    "email": ""
+  },
+  {
+    "name": "Ministère des Mines et des Carrières",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-des-mines-et-des-carrieres.html",
+    "phones": [
+      "25 31 84 29"
+    ],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 31 84 29",
+    "email": ""
+  },
+  {
+    "name": "Ministère des Ressources Animales et Halieutiques",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-des-ressources-animales-et-halieutiques.html",
+    "phones": [
+      "+226 25 32 61 07"
+    ],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 25 32 61 07",
+    "email": ""
+  },
+  {
+    "name": "Ministère des Sports et des Loisirs",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-des-sports-et-des-loisirs.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Ministère du Commerce, de l'Industrie et de l'Artisanat",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-du-commerce-de-lindustrie-et-de-lartisanat.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Ministère du Développement de l'Eonomie Numérique et des Postes",
+    "type": "Ministère",
+    "contact_url": "contact/ministere-du-developpement-de-leonomie-numerique-et-des-postes.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Minitère des Transports, de la Mobilité Urbaine et de la Sécurité Routière",
+    "type": "Ministère",
+    "contact_url": "contact/minitere-des-transports-de-la-mobilite-urbaine-et-de-la-securite-routiere.html",
+    "phones": [],
+    "emails": [
+      "contact@transports.gov.bf"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": "contact@transports.gov.bf"
+  },
+  {
+    "name": "Observatoire Nationale de l'Emploi et de Formation",
+    "type": "Observatoire",
+    "contact_url": "contact/observatoire-nationale-de-lemploi-et-de-formation.html",
+    "phones": [
+      "25 38 60 70"
+    ],
+    "emails": [
+      "onef@fasonet.bf"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 38 60 70",
+    "email": "onef@fasonet.bf"
+  },
+  {
+    "name": "Office Nationale de l'Eau et de l'Assainissement",
+    "type": "Direction",
+    "contact_url": "contact/office-nationale-de-leau-et-de-lassainissement.html",
+    "phones": [
+      "+226 76 32 13 22"
+    ],
+    "emails": [],
+    "address": "Pissy, Ouagadougou",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 76 32 13 22",
+    "email": ""
+  },
+  {
+    "name": "Parquet du tribunal de grande instance",
+    "type": "Institution",
+    "contact_url": "contact/parquet-du-tribunal-de-grande-instance.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Parquet Général",
+    "type": "Instution",
+    "contact_url": "contact/parquet-general.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Premier Président",
+    "type": "Institution",
+    "contact_url": "contact/premier-president.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Présidence du Faso",
+    "type": "Institution",
+    "contact_url": "contact/presidence-du-faso.html",
+    "phones": [
+      "25 49 83 00"
+    ],
+    "emails": [],
+    "address": "03 BP 7030",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 49 83 00",
+    "email": ""
+  },
+  {
+    "name": "Primature",
+    "type": "Ministère",
+    "contact_url": "contact/premier-ministere.html",
+    "phones": [],
+    "emails": [],
+    "address": "Ouagadougou",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Programme d'Appui à la Politique Sectorielle d'Enseignement et de Formation Techniques et Professionnels",
+    "type": "Programme",
+    "contact_url": "contact/programme-dappui-a-la-politique-sectorielle-denseignement-et-de-formation-techniques-et-professionnels.html",
+    "phones": [
+      "25 33 33 20",
+      "25 48 85 79"
+    ],
+    "emails": [],
+    "address": "12 BP : 26 Ouagadougou 12",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 33 33 20",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale des Ressources en Eau",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-des-ressources-en-eau.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale des Services Vétérinaires",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-des-services-veterinaires.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale des Sports",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-des-sports.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale des Technologies de l'Informatique et de la Communication",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-des-technologies-de-linformatique-et-de-la-communication.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale des Transmissions et de l'Informatique",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-des-transmissions-et-de-linformatique.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Génerale des Transports Terrestres et Maritimes",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-des-transports-terrestres-et-maritimes.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction générale du budget",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-du-budget.html",
+    "phones": [
+      "26 25 32 44"
+    ],
+    "emails": [],
+    "address": "Bâtiment blanc, 395, Avenue du 11 Décembre",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "26 25 32 44",
+    "email": ""
+  },
+  {
+    "name": "Direction générale du contrôle des marchés et engagements financiers",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-du-controle-des-marches-et-engagements-financiers.html",
+    "phones": [
+      "+226 70 26 79 12"
+    ],
+    "emails": [
+      "fogoda2000@yahoo.fr"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 70 26 79 12",
+    "email": "fogoda2000@yahoo.fr"
+  },
+  {
+    "name": "Direction Générale du Secteur des Postes",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-du-secteur-des-postes.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale du Tourisme",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-du-tourisme.html",
+    "phones": [],
+    "emails": [],
+    "address": "Boite Postale 624, Bilbalogho, Ouagadougou",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction générale du trésor et de la comptabilité publiques",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-du-tresor-et-de-la-comptabilite-publiques.html",
+    "phones": [
+      "+226 25 32 49 41",
+      "26 25 32 49"
+    ],
+    "emails": [],
+    "address": "Koulouba,",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 25 32 49 41",
+    "email": ""
+  },
+  {
+    "name": "Direction régionale de la femme, de la solidarité nationale et de la famille",
+    "type": "Direction",
+    "contact_url": "contact/direction-regionale-de-la-femme-de-la-solidarite-nationale-et-de-la-famille.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Centre Hospitalier Universitaire Sourô Sanou",
+    "type": "Institution",
+    "contact_url": "contact/centre-hospitalier-universitaire-souro-sanou.html",
+    "phones": [],
+    "emails": [],
+    "address": "Sikasso Sira, Bobo-Dioulasso",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Centre Médical",
+    "type": "Institution",
+    "contact_url": "contact/centre-medical.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Centre Médical avec Antenne chirurgicale",
+    "type": "Institution",
+    "contact_url": "contact/centre-medical-avec-antenne-chirurgicale.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Centre national des archives",
+    "type": "Institution",
+    "contact_url": "contact/centre-national-des-archives-cna.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "CNA",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Chambre Civile",
+    "type": "Institution",
+    "contact_url": "contact/chambre-civile.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Chambre Commerciale",
+    "type": "Institution",
+    "contact_url": "contact/chambre-commerciale.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Chambre Consultative",
+    "type": "Institution",
+    "contact_url": "contact/chambre-consultative.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Chambre Criminelle",
+    "type": "Institution",
+    "contact_url": "contact/chambre-criminelle.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Chambre du Contentieux",
+    "type": "Institution",
+    "contact_url": "contact/chambre-du-contentieux.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Chambre Sociale",
+    "type": "Institution",
+    "contact_url": "contact/chambre-sociale.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Chambres Réunies",
+    "type": "Institution",
+    "contact_url": "contact/chambres-reunies.html",
+    "phones": [
+      "+226 50 30 64 15"
+    ],
+    "emails": [
+      "webmaster@iventit.com"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 50 30 64 15",
+    "email": "webmaster@iventit.com"
+  },
+  {
+    "name": "Commission de l'Informatique et des Libertés",
+    "type": "Institution",
+    "contact_url": "contact/commission-de-linformatique-et-des-libertes.html",
+    "phones": [
+      "25 37 61 04"
+    ],
+    "emails": [
+      "infos@cil.bf"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 37 61 04",
+    "email": "infos@cil.bf"
+  },
+  {
+    "name": "Tribunaux de grande instance",
+    "type": "Institution",
+    "contact_url": "contact/tribunaux-de-grande-instance.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Commission Electorale Nationale Indépendante",
+    "type": "Institution",
+    "contact_url": "contact/commission-electorale-nationale-independante.html",
+    "phones": [
+      "25 30 00 52",
+      "25 30 16 03",
+      "25 30 80 41"
+    ],
+    "emails": [
+      "ceni@fasonet.bf"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 30 00 52",
+    "email": "ceni@fasonet.bf"
+  },
+  {
+    "name": "Conseil Constitutionnel",
+    "type": "Institution",
+    "contact_url": "contact/conseil-constitutionnel.html",
+    "phones": [
+      "25 30 49 08",
+      "25 30 05 53"
+    ],
+    "emails": [
+      "conseil@conseil-constitutionnel.gov.bf"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 30 49 08",
+    "email": "conseil@conseil-constitutionnel.gov.bf"
+  },
+  {
+    "name": "Conseil d'Etat",
+    "type": "Institution",
+    "contact_url": "contact/conseil-detat.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Conseil Economique et Social",
+    "type": "Institution",
+    "contact_url": "contact/conseil-economique-et-social.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Conseil Supérieur de la Communication",
+    "type": "Institution",
+    "contact_url": "contact/conseil-superieur-de-la-communication.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Coopérative Militaire et Paramilitaire d'Epargne et de Crédit",
+    "type": "Direction",
+    "contact_url": "contact/cooperative-militaire-et-paramilitaire-depargne-et-de-credit.html",
+    "phones": [
+      "+226 25328700"
+    ],
+    "emails": [
+      "info@comipec.bf"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "COMIPEC",
+    "phone": "+226 25328700",
+    "email": "info@comipec.bf"
+  },
+  {
+    "name": "Coordination Opérationnelle des Services de Sécurité",
+    "type": "Institution",
+    "contact_url": "contact/coordination-operationnelle-des-services-de-securite.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Cour de Cassation",
+    "type": "Institution",
+    "contact_url": "contact/cour-de-cassation.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Cour des Comptes",
+    "type": "Institution",
+    "contact_url": "contact/cour-des-comptes.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Département de Documentation et des Publications",
+    "type": "Département",
+    "contact_url": "contact/departement-de-documentation-et-des-publications.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Département de la communication et des relations publiques",
+    "type": "Département",
+    "contact_url": "contact/departement-de-la-communication-et-des-relations-publiques.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Département de la documentation et des publications",
+    "type": "Département",
+    "contact_url": "contact/departement-de-la-documentation-et-des-publications.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Général du Développement de l'Industrie Numérique",
+    "type": "Direction",
+    "contact_url": "contact/direction-general-du-developpement-de-lindustrie-numerique.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale de Espaces et des Aménagements Pastoraux",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-de-espaces-et-des-amenagements-pastoraux.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale de l'Assainissement",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-de-lassainissement.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale de l'Eau Potable",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-de-leau-potable.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale de l'Insertion Professionnelle et de l'Emploi",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-de-linsertion-professionnelle-et-de-lemploi-dgipe.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "DGIPE",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale de la Fonction Publique",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-de-la-fonction-publique.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction générale de la Garde de Sécurité Pénitentiaire",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-de-la-garde-de-securite-penitentiaire.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale de la Jeunesse et de l'Education Permanente",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-de-la-jeunesse-et-de-leducation-permanente.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction générale de la modernisation de l'état civil",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-de-la-modernisation-de-letat-civil.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale de la Pharmacie, du Médicament et des Laboratoires",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-de-la-pharmacie-du-medicament-et-des-laboratoires.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale de la Police Nationale",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-de-la-police-nationale.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale de la Production Végétales",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-de-la-production-vegetales.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction générale de la protection sociale",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-de-la-protection-sociale.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale de Préservation de l'Environnement",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-de-preservation-de-lenvironnement.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale des Affaires Juridiques",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-des-affaires-juridiques.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction générale des arts",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-des-arts.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction générale des collectivités territoriales",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-des-collectivites-territoriales.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale des Eaux et Forêts",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-des-eaux-et-forets.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale des Etudes et des Statistiques Sectrorielles",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-des-etudes-et-des-statistiques-sectrorielles.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction générale des études et statistiques sectorielles",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-des-etudes-et-statistiques-sectorielles.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale des Fonds Nationals pour la  Promotion des Sports et des Loisirs",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-des-fonds-nationals-pour-la-promotion-des-sports-et-des-loisirs.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale des Infrastructures des Communications Électronique",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-des-infrastructures-des-communications-electronique.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale des Infrastructures Hydrauliques",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-des-infrastructures-hydrauliques.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction Générale des Loisirs",
+    "type": "Direction",
+    "contact_url": "contact/direction-generale-des-loisirs.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Programme National de Biodigesteurs",
+    "type": "Programme",
+    "contact_url": "contact/programme-national-de-biodigesteurs.html",
+    "phones": [
+      "25 36 23 88",
+      "25 50 37 53"
+    ],
+    "emails": [
+      "info@pnb-bf.org"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 36 23 88",
+    "email": "info@pnb-bf.org"
+  },
+  {
+    "name": "Programme Nationale de Lutte contre le Paludisme",
+    "type": "Programme",
+    "contact_url": "contact/programme-nationale-de-lutte-contre-le-paludisme.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Programme spécial de création d'Emplois pour les Jeunes et les Femmes",
+    "type": "Programme",
+    "contact_url": "contact/programme-special-de-creation-demplois-pour-les-jeunes-et-les-femmes.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Secrétariat général du gouvernement et du conseil des ministres",
+    "type": "",
+    "contact_url": "contact/secretariat-general-du-gouvernement-et-du-conseil-des-ministres.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://www.presidence.gov.bf",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Secretariat Permanent du Forum",
+    "type": "Secretariat",
+    "contact_url": "contact/secretariat-permanent-du-forum.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Secretariat Permanent pour la Gestion Intégrée des Ressources en Eau",
+    "type": "Secrétariat",
+    "contact_url": "contact/secretariat-permanent-pour-la-gestion-integree-des-ressources-en-eau.html",
+    "phones": [
+      "25 32 42 47"
+    ],
+    "emails": [],
+    "address": "Sis à Koulouba côté Ouest du building Lamizana,",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 32 42 47",
+    "email": ""
+  },
+  {
+    "name": "Service d’Information du Gouvernement",
+    "type": "Service",
+    "contact_url": "contact/service-dinformation-du-gouvernement.html",
+    "phones": [
+      "25 32 62 57"
+    ],
+    "emails": [
+      "infosig.bf@gmail.com"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "SIG",
+    "phone": "25 32 62 57",
+    "email": "infosig.bf@gmail.com"
+  },
+  {
+    "name": "SIAO",
+    "type": "Centre",
+    "contact_url": "contact/siao.html",
+    "phones": [
+      "+226 25 37 32 56"
+    ],
+    "emails": [
+      "salonsiao@ymail.com"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 25 37 32 56",
+    "email": "salonsiao@ymail.com"
+  },
+  {
+    "name": "sous-Programme Augmentation de Revenus et Promotion de l'Emploi Décent en faveurs des femmes et des jeunes",
+    "type": "Institution",
+    "contact_url": "contact/sous-programme-augmentation-de-revenus-et-promotion-de-lemploi-decent-en-faveurs-des-femmes-et-des-jeunes.html",
+    "phones": [
+      "25 41 18 71"
+    ],
+    "emails": [],
+    "address": "03 BP 7016 Ouagadougou 03",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 41 18 71",
+    "email": ""
+  },
+  {
+    "name": "Tribunal administratif",
+    "type": "Institution",
+    "contact_url": "contact/tribunal-administratif.html",
+    "phones": [
+      "+226 25 31 30 58"
+    ],
+    "emails": [],
+    "address": "01 BP 6584 Ouagadougou 01",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 25 31 30 58",
+    "email": ""
+  },
+  {
+    "name": "Tribunal de commerce",
+    "type": "Institution",
+    "contact_url": "contact/tribunal-de-commerce.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Tribunal de Grande Instance",
+    "type": "Institution",
+    "contact_url": "contact/tribunal-de-grande-instance.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Département des affaires institutionnelles et de la bonne gouvernance",
+    "type": "Département",
+    "contact_url": "contact/departement-des-affaires-institutionnelles-et-de-la-bonne-gouvernance.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction de l'administration et des finances",
+    "type": "Direction",
+    "contact_url": "contact/direction-de-ladministration-et-des-finances.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction de l'Expertise Technique et du Contrôle",
+    "type": "Direction",
+    "contact_url": "contact/direction-de-lexpertise-technique-et-du-controle.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction de la Formation Technique, de la Reglementation et des Normes",
+    "type": "Direction",
+    "contact_url": "contact/direction-de-la-formation-technique-de-la-reglementation-et-des-normes.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction de la Nutrition",
+    "type": "Direction",
+    "contact_url": "contact/direction-de-la-nutrition.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction de la Solde",
+    "type": "Direction",
+    "contact_url": "contact/direction-de-la-solde.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction des Affaires Juridiques et du Contentieux",
+    "type": "Direction",
+    "contact_url": "contact/direction-des-affaires-juridiques-et-du-contentieux.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction des Guichets uniques du commerce et de l'Investissement (DGU-CI)",
+    "type": "Direction",
+    "contact_url": "contact/direction-des-guichets-uniques-du-commerce-et-de-linvestissement-dgu-ci.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction des marchés publics",
+    "type": "Direction",
+    "contact_url": "contact/direction-des-marches-publics.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction des Placements, des Adoptions et des Parrainages",
+    "type": "Direction",
+    "contact_url": "contact/direction-des-placements-des-adoptions-et-des-parrainages.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction des ressources humaines",
+    "type": "Direction",
+    "contact_url": "contact/direction-des-ressources-humaines.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction des services informatiques",
+    "type": "Direction",
+    "contact_url": "contact/direction-des-services-informatiques.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction régionale de la santé",
+    "type": "Direction",
+    "contact_url": "contact/direction-regionale-de-la-sante.html",
+    "phones": [],
+    "emails": [],
+    "address": "Ziniaré",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Direction régionale du travail et de la protection sociale",
+    "type": "Direction",
+    "contact_url": "contact/direction-regionale-du-travail-et-de-la-protection-sociale.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Directions régionales chargées des Eaux et Forêts",
+    "type": "Direction",
+    "contact_url": "contact/directions-regionales-chargees-des-eaux-et-forets.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Directions Régionales de l'Environnement, de l'Economie Verte et du Changement Climatique",
+    "type": "Direction",
+    "contact_url": "contact/directions-regionales-de-lenvironnement-de-leconomie-verte-et-du-changement-climatique.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Fond d'Appui aux Initiatives des Jeunes",
+    "type": "Fonds",
+    "contact_url": "contact/fond-dappui-aux-initiatives-des-jeunes.html",
+    "phones": [
+      "+226 25 33 97 90"
+    ],
+    "emails": [
+      "secredirect.faij@fasonet.bf"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 25 33 97 90",
+    "email": "secredirect.faij@fasonet.bf"
+  },
+  {
+    "name": "Fonds d'Appui au Secteur Informel",
+    "type": "Fonds",
+    "contact_url": "contact/fonds-dappui-au-secteur-informel.html",
+    "phones": [
+      "+226 25 31 80 62"
+    ],
+    "emails": [
+      "fasi@fasonet.bf"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "+226 25 31 80 62",
+    "email": "fasi@fasonet.bf"
+  },
+  {
+    "name": "Fonds dAppui aux Activités Rémunératrices des Femmes",
+    "type": "Fonds",
+    "contact_url": "contact/fonds-dappui-aux-activites-remuneratrices-des-femmes.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Fonds National pour l'Education et la Recherche",
+    "type": "Fonds",
+    "contact_url": "contact/fonds-national-pour-leducation-et-la-recherche.html",
+    "phones": [
+      "26 31 87 31",
+      "26 31 87 32"
+    ],
+    "emails": [],
+    "address": "01 BP 6312 Ouagadougou 01",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "26 31 87 31",
+    "email": ""
+  },
+  {
+    "name": "Grande Chancellerie des Ordres Burkinabè",
+    "type": "Institution",
+    "contact_url": "contact/grande-chancellerie.html",
+    "phones": [
+      "25 32 44 77",
+      "25 37 48 39"
+    ],
+    "emails": [],
+    "address": "01 B.P 4878 Ouagadougou 01 Burkina Faso",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 32 44 77",
+    "email": ""
+  },
+  {
+    "name": "Greffe Central",
+    "type": "Institution",
+    "contact_url": "contact/greffe-central.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Guichet Virtuel de l'Administration Publique",
+    "type": "Secrétariat",
+    "contact_url": "contact/guichet-virtuel-de-ladministration-publique.html",
+    "phones": [],
+    "emails": [],
+    "address": "",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "",
+    "email": ""
+  },
+  {
+    "name": "Institut national de la statistique et de la démographie",
+    "type": "Instutition",
+    "contact_url": "contact/institut-national-de-la-statistique-et-de-la-demographie.html",
+    "phones": [
+      "25 47 80 51",
+      "25 37 62 04"
+    ],
+    "emails": [
+      "insdbf@yahoo.fr"
+    ],
+    "address": "email",
+    "website": "http://data.gov.bf/",
+    "acronym": "",
+    "phone": "25 47 80 51",
+    "email": "insdbf@yahoo.fr"
+  }
+]

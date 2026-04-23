@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Je crée mon entreprise",
+    "slug": "je-cree-mon-entreprise",
+    "description": "Toutes les démarches pour : Je crée mon entreprise",
+    "linked_procedures": []
+  },
+  {
+    "title": "Je déclare une naissance",
+    "slug": "je-declare-une-naissance",
+    "description": "Toutes les démarches pour : Je déclare une naissance",
+    "linked_procedures": []
+  },
+  {
+    "title": "Je me marie",
+    "slug": "je-me-marie",
+    "description": "Toutes les démarches pour : Je me marie",
+    "linked_procedures": []
+  },
+  {
+    "title": "Je demande un passeport",
+    "slug": "je-demande-un-passeport",
+    "description": "Toutes les démarches pour : Je demande un passeport",
+    "linked_procedures": []
+  },
+  {
+    "title": "Je demande ma CNIB",
+    "slug": "je-demande-ma-cnib",
+    "description": "Toutes les démarches pour : Je demande ma CNIB",
+    "linked_procedures": []
+  },
+  {
+    "title": "Je cherche un emploi",
+    "slug": "je-cherche-un-emploi",
+    "description": "Toutes les démarches pour : Je cherche un emploi",
+    "linked_procedures": []
+  },
+  {
+    "title": "Je construis ma maison",
+    "slug": "je-construis-ma-maison",
+    "description": "Toutes les démarches pour : Je construis ma maison",
+    "linked_procedures": []
+  },
+  {
+    "title": "Je déclare un décès",
+    "slug": "je-declare-un-deces",
+    "description": "Toutes les démarches pour : Je déclare un décès",
+    "linked_procedures": []
+  },
+  {
+    "title": "Je pars à la retraite",
+    "slug": "je-pars-a-la-retraite",
+    "description": "Toutes les démarches pour : Je pars à la retraite",
+    "linked_procedures": []
+  },
+  {
+    "title": "Je scolarise mon enfant",
+    "slug": "je-scolarise-mon-enfant",
+    "description": "Toutes les démarches pour : Je scolarise mon enfant",
+    "linked_procedures": []
+  },
+  {
+    "title": "J'importe ou j'exporte",
+    "slug": "jimporte-ou-jexporte",
+    "description": "Toutes les démarches pour : J'importe ou j'exporte",
+    "linked_procedures": []
+  },
+  {
+    "title": "Je demande un casier judiciaire",
+    "slug": "je-demande-un-casier-judiciaire",
+    "description": "Toutes les démarches pour : Je demande un casier judiciaire",
+    "linked_procedures": []
+  }
+]
