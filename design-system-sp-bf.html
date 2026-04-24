@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Design System — Service Public BF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   DESIGN SYSTEM TOKENS — SERVICE PUBLIC BURKINA FASO
+   Niveau 1 : Primitives · Niveau 2 : Sémantiques · Niveau 3 : Composants
+   ═══════════════════════════════════════════════════════════════════ */
+:root {
+  /* ── 1. PRIMITIVES (Global Tokens) ── */
+  --bf-green:       #00843B;
+  --bf-green-dark:  #006B30;
+  --bf-green-deep:  #004D22;
+  --bf-green-soft:  #E8F5EE;
+  --bf-green-mid:   #C8E8D5;
+  --bf-red:         #E30613;
+  --bf-red-dark:    #B8040F;
+  --bf-red-soft:    #FDECEA;
+  --bf-yellow:      #FFED00;
+  --bf-yellow-dark: #C9A800;
+  --bf-yellow-soft: #FFFDE0;
+  --gray-900: #1A1A2E;
+  --gray-800: #1F2937;
+  --gray-700: #374151;
+  --gray-600: #4B5563;
+  --gray-500: #6B7280;
+  --gray-400: #9CA3AF;
+  --gray-300: #D1D5DB;
+  --gray-200: #E5E7EB;
+  --gray-100: #F3F4F6;
+  --gray-50:  #F9FAFB;
+  --warm-50:  #FAF9F5;
+  --warm-100: #F0EFEA;
+  --warm-200: #E5E2DA;
+  --white:    #FFFFFF;
+
+  /* ── 2. SEMANTIC TOKENS ── */
+  --color-primary:        var(--bf-green);
+  --color-primary-dark:   var(--bf-green-dark);
+  --color-primary-deep:   var(--bf-green-deep);
+  --color-primary-soft:   var(--bf-green-soft);
+  --color-danger:         var(--bf-red);
+  --color-danger-dark:    var(--bf-red-dark);
+  --color-danger-soft:    var(--bf-red-soft);
+  --color-warning:        var(--bf-yellow);
+  --color-warning-dark:   var(--bf-yellow-dark);
+  --color-warning-soft:   var(--bf-yellow-soft);
+  --color-info:           #0A448A;
+  --color-info-soft:      #EBF2FF;
+  --color-success:        var(--bf-green);
+  --color-success-soft:   var(--bf-green-soft);
+  --text-strong:    var(--gray-800);
+  --text-main:      var(--gray-700);
+  --text-muted:     var(--gray-500);
+  --text-light:     var(--gray-400);
+  --text-inverse:   var(--white);
+  --surface-base:   var(--warm-50);
+  --surface-warm:   var(--warm-100);
+  --surface-card:   var(--white);
+  --surface-hover:  var(--gray-100);
+  --surface-dash:   var(--gray-50);
+  --sidebar-dark:   var(--gray-900);
+  --border-light:   var(--warm-200);
+  --border-mid:     var(--gray-300);
+  --border-focus:   rgba(0,132,59,.25);
+
+  /* ── 3. COMPONENT TOKENS ── */
+  --navbar-bg:       var(--gray-900);
+  --navbar-text:     rgba(255,255,255,.8);
+  --navbar-hover:    var(--white);
+  --navbar-active:   var(--white);
+  --strip-height:    4px;
+  --btn-radius:      50rem;
+  --card-radius:     .75rem;
+  --card-shadow:     0 1px 3px rgba(0,0,0,.06);
+  --card-shadow-h:   0 8px 24px rgba(0,0,0,.08);
+  --radius-sm:       .25rem;
+  --radius-md:       .5rem;
+  --radius-lg:       .75rem;
+  --shadow-sm:       0 1px 2px rgba(0,0,0,.05);
+  --shadow-md:       0 4px 12px rgba(0,0,0,.06);
+  --shadow-lg:       0 10px 30px rgba(0,0,0,.08);
+  --transition:      all .18s ease;
+  --font-serif:      'Libre Baskerville', Georgia, serif;
+  --font-sans:       'Source Sans 3', system-ui, sans-serif;
+  --font-admin:      'Inter', system-ui, sans-serif;
+}
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--surface-base);
+  color: var(--text-main);
+  font-size: 15px;
+  line-height: 1.6;
+}
+h1,h2,h3,h4,h5,h6 { font-family: var(--font-serif); color: var(--text-strong); line-height: 1.2; }
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code, pre { font-family: 'Courier New', monospace; }
+
+/* ── DS LAYOUT ── */
+.ds-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--gray-900);
+  border-bottom: 3px solid var(--bf-green);
+}
+.ds-nav-inner {
+  max-width: 1280px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; gap: 8px; height: 52px;
+  overflow-x: auto;
+}
+.ds-nav a {
+  color: rgba(255,255,255,.7); font-family: var(--font-sans);
+  font-size: 13px; font-weight: 600; padding: 6px 12px;
+  border-radius: 6px; white-space: nowrap;
+  transition: var(--transition); text-decoration: none;
+}
+.ds-nav a:hover { color: #fff; background: rgba(255,255,255,.1); }
+.ds-nav .logo-text {
+  color: #fff; font-family: var(--font-serif);
+  font-size: 15px; font-weight: 700; margin-right: 16px;
+  white-space: nowrap; border-right: 1px solid rgba(255,255,255,.2); padding-right: 16px;
+}
+.ds-hero {
+  background: var(--gray-900);
+  padding: 64px 24px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.ds-hero::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: var(--strip-height);
+  background: linear-gradient(to right, var(--bf-red) 33%, var(--bf-yellow) 33%, var(--bf-yellow) 66%, var(--bf-green) 66%);
+}
+.ds-hero h1 {
+  color: #fff; font-size: clamp(28px, 5vw, 48px); font-weight: 700;
+  margin-bottom: 12px;
+}
+.ds-hero h1 span { color: var(--bf-yellow); }
+.ds-hero p { color: rgba(255,255,255,.65); font-size: 17px; max-width: 640px; margin: 0 auto 32px; }
+.ds-hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.ds-badge-pill {
+  background: rgba(255,255,255,.1); color: rgba(255,255,255,.8);
+  font-size: 12px; font-weight: 600; padding: 4px 14px;
+  border-radius: 50rem; border: 1px solid rgba(255,255,255,.2);
+  font-family: var(--font-sans);
+}
+.ds-main { max-width: 1280px; margin: 0 auto; padding: 48px 24px; }
+.ds-section {
+  margin-bottom: 72px;
+  scroll-margin-top: 60px;
+}
+.ds-section-label {
+  font-family: var(--font-sans); font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--color-primary); margin-bottom: 8px;
+}
+.ds-section-title {
+  font-family: var(--font-serif); font-size: 28px; font-weight: 700;
+  color: var(--text-strong); margin-bottom: 8px;
+}
+.ds-section-desc {
+  color: var(--text-muted); font-size: 15px; max-width: 680px;
+  margin-bottom: 32px; line-height: 1.7;
+}
+.ds-divider {
+  width: 48px; height: 3px; background: var(--bf-yellow);
+  margin-bottom: 24px; border-radius: 2px;
+}
+.ds-grid { display: grid; gap: 16px; }
+.ds-grid-2 { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.ds-grid-3 { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.ds-grid-4 { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+.ds-card-doc {
+  background: var(--white); border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg); padding: 24px;
+}
+.ds-preview {
+  background: var(--white); border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.ds-preview-area {
+  padding: 32px; background: var(--warm-50);
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+.ds-preview-area.dark { background: var(--gray-900); }
+.ds-code-block {
+  background: var(--gray-900); color: #e2e8f0;
+  padding: 20px 24px; font-size: 12px; line-height: 1.9;
+  font-family: 'Courier New', monospace; overflow-x: auto;
+}
+.ds-code-block .comment { color: #6A9955; }
+.ds-code-block .prop    { color: #9CDCFE; }
+.ds-code-block .val     { color: #CE9178; }
+.ds-code-block .hl      { background: rgba(0,132,59,.2); display: inline-block; width: 100%; }
+.ds-token-label { font-size: 11px; color: var(--text-muted); font-family: var(--font-sans); margin-top: 4px; }
+
+/* ── COLOR SWATCHES ── */
+.color-group { margin-bottom: 24px; }
+.color-group-title {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--text-muted);
+  margin-bottom: 12px; font-family: var(--font-sans);
+}
+.color-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.color-swatch {
+  flex: 0 0 auto; width: 100px;
+}
+.color-swatch-box {
+  height: 72px; border-radius: 8px;
+  border: 1px solid rgba(0,0,0,.08);
+  margin-bottom: 8px;
+  display: flex; align-items: flex-end; justify-content: flex-end;
+  padding: 6px;
+}
+.color-swatch-box .usage-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,.5);
+}
+.color-swatch-name { font-size: 12px; font-weight: 600; color: var(--text-strong); font-family: var(--font-sans); }
+.color-swatch-hex  { font-size: 11px; color: var(--text-muted); font-family: 'Courier New', monospace; }
+.color-swatch-role { font-size: 10px; color: var(--text-light); margin-top: 2px; }
+.color-swatch.official .color-swatch-box {
+  outline: 3px solid var(--bf-yellow);
+  outline-offset: 2px;
+}
+
+/* ── TYPOGRAPHY SHOWCASE ── */
+.typo-specimen {
+  background: var(--white); border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg); padding: 40px;
+}
+.typo-row { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border-light); }
+.typo-row:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.typo-meta { display: flex; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
+.typo-meta span {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--text-muted); font-family: var(--font-sans);
+}
+.typo-meta .typo-tag {
+  background: var(--bf-green-soft); color: var(--bf-green-dark);
+  padding: 2px 8px; border-radius: 4px;
+}
+
+/* ── COMPONENTS ── */
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 24px; border-radius: var(--btn-radius);
+  font-family: var(--font-sans); font-size: 14px; font-weight: 600;
+  cursor: pointer; border: 2px solid transparent;
+  transition: var(--transition); line-height: 1; white-space: nowrap;
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--color-primary); color: #fff;
+  border-color: var(--color-primary);
+}
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark); color: #fff; text-decoration: none;
+}
+.btn-secondary {
+  background: #fff; color: var(--text-strong);
+  border-color: var(--border-mid);
+}
+.btn-secondary:hover { background: var(--surface-hover); color: var(--text-strong); }
+.btn-outline {
+  background: transparent; color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.btn-outline:hover { background: var(--color-primary); color: #fff; }
+.btn-danger {
+  background: var(--color-danger); color: #fff;
+  border-color: var(--color-danger);
+}
+.btn-danger:hover { background: var(--color-danger-dark); }
+.btn-cta {
+  background: var(--bf-yellow); color: var(--gray-900);
+  border-color: var(--bf-yellow); font-weight: 700;
+}
+.btn-cta:hover { background: #F0DC00; color: var(--gray-900); }
+.btn-sm { padding: 7px 16px; font-size: 13px; }
+.btn-lg { padding: 14px 32px; font-size: 16px; }
+.btn-link {
+  background: none; border: none; color: var(--color-primary);
+  font-family: var(--font-sans); font-size: 14px; font-weight: 600;
+  cursor: pointer; padding: 0; display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-link:hover { color: var(--color-primary-dark); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn-icon { width: 20px; height: 20px; }
+
+/* Badges */
+.badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 12px; border-radius: 50rem;
+  font-family: var(--font-sans); font-size: 12px; font-weight: 700;
+  white-space: nowrap;
+}
+.badge-success { background: var(--bf-green-soft); color: var(--bf-green-dark); }
+.badge-danger  { background: var(--bf-red-soft);   color: var(--bf-red-dark); }
+.badge-warning { background: #FFF9C4;               color: #7A6000; }
+.badge-info    { background: var(--color-info-soft); color: var(--color-info); }
+.badge-neutral { background: var(--gray-100);        color: var(--gray-600); }
+.badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+/* Alerts */
+.alert {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 14px 18px; border-radius: var(--radius-md);
+  border: 1px solid transparent; border-left-width: 4px;
+  font-family: var(--font-sans); font-size: 14px; line-height: 1.5;
+  margin-bottom: 8px;
+}
+.alert-icon { width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px; }
+.alert-success { background: var(--bf-green-soft); border-color: var(--bf-green-mid); border-left-color: var(--color-primary); color: var(--bf-green-deep); }
+.alert-danger  { background: var(--bf-red-soft);   border-color: #F5C6CB; border-left-color: var(--color-danger); color: #721C24; }
+.alert-warning { background: var(--bf-yellow-soft); border-color: #FFE082; border-left-color: var(--bf-yellow-dark); color: #5C4200; }
+.alert-info    { background: var(--color-info-soft); border-color: #BDD9FF; border-left-color: var(--color-info); color: #0A448A; }
+
+/* Cards */
+.card {
+  background: var(--surface-card); border: 1px solid var(--border-light);
+  border-radius: var(--card-radius); box-shadow: var(--card-shadow);
+  transition: var(--transition); overflow: hidden;
+}
+.card:hover { box-shadow: var(--card-shadow-h); transform: translateY(-3px); }
+.card-body { padding: 24px; }
+.card-title { font-family: var(--font-serif); font-size: 16px; font-weight: 700; color: var(--text-strong); margin-bottom: 8px; }
+.card-text  { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+.card-link  { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--color-primary); margin-top: 14px; }
+.card-icon-wrapper {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: var(--bf-green-soft); display: flex; align-items: center;
+  justify-content: center; margin-bottom: 16px;
+  font-size: 20px;
+}
+.card-kpi {
+  background: var(--surface-card); border: 1px solid var(--border-light);
+  border-radius: var(--card-radius); padding: 24px;
+}
+.card-kpi-value { font-family: var(--font-admin); font-size: 32px; font-weight: 700; color: var(--text-strong); }
+.card-kpi-label { font-size: 13px; color: var(--text-muted); font-family: var(--font-sans); margin-top: 4px; }
+.card-kpi-delta { font-size: 12px; font-weight: 600; font-family: var(--font-sans); margin-top: 8px; }
+.card-kpi-delta.up   { color: var(--color-primary); }
+.card-kpi-delta.down { color: var(--color-danger); }
+
+/* Search bar */
+.search-wrapper {
+  display: flex; align-items: center;
+  background: var(--white); border: 2px solid var(--border-mid);
+  border-radius: 50rem; overflow: hidden;
+  box-shadow: var(--shadow-md);
+  padding: 4px 6px 4px 20px;
+  max-width: 600px; width: 100%;
+}
+.search-wrapper:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--border-focus), var(--shadow-md);
+}
+.search-input {
+  flex: 1; border: none; outline: none;
+  font-family: var(--font-sans); font-size: 15px;
+  color: var(--text-strong); background: transparent;
+  padding: 6px 0;
+}
+.search-input::placeholder { color: var(--text-light); }
+.search-btn {
+  background: var(--color-primary); color: #fff;
+  border: none; border-radius: 50rem;
+  padding: 10px 20px; font-family: var(--font-sans);
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  transition: var(--transition); white-space: nowrap;
+}
+.search-btn:hover { background: var(--color-primary-dark); }
+.search-tags { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; justify-content: center; }
+.search-tag {
+  font-size: 13px; color: rgba(255,255,255,.7);
+  border: 1px solid rgba(255,255,255,.25); border-radius: 50rem;
+  padding: 4px 12px; cursor: pointer; transition: var(--transition);
+  font-family: var(--font-sans);
+}
+.search-tag:hover { background: rgba(255,255,255,.15); color: #fff; }
+
+/* Navbar preview */
+.nav-preview {
+  background: var(--gray-900); border-radius: var(--radius-lg);
+  overflow: hidden; box-shadow: var(--shadow-lg);
+}
+.nav-strip { height: 4px; background: linear-gradient(to right, var(--bf-red) 33%, var(--bf-yellow) 33%, var(--bf-yellow) 66%, var(--bf-green) 66%); }
+.nav-official {
+  background: #fff; padding: 8px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--border-light); font-size: 12px;
+}
+.nav-official .flag-mini { display: flex; height: 14px; width: 24px; border-radius: 2px; overflow: hidden; }
+.nav-official .flag-top { flex: 1; background: var(--bf-red); }
+.nav-official .flag-bot { flex: 1; background: var(--bf-green); }
+.nav-main {
+  padding: 12px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; }
+.nav-logo .logo-box { width: 32px; height: 32px; background: var(--bf-green); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; font-weight: 700; }
+.nav-logo-text { font-family: var(--font-serif); font-size: 13px; color: #fff; font-weight: 700; line-height: 1.2; }
+.nav-logo-sub { font-size: 9px; color: rgba(255,255,255,.6); }
+.nav-links { display: flex; gap: 4px; }
+.nav-link {
+  color: rgba(255,255,255,.75); font-size: 13px; font-weight: 600;
+  padding: 6px 12px; border-radius: 6px; cursor: pointer;
+  font-family: var(--font-sans); transition: var(--transition);
+}
+.nav-link:hover { color: #fff; background: rgba(255,255,255,.1); }
+.nav-link.active { color: #fff; border-bottom: 2px solid var(--bf-green); border-radius: 0; }
+
+/* Breadcrumb */
+.breadcrumb {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--text-muted); font-family: var(--font-sans);
+  flex-wrap: wrap;
+}
+.breadcrumb a { color: var(--color-primary); }
+.breadcrumb .sep { color: var(--text-light); }
+.breadcrumb .current { color: var(--text-strong); font-weight: 600; }
+
+/* Page header */
+.page-header { padding: 32px 0; }
+.page-header-label {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--color-primary);
+  font-family: var(--font-sans); margin-bottom: 8px;
+  display: flex; align-items: center; gap: 8px;
+}
+.page-header-label::before {
+  content: ''; width: 24px; height: 2px; background: var(--bf-yellow);
+}
+.page-header h1 { font-size: clamp(24px, 4vw, 36px); font-weight: 700; margin-bottom: 8px; }
+.page-header p { color: var(--text-muted); font-size: 16px; max-width: 560px; }
+.page-header-rule { height: 3px; width: 48px; background: var(--bf-yellow); margin-top: 16px; border-radius: 2px; }
+
+/* Pagination */
+.pagination { display: flex; gap: 6px; align-items: center; }
+.page-item {
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 600; font-family: var(--font-sans);
+  cursor: pointer; transition: var(--transition);
+  border: 1px solid var(--border-light); color: var(--text-muted);
+  background: var(--white);
+}
+.page-item:hover { background: var(--bf-green-soft); color: var(--color-primary); border-color: var(--bf-green-mid); }
+.page-item.active { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+.page-item.disabled { opacity: .4; cursor: not-allowed; }
+
+/* Footer preview */
+.footer-preview {
+  background: var(--gray-900);
+  border-radius: var(--radius-lg); padding: 40px;
+  overflow: hidden; position: relative;
+}
+.footer-preview::before {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(to right, var(--bf-red) 33%, var(--bf-yellow) 33%, var(--bf-yellow) 66%, var(--bf-green) 66%);
+}
+.footer-col h4 { font-family: var(--font-sans); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,.4); margin-bottom: 12px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.footer-col ul li a { color: rgba(255,255,255,.65); font-size: 13px; font-family: var(--font-sans); transition: var(--transition); }
+.footer-col ul li a:hover { color: #fff; padding-left: 4px; }
+
+/* Admin sidebar */
+.admin-layout { display: flex; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+.admin-sidebar {
+  width: 220px; background: var(--white);
+  border-right: 1px solid var(--border-light); flex-shrink: 0;
+}
+.admin-sidebar-header {
+  padding: 16px; border-bottom: 1px solid var(--border-light);
+  font-family: var(--font-sans); font-size: 12px; font-weight: 700;
+  color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;
+}
+.admin-sidebar-group { padding: 12px 8px; }
+.admin-sidebar-group-title {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--text-light);
+  padding: 0 8px; margin-bottom: 4px; font-family: var(--font-sans);
+}
+.sidebar-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 12px; border-radius: 8px;
+  font-size: 13px; font-weight: 500; color: var(--text-muted);
+  cursor: pointer; transition: var(--transition); font-family: var(--font-sans);
+  margin-bottom: 2px;
+}
+.sidebar-item:hover { background: var(--surface-hover); color: var(--text-strong); }
+.sidebar-item.active {
+  background: var(--bf-green-soft); color: var(--color-primary);
+  border-left: 3px solid var(--color-primary); font-weight: 600;
+}
+.sidebar-item .si-icon { width: 16px; height: 16px; flex-shrink: 0; opacity: .6; }
+.sidebar-item.active .si-icon { opacity: 1; }
+.admin-content { flex: 1; background: var(--surface-dash); padding: 24px; min-height: 400px; }
+.admin-topbar {
+  background: var(--white); border-bottom: 1px solid var(--border-light);
+  padding: 0 24px; height: 52px; display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 20px;
+  border-radius: 8px;
+}
+.admin-topbar-title { font-family: var(--font-serif); font-size: 18px; font-weight: 700; }
+.admin-topbar-search {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--gray-100); border: 1px solid var(--border-light);
+  border-radius: 8px; padding: 6px 12px; font-size: 13px;
+  color: var(--text-muted); font-family: var(--font-sans);
+}
+.admin-kpi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+
+/* Table */
+.admin-table { width: 100%; border-collapse: collapse; font-family: var(--font-admin); font-size: 13px; }
+.admin-table th {
+  background: var(--gray-50); color: var(--text-muted);
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .8px; padding: 10px 14px; text-align: left;
+  border-bottom: 1px solid var(--border-light);
+}
+.admin-table td { padding: 10px 14px; border-bottom: 1px solid var(--gray-100); color: var(--text-main); }
+.admin-table tr:hover td { background: var(--surface-hover); }
+.admin-table tr:last-child td { border-bottom: none; }
+
+/* Flag usages */
+.flag-full { display: flex; flex-direction: column; width: 80px; border-radius: 4px; overflow: hidden; box-shadow: var(--shadow-sm); position: relative; }
+.flag-red  { height: 24px; background: var(--bf-red); }
+.flag-green{ height: 24px; background: var(--bf-green); }
+.flag-star { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 20px; line-height: 1; }
+.flag-strip-h { height: 6px; background: linear-gradient(to right, var(--bf-red) 33%, var(--bf-yellow) 33%, var(--bf-yellow) 66%, var(--bf-green) 66%); border-radius: 3px; }
+.flag-split { display: flex; gap: 2px; }
+.flag-split-r { width: 20px; height: 48px; background: var(--bf-red); border-radius: 4px 0 0 4px; }
+.flag-split-g { width: 20px; height: 48px; background: var(--bf-green); border-radius: 0 4px 4px 0; }
+.flag-star-only { font-size: 40px; line-height: 1; color: var(--bf-yellow); }
+
+/* Use rules box */
+.use-rule {
+  border: 1px solid var(--border-light); border-radius: var(--radius-md);
+  padding: 16px; background: var(--white);
+}
+.use-rule.ok  { border-left: 4px solid var(--color-primary); background: var(--bf-green-soft); }
+.use-rule.nok { border-left: 4px solid var(--color-danger); background: var(--bf-red-soft); }
+.use-rule h5  { font-family: var(--font-sans); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.use-rule.ok  h5 { color: var(--bf-green-deep); }
+.use-rule.nok h5 { color: var(--color-danger-dark); }
+.use-rule ul  { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.use-rule ul li { font-size: 13px; display: flex; gap: 8px; align-items: flex-start; }
+.use-rule.ok  ul li::before { content: '✓'; color: var(--color-primary); font-weight: 700; flex-shrink: 0; }
+.use-rule.nok ul li::before { content: '✗'; color: var(--color-danger); font-weight: 700; flex-shrink: 0; }
+
+/* Utilities for DS */
+.ds-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media (max-width: 768px) { .ds-two-col { grid-template-columns: 1fr; } }
+.tag-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--gray-100); color: var(--text-muted);
+  font-size: 12px; font-weight: 600; padding: 5px 12px;
+  border-radius: 50rem; font-family: var(--font-sans);
+}
+.ds-spec-table { width: 100%; border-collapse: collapse; font-size: 13px; font-family: var(--font-sans); }
+.ds-spec-table th { text-align: left; padding: 10px 14px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); border-bottom: 2px solid var(--border-light); background: var(--warm-50); }
+.ds-spec-table td { padding: 10px 14px; border-bottom: 1px solid var(--border-light); color: var(--text-main); }
+.ds-spec-table tr:last-child td { border-bottom: none; }
+.ds-spec-table td code { background: var(--gray-100); padding: 2px 6px; border-radius: 4px; font-size: 11px; color: var(--color-primary-deep); }
+.ds-spec-table .green { color: var(--color-primary); font-weight: 700; }
+.ds-spec-table .red   { color: var(--color-danger);  font-weight: 700; }
+.ds-spec-table .warn  { color: var(--bf-yellow-dark); font-weight: 700; }
+.pill-tag { display: inline-block; background: var(--bf-green-soft); color: var(--bf-green-dark); font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 50rem; font-family: var(--font-sans); }
+.pill-tag.red { background: var(--bf-red-soft); color: var(--bf-red-dark); }
+.pill-tag.yellow { background: #FFF9C4; color: #7A6000; }
+.pill-tag.gray { background: var(--gray-100); color: var(--gray-600); }
+</style>
+</head>
+<body>
+
+<!-- NAV DS -->
+<nav class="ds-nav">
+  <div class="ds-nav-inner">
+    <span class="logo-text">Design System BF</span>
+    <a href="#tokens">Tokens CSS</a>
+    <a href="#colors">Couleurs</a>
+    <a href="#typography">Typographie</a>
+    <a href="#buttons">Boutons</a>
+    <a href="#badges">Badges & Alertes</a>
+    <a href="#cards">Cartes</a>
+    <a href="#search">Recherche</a>
+    <a href="#navigation">Navigation</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#flag">Drapeau</a>
+    <a href="#bootstrap">Bootstrap 5</a>
+    <a href="#filament">Filament</a>
+    <a href="#artdir">Direction artistique</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="ds-hero">
+  <h1>Design System<br><span>Service Public · Burkina Faso</span></h1>
+  <p>Système de design souverain, premium et accessible. Unifie le portail citoyen et le dashboard admin sur une même source de vérité identitaire.</p>
+  <div class="ds-hero-badges">
+    <span class="ds-badge-pill">Bootstrap 5</span>
+    <span class="ds-badge-pill">Laravel Blade</span>
+    <span class="ds-badge-pill">Filament 3</span>
+    <span class="ds-badge-pill">WCAG AA</span>
+    <span class="ds-badge-pill">Design Tokens 3 niveaux</span>
+    <span class="ds-badge-pill">Lancement 5 mai 2026</span>
+  </div>
+</div>
+
+<div class="ds-main">
+
+<!-- ═══ TOKENS ═══ -->
+<section class="ds-section" id="tokens">
+  <div class="ds-section-label">Niveau 1 · 2 · 3</div>
+  <div class="ds-section-title">Variables CSS — Design Tokens</div>
+  <div class="ds-divider"></div>
+  <p class="ds-section-desc">Le système repose sur trois niveaux : les <strong>Primitives</strong> (valeurs absolues), les <strong>Tokens sémantiques</strong> (rôles UI), et les <strong>Tokens composants</strong> (spécifications isolées). Copier ce bloc dans <code>public/css/tokens.css</code> ou en tête de <code>app.scss</code>.</p>
+  <div class="ds-preview">
+    <div class="ds-code-block"><span class="comment">/* ════════════════════════════════════════════════════════════
+   SERVICE PUBLIC BURKINA FASO — DESIGN TOKENS v1.0
+   Intégrer dans : public/css/tokens.css (inclus avant Bootstrap)
+   ════════════════════════════════════════════════════════════ */</span>
+
+:root {
+
+  <span class="comment">/* ── NIVEAU 1 : PRIMITIVES ────────────────────────────────── */</span>
+  <span class="hl">  <span class="prop">--bf-green</span>:       <span class="val">#00843B</span>;  <span class="comment">/* Vert officiel Burkina Faso       */</span></span>
+  <span class="hl">  <span class="prop">--bf-green-dark</span>:  <span class="val">#006B30</span>;  <span class="comment">/* Vert hover (−10% luminosité)     */</span></span>
+  <span class="hl">  <span class="prop">--bf-green-deep</span>:  <span class="val">#004D22</span>;  <span class="comment">/* Vert profond — header institutionnel */</span></span>
+  <span class="prop">  --bf-green-soft</span>:  <span class="val">#E8F5EE</span>;  <span class="comment">/* Fond teinté vert — badges, fonds */</span>
+  <span class="hl">  <span class="prop">--bf-red</span>:         <span class="val">#E30613</span>;  <span class="comment">/* Rouge officiel Burkina Faso      */</span></span>
+  <span class="prop">  --bf-red-dark</span>:    <span class="val">#B8040F</span>;  <span class="comment">/* Rouge hover                      */</span>
+  <span class="prop">  --bf-red-soft</span>:    <span class="val">#FDECEA</span>;  <span class="comment">/* Fond teinté rouge                */</span>
+  <span class="hl">  <span class="prop">--bf-yellow</span>:      <span class="val">#FFED00</span>;  <span class="comment">/* Jaune officiel — JAMAIS en texte sur fond clair */</span></span>
+  <span class="prop">  --bf-yellow-dark</span>: <span class="val">#C9A800</span>;  <span class="comment">/* Jaune foncé — textes sur fond clair */</span>
+  <span class="prop">  --gray-900</span>: <span class="val">#1A1A2E</span>;  <span class="comment">/* Très sombre — navbar, footer      */</span>
+  <span class="prop">  --gray-800</span>: <span class="val">#1F2937</span>;  --gray-700: <span class="val">#374151</span>;  --gray-500: <span class="val">#6B7280</span>;
+  <span class="prop">  --gray-200</span>: <span class="val">#E5E7EB</span>;  --gray-100: <span class="val">#F3F4F6</span>;  --gray-50:  <span class="val">#F9FAFB</span>;
+  <span class="prop">  --warm-50</span>:  <span class="val">#FAF9F5</span>;  --warm-100: <span class="val">#F0EFEA</span>;  --warm-200: <span class="val">#E5E2DA</span>;
+
+  <span class="comment">/* ── NIVEAU 2 : SÉMANTIQUES ───────────────────────────────── */</span>
+  <span class="prop">  --color-primary</span>:      <span class="val">var(--bf-green)</span>;
+  <span class="prop">  --color-primary-dark</span>: <span class="val">var(--bf-green-dark)</span>;
+  <span class="prop">  --color-primary-soft</span>: <span class="val">var(--bf-green-soft)</span>;
+  <span class="prop">  --color-danger</span>:       <span class="val">var(--bf-red)</span>;
+  <span class="prop">  --color-warning</span>:      <span class="val">var(--bf-yellow)</span>;
+  <span class="prop">  --color-info</span>:         <span class="val">#0A448A</span>;
+  <span class="prop">  --text-strong</span>:    <span class="val">var(--gray-800)</span>;
+  <span class="prop">  --text-muted</span>:     <span class="val">var(--gray-500)</span>;  <span class="comment">/* Ratio WCAG AA ≥ 4.5:1 sur fond blanc */</span>
+  <span class="prop">  --surface-base</span>:   <span class="val">var(--warm-50)</span>;   <span class="comment">/* Fond ivoire chaud — corps de page */</span>
+  <span class="prop">  --surface-card</span>:   <span class="val">#FFFFFF</span>;
+  <span class="prop">  --sidebar-dark</span>:   <span class="val">var(--gray-900)</span>;
+  <span class="prop">  --border-light</span>:   <span class="val">var(--warm-200)</span>;
+  <span class="prop">  --border-focus</span>:   <span class="val">rgba(0,132,59,.25)</span>;
+
+  <span class="comment">/* ── NIVEAU 3 : COMPOSANTS ────────────────────────────────── */</span>
+  <span class="prop">  --navbar-bg</span>:     <span class="val">var(--gray-900)</span>;
+  <span class="prop">  --navbar-text</span>:   <span class="val">rgba(255,255,255,.8)</span>;
+  <span class="prop">  --btn-radius</span>:    <span class="val">50rem</span>;        <span class="comment">/* Boutons arrondis (pill) sur portail public */</span>
+  <span class="prop">  --card-radius</span>:   <span class="val">.75rem</span>;
+  <span class="prop">  --card-shadow</span>:   <span class="val">0 1px 3px rgba(0,0,0,.06)</span>;
+  <span class="prop">  --card-shadow-h</span>: <span class="val">0 8px 24px rgba(0,0,0,.08)</span>;
+  <span class="prop">  --font-serif</span>:    <span class="val">'Libre Baskerville', Georgia, serif</span>;
+  <span class="prop">  --font-sans</span>:     <span class="val">'Source Sans 3', system-ui, sans-serif</span>;
+  <span class="prop">  --font-admin</span>:    <span class="val">'Inter', system-ui, sans-serif</span>;
+  <span class="prop">  --transition</span>:    <span class="val">all .18s ease</span>;
+}</div>
+  </div>
+</section>
+
+<!-- ═══ COLORS ═══ -->
+<section class="ds-section" id="colors">
+  <div class="ds-section-label">Système chromatique</div>
+  <div class="ds-section-title">Palette officielle & Extensions UI</div>
+  <div class="ds-divider"></div>
+  <p class="ds-section-desc">Trois couleurs souveraines, étendues en un système fonctionnel complet. Le vert est la couleur d'action. Le rouge est réservé aux alertes. Le jaune ne s'utilise jamais en texte sur fond clair.</p>
+  <div class="ds-card-doc">
+
+    <div class="color-group">
+      <div class="color-group-title">⭐ Couleurs officielles de l'État</div>
+      <div class="color-row">
+        <div class="color-swatch official">
+          <div class="color-swatch-box" style="background:#00843B;"><div class="usage-dot"></div></div>
+          <div class="color-swatch-name">Vert BF</div>
+          <div class="color-swatch-hex">#00843B</div>
+          <div class="color-swatch-role">Action principale</div>
+        </div>
+        <div class="color-swatch official">
+          <div class="color-swatch-box" style="background:#E30613;"><div class="usage-dot"></div></div>
+          <div class="color-swatch-name">Rouge BF</div>
+          <div class="color-swatch-hex">#E30613</div>
+          <div class="color-swatch-role">Danger / Alertes</div>
+        </div>
+        <div class="color-swatch official">
+          <div class="color-swatch-box" style="background:#FFED00;border:1px solid #ddd;"><div class="usage-dot" style="background:rgba(0,0,0,.2)"></div></div>
+          <div class="color-swatch-name">Jaune BF</div>
+          <div class="color-swatch-hex">#FFED00</div>
+          <div class="color-swatch-role">Accent décoratif</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-group">
+      <div class="color-group-title">Extensions Vert (échelle fonctionnelle)</div>
+      <div class="color-row">
+        <div class="color-swatch"><div class="color-swatch-box" style="background:#004D22;"><div class="usage-dot"></div></div><div class="color-swatch-name">Green Deep</div><div class="color-swatch-hex">#004D22</div><div class="color-swatch-role">Header institutionnel</div></div>
+        <div class="color-swatch"><div class="color-swatch-box" style="background:#006B30;"><div class="usage-dot"></div></div><div class="color-swatch-name">Green Dark</div><div class="color-swatch-hex">#006B30</div><div class="color-swatch-role">Hover boutons</div></div>
+        <div class="color-swatch"><div class="color-swatch-box" style="background:#00843B;"><div class="usage-dot"></div></div><div class="color-swatch-name">Green BF</div><div class="color-swatch-hex">#00843B</div><div class="color-swatch-role">Boutons, liens actifs</div></div>
+        <div class="color-swatch"><div class="color-swatch-box" style="background:#C8E8D5;"><div class="usage-dot" style="background:rgba(0,0,0,.3)"></div></div><div class="color-swatch-name">Green Mid</div><div class="color-swatch-hex">#C8E8D5</div><div class="color-swatch-role">Bordures, séparateurs</div></div>
+        <div class="color-swatch"><div class="color-swatch-box" style="background:#E8F5EE;"><div class="usage-dot" style="background:rgba(0,0,0,.3)"></div></div><div class="color-swatch-name">Green Soft</div><div class="color-swatch-hex">#E8F5EE</div><div class="color-swatch-role">Fonds badges, icônes</div></div>
+      </div>
+    </div>
+
+    <div class="color-group">
+      <div class="color-group-title">Surfaces & Neutres (warm-toned)</div>
+      <div class="color-row">
+        <div class="color-swatch"><div class="color-swatch-box" style="background:#1A1A2E;"><div class="usage-dot"></div></div><div class="color-swatch-name">Dark Inst.</div><div class="color-swatch-hex">#1A1A2E</div><div class="color-swatch-role">Navbar, Footer</div></div>
+        <div class="color-swatch"><div class="color-swatch-box" style="background:#1F2937;"><div class="usage-dot"></div></div><div class="color-swatch-name">Text Strong</div><div class="color-swatch-hex">#1F2937</div><div class="color-swatch-role">Titres, textes forts</div></div>
+        <div class="color-swatch"><div class="color-swatch-box" style="background:#6B7280;"><div class="usage-dot"></div></div><div class="color-swatch-name">Text Muted</div><div class="color-swatch-hex">#6B7280</div><div class="color-swatch-role">Textes secondaires</div></div>
+        <div class="color-swatch"><div class="color-swatch-box" style="background:#FAF9F5;border:1px solid #ddd;"></div><div class="color-swatch-name">Surface Base</div><div class="color-swatch-hex">#FAF9F5</div><div class="color-swatch-role">Fond de page (ivoire)</div></div>
+        <div class="color-swatch"><div class="color-swatch-box" style="background:#E5E2DA;border:1px solid #ddd;"></div><div class="color-swatch-name">Border</div><div class="color-swatch-hex">#E5E2DA</div><div class="color-swatch-role">Bordures, séparateurs</div></div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;background:var(--warm-50);border-radius:8px;padding:20px;border:1px solid var(--border-light)">
+      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);font-family:var(--font-sans);margin-bottom:14px;">⚠️ Règles d'accessibilité WCAG — À respecter impérativement</div>
+      <table class="ds-spec-table">
+        <thead><tr><th>Couleur</th><th>Sur fond blanc</th><th>Sur fond foncé</th><th>En texte</th><th>Règle</th></tr></thead>
+        <tbody>
+          <tr><td><span style="color:#00843B;font-weight:700">#00843B Vert</span></td><td class="green">✓ AA (4.6:1)</td><td class="green">✓ AAA</td><td class="green">✓ Autorisé</td><td>Couleur d'action principale</td></tr>
+          <tr><td><span style="color:#E30613;font-weight:700">#E30613 Rouge</span></td><td class="green">✓ AA (4.5:1)</td><td class="green">✓ AA</td><td class="warn">⚠ Avec modération</td><td>Alertes et erreurs uniquement</td></tr>
+          <tr><td><span style="background:#FFED00;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:700">FFED00 Jaune</span></td><td class="red">✗ Fail (1.07:1)</td><td class="green">✓ AA (fond vert/noir)</td><td class="red">✗ JAMAIS texte clair</td><td>Accent décoratif uniquement</td></tr>
+          <tr><td><span style="color:#6B7280;font-weight:700">#6B7280 Muted</span></td><td class="green">✓ AA (4.6:1)</td><td class="warn">⚠ Borderline</td><td class="green">✓ Corps de texte</td><td>Textes secondaires, labels</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TYPOGRAPHY ═══ -->
+<section class="ds-section" id="typography">
+  <div class="ds-section-label">Système typographique</div>
+  <div class="ds-section-title">Libre Baskerville · Source Sans 3 · Inter</div>
+  <div class="ds-divider"></div>
+  <p class="ds-section-desc">Trois polices, trois rôles. Libre Baskerville donne un caractère éditorial et institutionnel aux titres. Source Sans 3 garantit lisibilité et chaleur au corps de texte. Inter reste la référence pour les interfaces admin.</p>
+  <div class="typo-specimen">
+    <div class="typo-row">
+      <div class="typo-meta"><span>Libre Baskerville 700</span><span class="typo-tag">Titres portail public</span><span>H1 — 36/48px</span></div>
+      <div style="font-family:var(--font-serif);font-size:42px;font-weight:700;color:var(--text-strong);line-height:1.15">Simplifiez votre quotidien<br><em style="color:var(--color-primary)">administratif</em></div>
+    </div>
+    <div class="typo-row">
+      <div class="typo-meta"><span>Libre Baskerville 700</span><span class="typo-tag">H2 — Section</span><span>28px</span></div>
+      <div style="font-family:var(--font-serif);font-size:28px;font-weight:700;color:var(--text-strong)">Explorez par thématique <span style="display:inline-block;width:32px;height:3px;background:var(--bf-yellow);vertical-align:middle;border-radius:2px;margin-left:8px"></span></div>
+    </div>
+    <div class="typo-row">
+      <div class="typo-meta"><span>Source Sans 3 400</span><span class="typo-tag">Corps de texte</span><span>15–16px</span></div>
+      <div style="font-family:var(--font-sans);font-size:16px;color:var(--text-main);line-height:1.7;max-width:600px">L'administration burkinabè au service du citoyen. Retrouvez toutes vos démarches administratives simplifiées, transparentes et accessibles en quelques clics.</div>
+    </div>
+    <div class="typo-row">
+      <div class="typo-meta"><span>Source Sans 3 600</span><span class="typo-tag">Labels, Navigation</span><span>13–14px</span></div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+        <span style="font-family:var(--font-sans);font-size:14px;font-weight:600;color:var(--color-primary)">Lire la fiche →</span>
+        <span style="font-family:var(--font-sans);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted)">Navigation principale</span>
+        <span style="font-family:var(--font-sans);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--text-light)">Petit texte / Légende</span>
+      </div>
+    </div>
+    <div class="typo-row">
+      <div class="typo-meta"><span>Inter 400/600</span><span class="typo-tag">Admin / Dashboard uniquement</span><span>12–14px</span></div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center">
+        <span style="font-family:var(--font-admin);font-size:32px;font-weight:700;color:var(--text-strong)">12 458</span>
+        <span style="font-family:var(--font-admin);font-size:13px;color:var(--text-muted)">Demandes traitées ce mois</span>
+        <code style="font-family:var(--font-admin);font-size:11px;background:var(--gray-100);padding:3px 8px;border-radius:4px">DEM-2024-1258</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BUTTONS ═══ -->
+<section class="ds-section" id="buttons">
+  <div class="ds-section-label">Composants UI</div>
+  <div class="ds-section-title">Boutons</div>
+  <div class="ds-divider"></div>
+  <div class="ds-preview">
+    <div class="ds-preview-area" style="flex-direction:column;align-items:flex-start;gap:20px">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <a class="btn btn-primary">Rechercher →</a>
+        <a class="btn btn-secondary">Bouton secondaire</a>
+        <a class="btn btn-outline">Bouton outline</a>
+        <a class="btn btn-danger">Action dangereuse</a>
+        <a class="btn btn-cta">Aide & FAQ</a>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <a class="btn btn-primary btn-sm">Petit</a>
+        <a class="btn btn-primary">Standard</a>
+        <a class="btn btn-primary btn-lg">Grand CTA</a>
+        <a class="btn btn-link">Texte lien →</a>
+        <a class="btn btn-primary" style="opacity:.5;cursor:not-allowed">Désactivé</a>
+      </div>
+    </div>
+    <div class="ds-code-block"><span class="comment">/* Bouton principal — vert BF */</span>
+.btn-primary { background: <span class="val">var(--color-primary)</span>; color: #fff; border-radius: <span class="val">var(--btn-radius)</span>; }
+.btn-primary:hover { background: <span class="val">var(--color-primary-dark)</span>; }
+<span class="comment">/* Bouton CTA jaune — JAMAIS avec texte blanc */</span>
+.btn-cta { background: <span class="val">var(--bf-yellow)</span>; color: <span class="val">var(--gray-900)</span>; font-weight: 700; }
+<span class="comment">/* Règle critique : le jaune ne peut pas porter du texte blanc */</span></div>
+  </div>
+</section>
+
+<!-- ═══ BADGES & ALERTS ═══ -->
+<section class="ds-section" id="badges">
+  <div class="ds-section-label">Feedback & Statuts</div>
+  <div class="ds-section-title">Badges & Alertes</div>
+  <div class="ds-divider"></div>
+  <div class="ds-two-col">
+    <div class="ds-preview">
+      <div class="ds-preview-area" style="flex-direction:column;align-items:flex-start;gap:8px">
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="badge badge-success">Validé</span>
+          <span class="badge badge-danger">Rejeté</span>
+          <span class="badge badge-warning">En attente</span>
+          <span class="badge badge-info">Information</span>
+          <span class="badge badge-neutral">Archivé</span>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+          <span class="pill-tag">Création d'entreprise</span>
+          <span class="pill-tag red">Urgent</span>
+          <span class="pill-tag yellow">En attente</span>
+          <span class="pill-tag gray">Tout public</span>
+        </div>
+      </div>
+    </div>
+    <div class="ds-preview">
+      <div class="ds-preview-area" style="flex-direction:column;align-items:stretch;gap:0;padding:20px">
+        <div class="alert alert-success">✓ Votre demande a été enregistrée avec succès.</div>
+        <div class="alert alert-info">ℹ Veuillez consulter les détails de votre dossier.</div>
+        <div class="alert alert-warning">⚠ Certaines informations sont manquantes.</div>
+        <div class="alert alert-danger">✗ Une erreur est survenue. Veuillez réessayer.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CARDS ═══ -->
+<section class="ds-section" id="cards">
+  <div class="ds-section-label">Cartes de contenu</div>
+  <div class="ds-section-title">Cartes — Portail public</div>
+  <div class="ds-divider"></div>
+  <div class="ds-grid ds-grid-3" style="margin-bottom:16px">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-icon-wrapper">📋</div>
+        <h3 class="card-title">Demande de CNIB</h3>
+        <p class="card-text">La Carte Nationale d'Identité Burkinabè prouve l'identité du citoyen.</p>
+        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+          <span class="pill-tag">État Civil</span>
+          <span class="pill-tag yellow">2 500 FCFA</span>
+        </div>
+        <a class="card-link">Lire la fiche →</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="card-icon-wrapper">🏢</div>
+        <h3 class="card-title">Création d'entreprise</h3>
+        <p class="card-text">Enregistrez votre entreprise au Centre de Formalités des Entreprises.</p>
+        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+          <span class="pill-tag">CEFORE</span>
+          <span class="pill-tag yellow">48h</span>
+        </div>
+        <a class="card-link">Lire la fiche →</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="card-icon-wrapper" style="background:var(--bf-red-soft)">⚖️</div>
+        <h3 class="card-title">Casier judiciaire</h3>
+        <p class="card-text">Demandez un bulletin n°3 en ligne via e-CasierJudiciaire.</p>
+        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+          <span class="pill-tag">Justice</span>
+        </div>
+        <a class="card-link">Lire la fiche →</a>
+      </div>
+    </div>
+  </div>
+  <div class="ds-grid ds-grid-4">
+    <div class="card-kpi">
+      <div style="font-size:22px;margin-bottom:8px">📊</div>
+      <div class="card-kpi-value">1 176</div>
+      <div class="card-kpi-label">Fiches pratiques</div>
+      <div class="card-kpi-delta up">↑ +12 ce mois</div>
+    </div>
+    <div class="card-kpi">
+      <div style="font-size:22px;margin-bottom:8px">🖥️</div>
+      <div class="card-kpi-value">139</div>
+      <div class="card-kpi-label">E-Services actifs</div>
+      <div class="card-kpi-delta up">↑ +5 ce mois</div>
+    </div>
+    <div class="card-kpi">
+      <div style="font-size:22px;margin-bottom:8px">🏛️</div>
+      <div class="card-kpi-value">182</div>
+      <div class="card-kpi-label">Organismes</div>
+      <div class="card-kpi-delta" style="color:var(--text-muted)">Annuaire complet</div>
+    </div>
+    <div class="card-kpi">
+      <div style="font-size:22px;margin-bottom:8px">👁️</div>
+      <div class="card-kpi-value">33 327</div>
+      <div class="card-kpi-label">Consultations</div>
+      <div class="card-kpi-delta up">↑ +8.2%</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SEARCH ═══ -->
+<section class="ds-section" id="search">
+  <div class="ds-section-label">Stratégie de recherche</div>
+  <div class="ds-section-title">Barre de recherche & Stratégie par page</div>
+  <div class="ds-divider"></div>
+  <p class="ds-section-desc">Règle UX fondamentale : ne jamais sous-estimer l'habitude de recherche des utilisateurs. Même si la navigation IA est claire, beaucoup d'usagers cherchent directement un terme.</p>
+  <div class="ds-preview" style="margin-bottom:24px">
+    <div class="ds-preview-area dark" style="flex-direction:column;align-items:center">
+      <div style="font-family:var(--font-serif);font-size:22px;color:#fff;margin-bottom:20px;text-align:center">Recherchez une démarche, un service...</div>
+      <div class="search-wrapper">
+        <input class="search-input" type="text" placeholder="Ex : passeport, casier judiciaire, CNIB...">
+        <button class="search-btn">Rechercher</button>
+      </div>
+      <div class="search-tags">
+        <span class="search-tag">Passeport</span>
+        <span class="search-tag">CNIB</span>
+        <span class="search-tag">Naissance</span>
+        <span class="search-tag">Entreprise</span>
+        <span class="search-tag">Casier judiciaire</span>
+      </div>
+    </div>
+  </div>
+  <div class="ds-card-doc">
+    <table class="ds-spec-table">
+      <thead><tr><th>Page</th><th>Visibilité recherche</th><th>Justification UX</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Accueil</strong></td><td><span class="pill-tag" style="background:#FFD700;color:#333">🔴 Essentielle</span></td><td>Première interaction citoyen. Barre hero prominente + suggestions populaires.</td></tr>
+        <tr><td><strong>Thématiques</strong></td><td><span class="pill-tag">Recommandée</span></td><td>L'utilisateur peut vouloir chercher dans la thématique courante. Barre contextuelle discrète.</td></tr>
+        <tr><td><strong>Événements de vie</strong></td><td><span class="pill-tag">Recommandée</span></td><td>Complémentaire à la navigation guidée. Permettre la recherche libre.</td></tr>
+        <tr><td><strong>E-Services</strong></td><td><span class="pill-tag" style="background:#FFD700;color:#333">🔴 Essentielle</span></td><td>139 services à parcourir. La recherche + filtre catégorie est indispensable.</td></tr>
+        <tr><td><strong>Espace Entreprises</strong></td><td><span class="pill-tag">Recommandée</span></td><td>Profil distinct (entrepreneur). Recherche contextuelle "démarches pro".</td></tr>
+        <tr><td><strong>Annuaire</strong></td><td><span class="pill-tag" style="background:#FFD700;color:#333">🔴 Essentielle</span></td><td>182 organismes. Déjà présent dans le design actuel — à conserver.</td></tr>
+        <tr><td><strong>Actualités</strong></td><td><span class="pill-tag gray">Optionnelle</span></td><td>Peu d'articles actuellement. Envisager quand le volume augmente.</td></tr>
+        <tr><td><strong>Fiche détail</strong></td><td><span class="pill-tag gray">Non nécessaire</span></td><td>L'utilisateur est arrivé à destination. Proposer des "Voir aussi" à la place.</td></tr>
+        <tr><td><strong>Dashboard Admin</strong></td><td><span class="pill-tag" style="background:#FFD700;color:#333">🔴 Essentielle</span></td><td>Recherche globale Ctrl+K dans la topbar. Recherche locale dans chaque table.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══ NAVIGATION ═══ -->
+<section class="ds-section" id="navigation">
+  <div class="ds-section-label">Navigation & Structure</div>
+  <div class="ds-section-title">Navbar · Page Header · Pagination · Footer</div>
+  <div class="ds-divider"></div>
+
+  <div style="margin-bottom:24px">
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:12px;font-family:var(--font-sans)">Navbar — Portail public</div>
+    <div class="nav-preview">
+      <div class="nav-strip"></div>
+      <div class="nav-official">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="flag-mini"><div class="flag-top"></div><div class="flag-bot"></div></div>
+          <span style="font-size:11px;color:var(--text-muted)">BURKINA FASO — La Patrie ou la Mort, nous vaincrons</span>
+        </div>
+        <div style="display:flex;gap:16px;font-size:11px;color:var(--text-muted)">
+          <span>☎ (+226) 25 30 66 30</span>
+          <span>✉ contact@servicepublic.gov.bf</span>
+        </div>
+      </div>
+      <div class="nav-main">
+        <div class="nav-logo">
+          <div class="logo-box">SP</div>
+          <div><div class="nav-logo-text">SERVICE PUBLIC</div><div class="nav-logo-sub">GOUVERNEMENT DU BURKINA FASO</div></div>
+        </div>
+        <div class="nav-links">
+          <div class="nav-link active">Accueil</div>
+          <div class="nav-link">Thématiques ▾</div>
+          <div class="nav-link">Événements de vie ▾</div>
+          <div class="nav-link">E-services</div>
+          <div class="nav-link">Annuaire</div>
+          <div class="nav-link">Actualités</div>
+        </div>
+        <a class="btn btn-cta btn-sm">Aide & FAQ</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:24px" class="ds-card-doc">
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:16px;font-family:var(--font-sans)">En-tête de page (Page Hero)</div>
+    <div class="breadcrumb" style="margin-bottom:16px">
+      <a href="#">Accueil</a><span class="sep">/</span>
+      <a href="#">Thématiques</a><span class="sep">/</span>
+      <span class="current">Création & Gestion d'Entreprise</span>
+    </div>
+    <div class="page-header">
+      <div class="page-header-label">Création & Gestion d'Entreprise</div>
+      <h1 style="font-family:var(--font-serif);font-size:36px;font-weight:700;color:var(--text-strong);margin-bottom:8px">Demande de titre foncier (PUH)</h1>
+      <p style="color:var(--text-muted);font-size:16px">Permet à toute personne physique d'établir son droit de jouissance sur un terrain en zone aménagée.</p>
+      <div class="page-header-rule"></div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:24px" class="ds-card-doc">
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:16px;font-family:var(--font-sans)">Pagination</div>
+    <div class="pagination">
+      <div class="page-item disabled">‹</div>
+      <div class="page-item active">1</div>
+      <div class="page-item">2</div>
+      <div class="page-item">3</div>
+      <div class="page-item" style="width:auto;padding:0 10px;">...</div>
+      <div class="page-item">12</div>
+      <div class="page-item">›</div>
+    </div>
+    <div style="font-size:12px;color:var(--text-muted);margin-top:10px;font-family:var(--font-sans)">Affichage de 1 à 12 sur 139 résultats</div>
+  </div>
+
+  <div class="footer-preview">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px">
+      <div class="footer-col">
+        <div style="font-family:var(--font-serif);font-size:16px;font-weight:700;color:#fff;margin-bottom:8px">SERVICE PUBLIC</div>
+        <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.6">Le portail officiel pour vos démarches administratives au Burkina Faso.</p>
+        <div style="margin-top:16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.4);font-family:var(--font-sans)">RESTEZ INFORMÉ</div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <input style="flex:1;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:7px 12px;color:rgba(255,255,255,.7);font-size:13px;font-family:var(--font-sans)" placeholder="votre@email.bf">
+          <button class="btn btn-primary btn-sm">S'inscrire</button>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Découvrir</h4>
+        <ul><li><a href="#">Actualités</a></li><li><a href="#">Événements de vie</a></li><li><a href="#">Thématiques</a></li><li><a href="#">À propos</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Administration</h4>
+        <ul><li><a href="#">Annuaire</a></li><li><a href="#">Services en ligne</a></li><li><a href="#">Espace agent</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Aide</h4>
+        <ul><li><a href="#">FAQ</a></li><li><a href="#">Nous contacter</a></li><li><a href="#">Plan du site</a></li><li><a href="#">Accessibilité</a></li></ul>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap;gap:12px">
+      <div style="font-size:12px;color:rgba(255,255,255,.4);font-family:var(--font-sans)">© 2026 Service Public · Gouvernement du Burkina Faso</div>
+      <div style="display:flex;gap:16px">
+        <a href="#" style="font-size:12px;color:rgba(255,255,255,.4);font-family:var(--font-sans)">Mentions légales</a>
+        <a href="#" style="font-size:12px;color:rgba(255,255,255,.4);font-family:var(--font-sans)">Accessibilité</a>
+        <a href="#" style="font-size:12px;color:rgba(255,255,255,.4);font-family:var(--font-sans)">Contact</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DASHBOARD ═══ -->
+<section class="ds-section" id="dashboard">
+  <div class="ds-section-label">Back-office Admin</div>
+  <div class="ds-section-title">Dashboard — Langage visuel Filament</div>
+  <div class="ds-divider"></div>
+  <p class="ds-section-desc">Le dashboard appartient à la même famille identitaire que le portail public, mais adopte un langage plus compact, opérationnel et data-dense. Police : Inter. Surface : gris très clair. Sidebar : blanc avec accents verts.</p>
+  <div class="admin-layout">
+    <div class="admin-sidebar">
+      <div class="admin-sidebar-header">SERVICE PUBLIC</div>
+      <div class="admin-sidebar-group">
+        <div class="admin-sidebar-group-title">Principal</div>
+        <div class="sidebar-item active"><span class="si-icon">📊</span> Tableau de bord</div>
+        <div class="sidebar-item"><span class="si-icon">📋</span> Fiches pratiques <span style="margin-left:auto;background:var(--bf-green-soft);color:var(--color-primary);font-size:10px;font-weight:700;padding:2px 7px;border-radius:50rem">1176</span></div>
+        <div class="sidebar-item"><span class="si-icon">🖥️</span> E-Services</div>
+        <div class="sidebar-item"><span class="si-icon">🏛️</span> Annuaire</div>
+      </div>
+      <div class="admin-sidebar-group" style="border-top:1px solid var(--border-light)">
+        <div class="admin-sidebar-group-title">Contenu</div>
+        <div class="sidebar-item"><span class="si-icon">📁</span> Thématiques</div>
+        <div class="sidebar-item"><span class="si-icon">🗓️</span> Événements de vie</div>
+        <div class="sidebar-item"><span class="si-icon">📰</span> Actualités</div>
+      </div>
+    </div>
+    <div class="admin-content">
+      <div class="admin-topbar">
+        <div class="admin-topbar-title">Tableau de bord</div>
+        <div class="admin-topbar-search">🔍 Rechercher (Ctrl+K)</div>
+      </div>
+      <div class="admin-kpi-grid">
+        <div class="card-kpi"><div class="card-kpi-value">1 176</div><div class="card-kpi-label">Fiches pratiques</div><div class="card-kpi-delta up">↑ +12 ce mois</div></div>
+        <div class="card-kpi"><div class="card-kpi-value">33 327</div><div class="card-kpi-label">Total consultations</div><div class="card-kpi-delta up">↑ +8.2%</div></div>
+        <div class="card-kpi"><div class="card-kpi-value">139</div><div class="card-kpi-label">E-Services actifs</div><div class="card-kpi-delta up">↑ +5</div></div>
+        <div class="card-kpi"><div class="card-kpi-value">182</div><div class="card-kpi-label">Organismes</div><div class="card-kpi-delta" style="color:var(--text-muted)">Annuaire</div></div>
+      </div>
+      <div class="ds-card-doc" style="padding:0;overflow:hidden">
+        <table class="admin-table">
+          <thead><tr><th>Référence</th><th>Demandeur</th><th>Service</th><th>Statut</th><th>Date</th></tr></thead>
+          <tbody>
+            <tr><td><code style="font-size:11px;background:var(--gray-100);padding:2px 6px;border-radius:4px">DEM-2024-1258</code></td><td>Ali Ouédraogo</td><td>Acte de naissance</td><td><span class="badge badge-success">Validé</span></td><td style="color:var(--text-muted)">12/05/2024</td></tr>
+            <tr><td><code style="font-size:11px;background:var(--gray-100);padding:2px 6px;border-radius:4px">DEM-2024-1257</code></td><td>Awa Traoré</td><td>Passeport</td><td><span class="badge badge-warning">En attente</span></td><td style="color:var(--text-muted)">11/05/2024</td></tr>
+            <tr><td><code style="font-size:11px;background:var(--gray-100);padding:2px 6px;border-radius:4px">DEM-2024-1256</code></td><td>Fatou B. S.</td><td>Demande de bourse</td><td><span class="badge badge-success">Validé</span></td><td style="color:var(--text-muted)">10/05/2024</td></tr>
+            <tr><td><code style="font-size:11px;background:var(--gray-100);padding:2px 6px;border-radius:4px">DEM-2024-1254</code></td><td>Blaise Kaboré</td><td>Carte d'identité</td><td><span class="badge badge-danger">Rejeté</span></td><td style="color:var(--text-muted)">10/05/2024</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FLAG ═══ -->
+<section class="ds-section" id="flag">
+  <div class="ds-section-label">Identité nationale</div>
+  <div class="ds-section-title">Règles d'usage du drapeau & des symboles</div>
+  <div class="ds-divider"></div>
+  <div class="ds-grid ds-grid-2" style="margin-bottom:24px">
+    <div class="use-rule ok">
+      <h5>✓ Utilisations recommandées</h5>
+      <ul>
+        <li>Liseré tricolore horizontal de 4px en haut de la navbar</li>
+        <li>Liseré tricolore horizontal de 3px en bas du footer</li>
+        <li>Miniature drapeau dans la barre officielle (14–18px de hauteur)</li>
+        <li>Étoile jaune ★ comme accent décoratif, séparateur ou icône de statut officiel</li>
+        <li>Split rouge/vert comme bandeau de section institutionnelle</li>
+        <li>Motif étoile en filigrane très discret sur sections hero foncées</li>
+      </ul>
+    </div>
+    <div class="use-rule nok">
+      <h5>✗ À éviter absolument</h5>
+      <ul>
+        <li>Drapeau plein format en fond de page ou de section</li>
+        <li>Drapeau comme image décorative répétée</li>
+        <li>Fond d'écran drapeau sur le hero ou le dashboard</li>
+        <li>Saturation excessive rouge/jaune sur les cartes ou boutons</li>
+        <li>Superposition drapeau + texte (illisibilité)</li>
+        <li>Logo avec drapeau animé ou clignotant</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ds-card-doc">
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:20px;font-family:var(--font-sans)">Formes d'utilisation approuvées</div>
+    <div style="display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start">
+      <div style="text-align:center">
+        <div class="flag-full"><div class="flag-red"></div><div class="flag-green"></div><div class="flag-star">★</div></div>
+        <div class="ds-token-label" style="margin-top:8px">Drapeau complet<br>Header officiel uniquement</div>
+      </div>
+      <div style="text-align:center">
+        <div class="flag-strip-h" style="width:120px"></div>
+        <div class="ds-token-label" style="margin-top:8px">Liseré tricolore 4px<br>Navbar (top) · Footer (bottom)</div>
+      </div>
+      <div style="text-align:center">
+        <div class="flag-split"><div class="flag-split-r"></div><div class="flag-split-g"></div></div>
+        <div class="ds-token-label" style="margin-top:8px">Split rouge/vert<br>Séparateurs, sections</div>
+      </div>
+      <div style="text-align:center">
+        <div class="flag-star-only">★</div>
+        <div class="ds-token-label" style="margin-top:8px">Étoile jaune<br>Accent, icône officielle</div>
+      </div>
+      <div style="text-align:center">
+        <div style="width:60px;height:60px;border-radius:50%;background:var(--bf-green);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--bf-yellow)">★</div>
+        <div class="ds-token-label" style="margin-top:8px">Étoile sur fond vert<br>Icônes institutionnelles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BOOTSTRAP 5 ═══ -->
+<section class="ds-section" id="bootstrap">
+  <div class="ds-section-label">Implémentation</div>
+  <div class="ds-section-title">Bootstrap 5 — Override complet</div>
+  <div class="ds-divider"></div>
+  <p class="ds-section-desc">Coller ce bloc en tête de <code>resources/sass/app.scss</code> avant l'import Bootstrap. Les CSS Custom Properties dans <code>:root</code> seront lues directement par les classes Bootstrap 5.</p>
+  <div class="ds-preview">
+    <div class="ds-code-block"><span class="comment">// ── resources/sass/app.scss ──────────────────────────────────────────
+// 1. Importer d'abord les tokens CSS</span>
+@import "tokens"; <span class="comment">// public/css/tokens.css compilé depuis resources/css/tokens.css</span>
+
+<span class="comment">// 2. Override des variables SCSS Bootstrap avec les tokens</span>
+<span class="hl">$primary:               #00843B;  <span class="comment">// var(--bf-green)</span></span>
+<span class="hl">$danger:                #E30613;  <span class="comment">// var(--bf-red)</span></span>
+<span class="hl">$warning:               #FFED00;  <span class="comment">// var(--bf-yellow)</span></span>
+$success:               #00843B;
+$info:                  #0A448A;
+$body-bg:               #FAF9F5;  <span class="comment">// --surface-base (fond ivoire chaud)</span>
+$body-color:            #1F2937;  <span class="comment">// --text-strong</span>
+$text-muted:            #6B7280;
+<span class="hl">$font-family-base:      'Source Sans 3', system-ui, sans-serif;</span>
+<span class="hl">$headings-font-family:  'Libre Baskerville', Georgia, serif;</span>
+$border-color:          #E5E2DA;  <span class="comment">// --border-light (warm)</span>
+$border-radius:         0.5rem;
+$border-radius-lg:      0.75rem;
+$border-radius-pill:    50rem;
+<span class="hl">$btn-border-radius:     50rem;    <span class="comment">// Boutons pill sur portail public</span></span>
+$card-border-radius:    0.75rem;
+$card-box-shadow:       0 1px 3px rgba(0,0,0,.06);
+$input-focus-border-color: #00843B;
+$input-focus-box-shadow:   0 0 0 .25rem rgba(0,132,59,.25);
+$pagination-active-bg:  #00843B;
+$pagination-active-border-color: #00843B;
+$link-color:            #00843B;
+$link-hover-color:      #006B30;
+$navbar-dark-color:     rgba(255,255,255,.8);
+$navbar-dark-hover-color: #fff;
+$navbar-dark-active-color: #fff;
+
+<span class="comment">// 3. Import Bootstrap APRÈS les overrides</span>
+@import "~bootstrap/scss/bootstrap";
+
+<span class="comment">// 4. Custom utilities non couvertes par Bootstrap</span>
+.btn-cta { background: #FFED00; color: #1A1A2E; font-weight: 700; }
+.btn-cta:hover { background: #F0DC00; color: #1A1A2E; }
+.badge-soft-success { background: #E8F5EE; color: #004D22; }
+.badge-soft-danger  { background: #FDECEA; color: #B8040F; }
+.badge-soft-warning { background: #FFFDE0; color: #7A6000; }
+.badge-soft-info    { background: #EBF2FF; color: #0A448A; }
+.card-bf { border-radius: .75rem; border: 1px solid #E5E2DA; }
+.card-bf:hover { box-shadow: 0 8px 24px rgba(0,0,0,.08); transform: translateY(-3px); }
+.flag-strip { height: 4px; background: linear-gradient(to right, #E30613 33%, #FFED00 33%, #FFED00 66%, #00843B 66%); }
+.text-primary-bf { color: #00843B !important; }
+.bg-dark-inst { background-color: #1A1A2E !important; }
+.bg-surface-warm { background-color: #FAF9F5 !important; }</div>
+  </div>
+</section>
+
+<!-- ═══ FILAMENT ═══ -->
+<section class="ds-section" id="filament">
+  <div class="ds-section-label">Back-office Filament 3</div>
+  <div class="ds-section-title">AdminPanelProvider — Alignement charte</div>
+  <div class="ds-divider"></div>
+  <div class="ds-preview">
+    <div class="ds-code-block"><span class="comment">// app/Providers/Filament/AdminPanelProvider.php</span>
+use Filament\Support\Colors\Color;
+use Filament\FontProviders\GoogleFontProvider;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        ->colors([
+            <span class="hl">            'primary' => Color::hex('#00843B'),  <span class="comment">// Vert BF officiel</span></span>
+            <span class="hl">            'danger'  => Color::hex('#E30613'),  <span class="comment">// Rouge BF officiel</span></span>
+            'warning' => Color::hex('#C9A800'),  <span class="comment">// Jaune foncé (accessible sur fond clair)</span>
+            'success' => Color::hex('#00843B'),
+            'info'    => Color::hex('#0A448A'),
+            'gray'    => Color::Slate,
+        ])
+        <span class="hl">        ->font('Inter', provider: GoogleFontProvider::class)</span>
+        ->brandName('Service Public BF')
+        ->favicon(public_path('images/favicon.ico'))
+        ->renderHook(
+            'panels::body.start',
+            fn (): string => '<div class="flag-strip" style="height:4px;background:linear-gradient(to right,#E30613 33%,#FFED00 33%,#FFED00 66%,#00843B 66%)"></div>',
+        )
+        ->sidebarCollapsibleOnDesktop();
+}
+
+<span class="comment">// ── Filament : Forcer sidebar blanc + accents verts
+// Dans resources/css/filament/admin/theme.css ────────────────────────</span>
+:root {
+  --sidebar-bg:          #FFFFFF;
+  --sidebar-border:      #E5E2DA;
+  --sidebar-active-bg:   #E8F5EE;
+  --sidebar-active-text: #00843B;
+  --sidebar-active-bar:  #00843B;
+  --topbar-bg:           #FFFFFF;
+  --topbar-border:       #E5E2DA;
+}</div>
+  </div>
+</section>
+
+<!-- ═══ ART DIRECTION ═══ -->
+<section class="ds-section" id="artdir">
+  <div class="ds-section-label">Direction artistique</div>
+  <div class="ds-section-title">3 Directions de composition</div>
+  <div class="ds-divider"></div>
+  <div class="ds-grid ds-grid-2" style="gap:24px">
+
+    <div class="ds-card-doc" style="border-left:4px solid var(--color-primary)">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <div style="width:36px;height:36px;background:var(--bf-green-soft);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px">🏛️</div>
+        <div>
+          <div style="font-family:var(--font-serif);font-size:16px;font-weight:700">Page d'accueil</div>
+          <div style="font-size:12px;color:var(--text-muted)">Portail citoyen</div>
+        </div>
+      </div>
+      <p style="font-size:14px;line-height:1.7;color:var(--text-main)"><strong>Composition :</strong> Fond ivoire chaud <code>#FAF9F5</code>. Liseré tricolore en haut. Hero à fond sombre <code>#1A1A2E</code> avec titre en Libre Baskerville blanc et barre de recherche proéminente. Suggestions de recherche en "pills" semi-transparentes. Section statistiques sur fond jaune pâle avec chiffres en vert BF.<br><br><strong>Hiérarchie :</strong> Hero → Statistiques → Thématiques (grille 3 colonnes) → Événements de vie → Services les plus consultés → Actualités → CTA Annuaire → Footer sombre.<br><br><strong>Ambiance :</strong> Institutionnel mais accessible. La typographie serif donne de la dignité. L'espace blanc ivoire apporte de la chaleur africaine. Aucun gradient, aucune animation superflue.</p>
+    </div>
+
+    <div class="ds-card-doc" style="border-left:4px solid var(--color-info)">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <div style="width:36px;height:36px;background:var(--color-info-soft);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px">🖥️</div>
+        <div>
+          <div style="font-family:var(--font-serif);font-size:16px;font-weight:700">E-Services</div>
+          <div style="font-size:12px;color:var(--text-muted)">Page liste des services</div>
+        </div>
+      </div>
+      <p style="font-size:14px;line-height:1.7;color:var(--text-main)"><strong>Composition :</strong> En-tête de page sobre avec breadcrumb, titre H1 serif, soulignement jaune BF. Grille de cartes 3 colonnes avec icône colorée selon catégorie, titre, description, badge catégorie et bouton "Accéder au service". Filtre horizontal par catégorie en pills sélectionnables. Pagination BF en bas.<br><br><strong>Différenciateurs catégoriques :</strong> Couleur de la pastille d'icône varie selon la catégorie (vert pour état civil, jaune pour finances, rouge pour justice). Crée une identité visuelle par domaine sans perturber la cohérence globale.<br><br><strong>Ambiance :</strong> Orientée action. Les cartes sont lisibles, cliquables, sans surcharge décorative.</p>
+    </div>
+
+    <div class="ds-card-doc" style="border-left:4px solid var(--bf-yellow-dark);grid-column:1/-1">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <div style="width:36px;height:36px;background:#FFFDE0;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px">📊</div>
+        <div>
+          <div style="font-family:var(--font-serif);font-size:16px;font-weight:700">Dashboard Admin</div>
+          <div style="font-size:12px;color:var(--text-muted)">Back-office Filament — Direction artistique</div>
+        </div>
+      </div>
+      <p style="font-size:14px;line-height:1.7;color:var(--text-main)"><strong>Composition :</strong> Sidebar blanche de 240px avec logo Service Public en haut, navigation groupée par section, item actif sur fond vert pâle <code>#E8F5EE</code> avec bordure gauche verte 3px. Topbar blanche avec titre de page en serif, barre de recherche globale Ctrl+K, avatar utilisateur. Contenu sur fond gris très clair <code>#F9FAFB</code>.<br><br><strong>KPI Cards :</strong> Blanches, chiffre en Inter Bold 32px, delta en vert ou rouge selon tendance, icône en pastille colorée en haut à gauche. Aucune ombre dramatique — subtilité <code>0 1px 3px rgba(0,0,0,.06)</code>.<br><br><strong>Tableaux :</strong> En-têtes en gris clair, texte majuscule 11px. Lignes aérées. Badges de statut colorés en version "soft". Actions (éditer, voir) via icônes discrètes à droite. Hover ligne en gris très doux. Liseré tricolore de 4px tout en haut du panel comme signature institutionnelle.<br><br><strong>Ambiance :</strong> Compact mais respirant. Data-first. Clairement dans la même famille que le portail public, mais plus sérieux, plus opérationnel. La connexion identitaire passe par les couleurs, pas par la décoration.</p>
+    </div>
+
+  </div>
+</section>
+
+</div>
+
+<footer style="background:var(--gray-900);color:rgba(255,255,255,.5);text-align:center;padding:24px;font-size:12px;font-family:var(--font-sans)">
+  <div class="flag-strip" style="height:3px;margin-bottom:20px"></div>
+  Design System · Service Public · Gouvernement du Burkina Faso · v1.0 · Lancement 5 mai 2026
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tableau de bord — Administration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bf-green:#00843B;--bf-green-dark:#006B30;--bf-green-deep:#004D22;
+  --bf-green-soft:#E8F5EE;--bf-red:#E30613;--bf-red-soft:#FDECEA;
+  --bf-yellow:#FFED00;--bf-yellow-soft:#FFFDE0;
+  --blue:#1D4ED8;--blue-soft:#EFF6FF;
+  --orange:#EA6C00;--orange-soft:#FFF3E0;
+  --sidebar-bg:#004D22;--sidebar-active:#00843B;
+  --sidebar-text:rgba(255,255,255,.75);--sidebar-text-active:#fff;
+  --sidebar-hover:rgba(255,255,255,.07);--sidebar-border:rgba(255,255,255,.10);
+  --surface:#F4F6F8;--white:#FFFFFF;
+  --gray-900:#111827;--gray-800:#1F2937;--gray-700:#374151;
+  --gray-600:#4B5563;--gray-500:#6B7280;--gray-400:#9CA3AF;
+  --gray-300:#D1D5DB;--gray-200:#E5E7EB;--gray-100:#F3F4F6;--gray-50:#F9FAFB;
+  --font:'Inter',system-ui,sans-serif;--font-serif:'Libre Baskerville',serif;
+  --radius:6px;--radius-md:8px;--radius-lg:12px;--radius-pill:50rem;
+  --shadow-xs:0 1px 2px rgba(0,0,0,.05);--shadow-sm:0 1px 4px rgba(0,0,0,.08);
+  --shadow-md:0 4px 12px rgba(0,0,0,.09);
+  --sidebar-w:220px;--topbar-h:56px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{font-family:var(--font);background:var(--surface);color:var(--gray-800);font-size:13px;line-height:1.5;display:flex;flex-direction:column}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--font);cursor:pointer;border:none;background:none}
+
+/* FLAG STRIP */
+.flag-strip{height:4px;background:linear-gradient(to right,#E30613 33.33%,#FFED00 33.33%,#FFED00 66.66%,#00843B 66.66%);flex-shrink:0}
+
+/* LAYOUT */
+.app-shell{flex:1;display:flex;overflow:hidden}
+
+/* ══ SIDEBAR ══ */
+.sidebar{width:var(--sidebar-w);background:var(--sidebar-bg);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:3px}
+
+.sidebar-header{padding:16px 14px;border-bottom:1px solid var(--sidebar-border);display:flex;align-items:center;gap:9px;flex-shrink:0}
+.sidebar-coat{width:30px;height:30px;flex-shrink:0}
+.sidebar-coat svg{width:100%;height:100%}
+.sb-brand-top{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:rgba(255,255,255,.5);line-height:1}
+.sb-brand-name{font-family:var(--font-serif);font-size:12px;font-weight:700;color:white;line-height:1.2;margin-top:1px}
+.sb-brand-sub{font-size:9px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.6px}
+
+.sidebar-nav{flex:1;padding:6px}
+.nav-section-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:rgba(255,255,255,.35);padding:12px 10px 5px;display:block}
+.nav-item{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:var(--radius-md);font-size:12.5px;font-weight:500;color:var(--sidebar-text);cursor:pointer;transition:background .12s,color .12s;margin-bottom:1px}
+.nav-item:hover{background:var(--sidebar-hover);color:var(--sidebar-text-active)}
+.nav-item.active{background:var(--sidebar-active);color:var(--sidebar-text-active);font-weight:600}
+.nav-icon{width:16px;height:16px;flex-shrink:0;opacity:.65}
+.nav-item.active .nav-icon,.nav-item:hover .nav-icon{opacity:1}
+.nav-badge{margin-left:auto;background:rgba(255,255,255,.2);color:white;font-size:10px;font-weight:700;padding:1px 7px;border-radius:var(--radius-pill)}
+.nav-item.active .nav-badge{background:rgba(255,255,255,.25)}
+.sidebar-divider{height:1px;background:var(--sidebar-border);margin:6px 8px}
+
+.sidebar-footer{padding:10px 6px;border-top:1px solid var(--sidebar-border);flex-shrink:0}
+.sb-user{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:var(--radius-md);cursor:pointer;transition:background .12s}
+.sb-user:hover{background:var(--sidebar-hover)}
+.sb-avatar{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.18);color:white;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sb-user-name{font-size:11.5px;font-weight:600;color:white}
+.sb-user-role{font-size:9.5px;color:rgba(255,255,255,.45)}
+.sb-logout{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:var(--radius-md);font-size:12px;font-weight:500;color:rgba(255,255,255,.5);cursor:pointer;transition:all .12s;margin-top:2px}
+.sb-logout:hover{background:var(--sidebar-hover);color:rgba(255,255,255,.8)}
+.sb-logout svg{width:14px;height:14px;flex-shrink:0}
+
+/* ══ MAIN ══ */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+
+/* Topbar */
+.topbar{height:var(--topbar-h);background:var(--white);border-bottom:1px solid var(--gray-200);display:flex;align-items:center;padding:0 24px;gap:16px;flex-shrink:0}
+.topbar-menu{width:34px;height:34px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:var(--gray-500);cursor:pointer;transition:all .12s}
+.topbar-menu:hover{background:var(--gray-100)}
+.topbar-menu svg{width:18px;height:18px}
+.topbar-title{font-size:14px;font-weight:700;color:var(--gray-900);flex:1}
+.topbar-right{display:flex;align-items:center;gap:8px}
+.notif-btn{position:relative;width:34px;height:34px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:var(--gray-500);cursor:pointer;transition:all .12s;border:1px solid var(--gray-200)}
+.notif-btn:hover{background:var(--gray-50)}
+.notif-btn svg{width:16px;height:16px}
+.notif-dot{position:absolute;top:6px;right:6px;width:7px;height:7px;border-radius:50%;background:var(--bf-red);border:2px solid white}
+.topbar-user{display:flex;align-items:center;gap:8px;padding:5px 10px;border-radius:var(--radius-md);cursor:pointer;border:1px solid var(--gray-200);transition:all .12s}
+.topbar-user:hover{background:var(--gray-50)}
+.topbar-avatar{width:28px;height:28px;border-radius:50%;background:var(--bf-green);color:white;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
+.topbar-username{font-size:12px;font-weight:600;color:var(--gray-800)}
+.topbar-user svg{width:12px;height:12px;color:var(--gray-400)}
+
+/* Page */
+.page{flex:1;overflow-y:auto;padding:24px}
+.page::-webkit-scrollbar{width:5px}
+.page::-webkit-scrollbar-thumb{background:var(--gray-300);border-radius:3px}
+
+/* Welcome header */
+.welcome-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px}
+.welcome-title{font-size:18px;font-weight:700;color:var(--gray-900)}
+.welcome-sub{font-size:12px;color:var(--gray-500);margin-top:2px}
+.page-actions{display:flex;gap:8px}
+.btn-primary{background:var(--bf-green);color:white;font-size:12px;font-weight:600;padding:8px 16px;border-radius:var(--radius-pill);display:inline-flex;align-items:center;gap:5px;cursor:pointer;border:none;transition:background .15s}
+.btn-primary:hover{background:var(--bf-green-dark)}
+.btn-outline{background:transparent;color:var(--gray-700);font-size:12px;font-weight:600;padding:7px 15px;border-radius:var(--radius-pill);border:1.5px solid var(--gray-300);display:inline-flex;align-items:center;gap:5px;cursor:pointer;transition:all .15s}
+.btn-outline:hover{border-color:var(--bf-green);color:var(--bf-green)}
+
+/* KPI */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px}
+.kpi{background:var(--white);border-radius:var(--radius-lg);padding:18px 20px 16px;border:1px solid var(--gray-200);box-shadow:var(--shadow-xs);display:flex;align-items:flex-start;gap:14px}
+.kpi-icon-box{width:44px;height:44px;border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.kpi-icon-box svg{width:20px;height:20px}
+.kpi-icon-box.green{background:var(--bf-green-soft)}.kpi-icon-box.green svg{color:var(--bf-green)}
+.kpi-icon-box.blue{background:var(--blue-soft)}.kpi-icon-box.blue svg{color:var(--blue)}
+.kpi-icon-box.orange{background:var(--orange-soft)}.kpi-icon-box.orange svg{color:var(--orange)}
+.kpi-icon-box.red{background:var(--bf-red-soft)}.kpi-icon-box.red svg{color:var(--bf-red)}
+.kpi-body{flex:1;min-width:0}
+.kpi-label{font-size:11px;color:var(--gray-500);font-weight:600;margin-bottom:4px}
+.kpi-num{font-size:1.7rem;font-weight:700;color:var(--gray-900);line-height:1;margin-bottom:4px}
+.kpi-trend{font-size:11px;font-weight:600}
+.kpi-trend.up{color:#15803D}.kpi-trend.down{color:var(--bf-red)}
+
+/* 3-col layout */
+.content-row{display:grid;grid-template-columns:1fr 1fr 280px;gap:16px}
+
+/* Card */
+.card{background:var(--white);border-radius:var(--radius-lg);border:1px solid var(--gray-200);box-shadow:var(--shadow-xs);overflow:hidden;margin-bottom:0}
+.card-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--gray-100)}
+.card-title{font-size:13px;font-weight:700;color:var(--gray-900)}
+.card-link{font-size:11px;font-weight:600;color:var(--bf-green);cursor:pointer;white-space:nowrap}
+.card-link:hover{text-decoration:underline}
+
+/* Table */
+.data-table{width:100%;border-collapse:collapse}
+.data-table thead th{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--gray-400);padding:9px 18px;text-align:left;background:var(--gray-50);border-bottom:1px solid var(--gray-100);white-space:nowrap}
+.data-table tbody tr{border-bottom:1px solid var(--gray-50);transition:background .1s}
+.data-table tbody tr:hover{background:var(--gray-50)}
+.data-table tbody tr:last-child{border-bottom:none}
+.data-table td{padding:11px 18px;vertical-align:middle}
+.td-num{font-size:11px;color:var(--gray-400);font-weight:600}
+.td-ref{font-size:12px;font-weight:700;color:var(--gray-800)}
+.td-service{font-size:12px;color:var(--gray-700);max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.td-user{font-size:12px;color:var(--gray-700)}
+.td-date{font-size:11px;color:var(--gray-400)}
+.badge{display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;padding:3px 9px;border-radius:var(--radius-pill)}
+.badge.valide{background:var(--bf-green-soft);color:var(--bf-green-deep)}
+.badge.en-attente{background:var(--bf-yellow-soft);color:#92400E}
+.badge.en-traitement{background:var(--blue-soft);color:var(--blue)}
+.badge.rejete{background:var(--bf-red-soft);color:#991B1B}
+.badge::before{content:'';width:5px;height:5px;border-radius:50%}
+.badge.valide::before{background:var(--bf-green)}
+.badge.en-attente::before{background:#D97706}
+.badge.en-traitement::before{background:var(--blue)}
+.badge.rejete::before{background:var(--bf-red)}
+
+/* Chart placeholder */
+.chart-wrap{padding:14px 18px 18px}
+.chart-legend{display:flex;gap:16px;margin-bottom:14px}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--gray-500)}
+.legend-dot{width:8px;height:8px;border-radius:50%;background:var(--bf-green)}
+.chart-bars{display:flex;align-items:flex-end;gap:6px;height:100px}
+.bar-group{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+.bar{width:100%;background:var(--bf-green);border-radius:3px 3px 0 0;transition:opacity .15s;cursor:pointer}
+.bar:hover{opacity:.8}
+.bar-lbl{font-size:9.5px;color:var(--gray-400);font-weight:600}
+.chart-y-lines{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none}
+
+/* Activity feed */
+.activity-feed{padding:4px 0}
+.activity-item{display:flex;gap:10px;padding:11px 18px;border-bottom:1px solid var(--gray-50);transition:background .1s}
+.activity-item:hover{background:var(--gray-50)}
+.activity-item:last-child{border-bottom:none}
+.act-icon{width:28px;height:28px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.act-icon.green{background:var(--bf-green-soft)}.act-icon.green svg{color:var(--bf-green)}
+.act-icon.blue{background:var(--blue-soft)}.act-icon.blue svg{color:var(--blue)}
+.act-icon.red{background:var(--bf-red-soft)}.act-icon.red svg{color:var(--bf-red)}
+.act-icon.gray{background:var(--gray-100)}.act-icon.gray svg{color:var(--gray-500)}
+.act-icon svg{width:13px;height:13px}
+.act-body{flex:1;min-width:0}
+.act-msg{font-size:11.5px;color:var(--gray-700);line-height:1.4}
+.act-msg strong{color:var(--gray-900);font-weight:600}
+.act-time{font-size:10px;color:var(--gray-400);margin-top:2px;white-space:nowrap}
+</style>
+</head>
+<body>
+
+<div class="flag-strip"></div>
+
+<div class="app-shell">
+
+  <!-- ══ SIDEBAR ══ -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <!-- Armoiries BF (simplified) -->
+      <div class="sidebar-coat">
+        <svg viewBox="0 0 30 30" fill="none">
+          <circle cx="15" cy="15" r="14" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.15)"/>
+          <path d="M15 4 L22 9 L22 17 C22 22 15 27 15 27 C15 27 8 22 8 17 L8 9 Z" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+          <path d="M8 13 L22 13" stroke="#E30613" stroke-width="1.8"/>
+          <path d="M15 8.5 L15.9 11.2 L18.8 11.2 L16.5 12.8 L17.4 15.5 L15 14 L12.6 15.5 L13.5 12.8 L11.2 11.2 L14.1 11.2 Z" fill="#FFED00"/>
+        </svg>
+      </div>
+      <div>
+        <div class="sb-brand-top">République du</div>
+        <div class="sb-brand-name">Burkina Faso</div>
+        <div class="sb-brand-sub">Administration</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="nav-item active" href="#">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Tableau de bord
+      </a>
+
+      <a class="nav-item" href="#">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Demandes
+        <span class="nav-badge">47</span>
+      </a>
+
+      <a class="nav-item" href="#">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Services
+      </a>
+
+      <a class="nav-item" href="#">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg>
+        Utilisateurs
+      </a>
+
+      <a class="nav-item" href="#">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Statistiques
+      </a>
+
+      <a class="nav-item" href="#">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+        Paramètres
+      </a>
+
+      <a class="nav-item" href="#">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+        Journal d'activités
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sb-user">
+        <div class="sb-avatar">KS</div>
+        <div>
+          <div class="sb-user-name">Kader Sawadogo</div>
+          <div class="sb-user-role">Super Admin</div>
+        </div>
+      </div>
+      <div class="sb-logout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Déconnexion
+      </div>
+    </div>
+  </aside>
+
+  <!-- ══ MAIN ══ -->
+  <div class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </div>
+      <div class="topbar-title">Bienvenue, Administrateur</div>
+      <div class="topbar-right">
+        <button class="notif-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+          <span class="notif-dot"></span>
+        </button>
+        <div class="topbar-user">
+          <div class="topbar-avatar">KS</div>
+          <span class="topbar-username">Admin</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page content -->
+    <main class="page">
+
+      <!-- Welcome -->
+      <div class="welcome-header">
+        <div>
+          <div class="welcome-title">Tableau de bord</div>
+          <div class="welcome-sub">Vendredi 24 avril 2026 — Vue d'ensemble en temps réel</div>
+        </div>
+        <div class="page-actions">
+          <button class="btn-outline">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Exporter
+          </button>
+          <button class="btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Nouvelle demande
+          </button>
+        </div>
+      </div>
+
+      <!-- KPI -->
+      <div class="kpi-grid">
+        <div class="kpi">
+          <div class="kpi-icon-box green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="kpi-body">
+            <div class="kpi-label">Demandes totales</div>
+            <div class="kpi-num">12 458</div>
+            <div class="kpi-trend up">+12.5% ce mois</div>
+          </div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-icon-box blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          </div>
+          <div class="kpi-body">
+            <div class="kpi-label">En traitement</div>
+            <div class="kpi-num">8 934</div>
+            <div class="kpi-trend up">+8.2% ce mois</div>
+          </div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-icon-box orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="kpi-body">
+            <div class="kpi-label">En attente</div>
+            <div class="kpi-num">2 350</div>
+            <div class="kpi-trend down">−4.1% ce mois</div>
+          </div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-icon-box red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          </div>
+          <div class="kpi-body">
+            <div class="kpi-label">Rejetées</div>
+            <div class="kpi-num">1 174</div>
+            <div class="kpi-trend up">+3.1% ce mois</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content row -->
+      <div class="content-row">
+
+        <!-- Demandes récentes -->
+        <div class="card" style="grid-column:1/3">
+          <div class="card-header">
+            <span class="card-title">Demandes récentes</span>
+            <a class="card-link" href="#">Voir toutes les demandes →</a>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Référence</th>
+                <th>Service</th>
+                <th>Demandeur</th>
+                <th>Statut</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="td-num">1</span></td>
+                <td><span class="td-ref">DEM-2024-1258</span></td>
+                <td><span class="td-service">Acte de naissance</span></td>
+                <td><span class="td-user">Ouedraogo A.</span></td>
+                <td><span class="badge valide">Validé</span></td>
+                <td><span class="td-date">12/05/2024</span></td>
+              </tr>
+              <tr>
+                <td><span class="td-num">2</span></td>
+                <td><span class="td-ref">DEM-2024-1257</span></td>
+                <td><span class="td-service">Passeport ordinaire</span></td>
+                <td><span class="td-user">Traoré B.</span></td>
+                <td><span class="badge en-attente">En attente</span></td>
+                <td><span class="td-date">11/05/2024</span></td>
+              </tr>
+              <tr>
+                <td><span class="td-num">3</span></td>
+                <td><span class="td-ref">DEM-2024-1256</span></td>
+                <td><span class="td-service">Carte nationale d'identité</span></td>
+                <td><span class="td-user">Kaboré M.</span></td>
+                <td><span class="badge en-traitement">En traitement</span></td>
+                <td><span class="td-date">11/05/2024</span></td>
+              </tr>
+              <tr>
+                <td><span class="td-num">4</span></td>
+                <td><span class="td-ref">DEM-2024-1255</span></td>
+                <td><span class="td-service">Permis de conduire</span></td>
+                <td><span class="td-user">Zongo P.</span></td>
+                <td><span class="badge valide">Validé</span></td>
+                <td><span class="td-date">10/05/2024</span></td>
+              </tr>
+              <tr>
+                <td><span class="td-num">5</span></td>
+                <td><span class="td-ref">DEM-2024-1254</span></td>
+                <td><span class="td-service">Casier judiciaire</span></td>
+                <td><span class="td-user">Sanou I.</span></td>
+                <td><span class="badge rejete">Rejeté</span></td>
+                <td><span class="td-date">10/05/2024</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Activités récentes -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Activités récentes</span>
+            <a class="card-link" href="#">Voir toute l'activité →</a>
+          </div>
+          <div class="activity-feed">
+            <div class="activity-item">
+              <div class="act-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+              <div class="act-body">
+                <div class="act-msg">Nouvelle demande <strong>DEM-2024-1258</strong></div>
+                <div class="act-time">Il y a 5 minutes</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="act-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="act-body">
+                <div class="act-msg">Demande validée <strong>DEM-2024-1255</strong></div>
+                <div class="act-time">Il y a 20 minutes</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="act-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+              <div class="act-body">
+                <div class="act-msg"><strong>Utilisateur ajouté</strong></div>
+                <div class="act-time">Il y a 1 heure</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="act-icon gray"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+              <div class="act-body">
+                <div class="act-msg"><strong>Service mis à jour</strong></div>
+                <div class="act-time">Il y a 2 heures</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="act-icon gray"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div>
+              <div class="act-body">
+                <div class="act-msg"><strong>Paramètre modifié</strong></div>
+                <div class="act-time">Il y a 3 heures</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Chart row -->
+      <div style="margin-top:16px">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Demandes par mois</span>
+            <select style="font-family:var(--font);font-size:12px;border:1px solid var(--gray-200);border-radius:var(--radius);padding:4px 10px;color:var(--gray-700);background:white;cursor:pointer">
+              <option>2024</option><option>2023</option>
+            </select>
+          </div>
+          <div class="chart-wrap">
+            <div class="chart-bars">
+              <!-- Bar heights as % of max (approx values) -->
+              <div class="bar-group"><div class="bar" style="height:40%"></div><div class="bar-lbl">Jan</div></div>
+              <div class="bar-group"><div class="bar" style="height:55%"></div><div class="bar-lbl">Fév</div></div>
+              <div class="bar-group"><div class="bar" style="height:48%"></div><div class="bar-lbl">Mar</div></div>
+              <div class="bar-group"><div class="bar" style="height:70%"></div><div class="bar-lbl">Avr</div></div>
+              <div class="bar-group"><div class="bar" style="height:90%"></div><div class="bar-lbl">Mai</div></div>
+              <div class="bar-group"><div class="bar" style="height:75%;background:#C8E8D5"></div><div class="bar-lbl">Jun</div></div>
+              <div class="bar-group"><div class="bar" style="height:60%;background:#C8E8D5"></div><div class="bar-lbl">Jul</div></div>
+              <div class="bar-group"><div class="bar" style="height:52%;background:#C8E8D5"></div><div class="bar-lbl">Aoû</div></div>
+              <div class="bar-group"><div class="bar" style="height:45%;background:#C8E8D5"></div><div class="bar-lbl">Sep</div></div>
+              <div class="bar-group"><div class="bar" style="height:58%;background:#C8E8D5"></div><div class="bar-lbl">Oct</div></div>
+              <div class="bar-group"><div class="bar" style="height:42%;background:#C8E8D5"></div><div class="bar-lbl">Nov</div></div>
+              <div class="bar-group"><div class="bar" style="height:35%;background:#C8E8D5"></div><div class="bar-lbl">Déc</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guide d'intégration — Charte BF · Service Public</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bf-vert:   #00B438;
+  --bf-rouge:  #E30613;
+  --bf-jaune:  #FFED00;
+  --bf-noir:   #1A1A1A;
+  --bf-gris-l: #FAF9F5;
+  --bf-gris-m: #E5E2DA;
+  --bf-gris-t: #6B6B6B;
+  --bf-info:   #0A448A;
+  --bf-vert-d: #007A26;
+  font-family: 'Source Sans 3', sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#FAF9F5;color:var(--bf-noir)}
+header{background:var(--bf-noir);color:#fff;padding:20px 40px;display:flex;align-items:center;gap:16px}
+header .badge{background:var(--bf-vert);color:#fff;font-size:11px;padding:3px 10px;border-radius:20px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+header h1{font-family:'Libre Baskerville',serif;font-size:22px}
+header p{font-size:13px;color:#aaa;margin-top:4px}
+.subtitle-bar{background:var(--bf-vert);color:#fff;text-align:center;padding:8px;font-size:13px;font-weight:600}
+main{max-width:1100px;margin:0 auto;padding:40px 20px}
+
+/* Section headers */
+.section-title{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;
+  color:#fff;background:var(--bf-vert-d);padding:12px 20px;margin:40px 0 0;
+  border-radius:6px 6px 0 0;display:flex;align-items:center;gap:10px}
+.section-title span{font-size:20px}
+
+/* Color grid */
+.color-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;
+  background:#fff;border:1px solid var(--bf-gris-m);border-top:none;padding:20px;border-radius:0 0 6px 6px}
+.color-card{border:1px solid var(--bf-gris-m);border-radius:8px;overflow:hidden}
+.color-card-top{display:flex;height:64px}
+.swatch{flex:1;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.color-card-body{padding:12px 14px;background:#fff}
+.color-card-body h3{font-size:13px;font-weight:700;margin-bottom:4px}
+.color-card-body p{font-size:11px;color:var(--bf-gris-t);line-height:1.4}
+.tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:6px}
+.tag-keep{background:#D4EDDA;color:#155724}
+.tag-change{background:#FFF3CD;color:#856404}
+.tag-adjust{background:#D0E4FF;color:#0A448A}
+
+/* Typography section */
+.typo-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;
+  background:#fff;border:1px solid var(--bf-gris-m);border-top:none;padding:24px;border-radius:0 0 6px 6px}
+.typo-box{border:1px solid var(--bf-gris-m);border-radius:8px;padding:20px}
+.typo-box h2{color:var(--bf-gris-t);font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.typo-box .sample-h1{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;line-height:1.2;color:var(--bf-noir)}
+.typo-box .sample-h2{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;color:var(--bf-noir);margin-top:8px}
+.typo-box .sample-body{font-family:'Source Sans 3',sans-serif;font-size:14px;color:var(--bf-noir);margin-top:12px;line-height:1.6}
+.typo-box .sample-label{font-family:'Source Sans 3',sans-serif;font-size:11px;color:var(--bf-gris-t);text-transform:uppercase;letter-spacing:1px;margin-top:8px}
+.typo-install{background:var(--bf-noir);color:#fff;padding:16px;border-radius:6px;font-family:monospace;font-size:12px;line-height:1.8;margin-top:12px}
+.typo-install .comment{color:#6dbf67}
+.typo-install .string{color:#f9c74f}
+
+/* CSS snippet */
+.code-section{background:#fff;border:1px solid var(--bf-gris-m);border-top:none;
+  padding:24px;border-radius:0 0 6px 6px}
+.code-block{background:var(--bf-noir);color:#e8e8e8;padding:20px 24px;border-radius:8px;
+  font-family:monospace;font-size:12px;line-height:2;overflow-x:auto}
+.code-block .prop{color:#79b8ff}
+.code-block .val{color:#f9c74f}
+.code-block .comment{color:#6a9955}
+.code-block .changed{background:rgba(0,180,56,0.15);display:inline-block;width:100%;border-radius:2px}
+
+/* Issues */
+.issues-list{background:#fff;border:1px solid var(--bf-gris-m);border-top:none;
+  padding:24px;border-radius:0 0 6px 6px}
+.issue-item{display:flex;gap:14px;padding:14px;border-radius:8px;margin-bottom:10px;align-items:flex-start}
+.issue-item.haute{background:#FFF5F5;border-left:4px solid var(--bf-rouge)}
+.issue-item.moyenne{background:#FFFBF0;border-left:4px solid #E87722}
+.issue-icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.issue-body h4{font-size:13px;font-weight:700;margin-bottom:4px}
+.issue-body p{font-size:12px;color:var(--bf-gris-t);line-height:1.5}
+.issue-body .fix{font-size:11px;background:var(--bf-gris-l);padding:6px 10px;border-radius:4px;margin-top:6px;color:var(--bf-noir)}
+.issue-body .fix strong{color:var(--bf-vert-d)}
+.priority-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;display:inline-block;margin-top:4px}
+.pb-haute{background:#FFD9D9;color:#C0392B}
+.pb-moyenne{background:#FFE8CC;color:#8B4513}
+
+/* Component preview */
+.comp-section{background:#fff;border:1px solid var(--bf-gris-m);border-top:none;
+  padding:24px;border-radius:0 0 6px 6px;display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
+.comp-group{flex:1;min-width:200px}
+.comp-group h4{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--bf-gris-t);margin-bottom:10px}
+.btn-primary{background:var(--bf-vert);color:#fff;border:none;padding:10px 20px;border-radius:6px;font-family:'Source Sans 3',sans-serif;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px}
+.btn-secondary{background:#fff;color:var(--bf-vert);border:2px solid var(--bf-vert);padding:9px 20px;border-radius:6px;font-family:'Source Sans 3',sans-serif;font-size:14px;font-weight:600;cursor:pointer}
+.btn-danger{background:var(--bf-rouge);color:#fff;border:none;padding:10px 20px;border-radius:6px;font-family:'Source Sans 3',sans-serif;font-size:14px;font-weight:600;cursor:pointer}
+.btn-cta{background:var(--bf-jaune);color:var(--bf-noir);border:none;padding:10px 20px;border-radius:6px;font-family:'Source Sans 3',sans-serif;font-size:14px;font-weight:700;cursor:pointer}
+.badge-valide{background:#D4EDDA;color:#155724;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:700}
+.badge-attente{background:#FFF3CD;color:#856404;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:700}
+.badge-rejete{background:#F8D7DA;color:#721C24;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:700}
+.badge-info{background:#D0E4FF;color:#0A448A;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:700}
+.alert-success{background:#D4EDDA;border-left:4px solid var(--bf-vert);padding:10px 14px;border-radius:4px;font-size:13px;color:#155724;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.alert-error{background:#F8D7DA;border-left:4px solid var(--bf-rouge);padding:10px 14px;border-radius:4px;font-size:13px;color:#721C24;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.alert-warning{background:#FFF3CD;border-left:4px solid #C9A800;padding:10px 14px;border-radius:4px;font-size:13px;color:#856404;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.drapeau-rule{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
+.drapeau-box{border:1px solid var(--bf-gris-m);border-radius:8px;padding:14px;flex:1;min-width:180px}
+.drapeau-box h5{font-size:11px;font-weight:700;text-transform:uppercase;margin-bottom:8px}
+.drapeau-ok{border-color:var(--bf-vert);background:#F0FFF5}
+.drapeau-nok{border-color:var(--bf-rouge);background:#FFF5F5}
+.flag-strip{height:10px;border-radius:3px;background:linear-gradient(to right, #E30613 33%,#00B438 33%,#00B438 66%,#E30613 66%);margin-bottom:8px}
+footer{background:var(--bf-noir);color:#888;text-align:center;padding:20px;font-size:12px;margin-top:60px}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <span class="badge">Charte officielle</span>
+      <h1>Guide d'intégration — Charte Graphique BF</h1>
+    </div>
+    <p>Service Public · Gouvernement du Burkina Faso · Lancement 5 mai 2026</p>
+  </div>
+</header>
+<div class="subtitle-bar">Ce guide montre exactement quoi changer, quoi garder, et comment le coder — sans casser le design actuel.</div>
+
+<main>
+
+<!-- COULEURS -->
+<div class="section-title"><span>🎨</span> Système de couleurs — Mapping actuel → Charte officielle</div>
+<div class="color-grid">
+
+  <div class="color-card">
+    <div class="color-card-top">
+      <div class="swatch" style="background:#1B3A2B;color:#fff">Actuel<br>#1B3A2B</div>
+      <div class="swatch" style="background:#007A26;color:#fff;font-size:18px">→</div>
+      <div class="swatch" style="background:#1B3A2B;color:#fff">Garder<br>Header</div>
+    </div>
+    <div class="color-card-body">
+      <h3>Header / Navbar</h3>
+      <p>Le vert foncé est sobre et institutionnel. La charte n'impose pas la couleur du header — conserver.</p>
+      <span class="tag tag-keep">✅ Garder tel quel</span>
+    </div>
+  </div>
+
+  <div class="color-card">
+    <div class="color-card-top">
+      <div class="swatch" style="background:#2D6A4F;color:#fff">Actuel<br>#2D6A4F</div>
+      <div class="swatch" style="background:#888;color:#fff;font-size:18px">→</div>
+      <div class="swatch" style="background:#00B438;color:#fff">Charte<br>#00B438</div>
+    </div>
+    <div class="color-card-body">
+      <h3>Bouton principal / Accents</h3>
+      <p>La couleur d'action principale selon la charte est le vert officiel #00B438. À appliquer sur tous les CTA verts.</p>
+      <span class="tag tag-change">⚠️ Changer</span>
+    </div>
+  </div>
+
+  <div class="color-card">
+    <div class="color-card-top">
+      <div class="swatch" style="background:#FFED00;color:#1A1A1A">Actuel<br>#FFED00</div>
+      <div class="swatch" style="background:#888;color:#fff;font-size:18px">→</div>
+      <div class="swatch" style="background:#FFED00;color:#1A1A1A">Charte<br>#FFED00</div>
+    </div>
+    <div class="color-card-body">
+      <h3>Jaune (bouton Aide & FAQ)</h3>
+      <p>Déjà conforme. ⚠️ Ne jamais utiliser #FFED00 en texte sur fond blanc — contraste insuffisant.</p>
+      <span class="tag tag-keep">✅ Déjà conforme</span>
+    </div>
+  </div>
+
+  <div class="color-card">
+    <div class="color-card-top">
+      <div class="swatch" style="background:#CC0000;color:#fff">Actuel<br>#CC0000</div>
+      <div class="swatch" style="background:#888;color:#fff;font-size:18px">→</div>
+      <div class="swatch" style="background:#E30613;color:#fff">Charte<br>#E30613</div>
+    </div>
+    <div class="color-card-body">
+      <h3>Rouge (bandeau top, alertes)</h3>
+      <p>Affiner vers le rouge officiel exact #E30613. Réservé aux alertes et erreurs uniquement.</p>
+      <span class="tag tag-adjust">🔧 Ajuster légèrement</span>
+    </div>
+  </div>
+
+  <div class="color-card">
+    <div class="color-card-top">
+      <div class="swatch" style="background:#1A1A1A;color:#fff">Actuel<br>#1A1A1A</div>
+      <div class="swatch" style="background:#888;color:#fff;font-size:18px">→</div>
+      <div class="swatch" style="background:#1A1A1A;color:#fff">Charte<br>#1A1A1A</div>
+    </div>
+    <div class="color-card-body">
+      <h3>Texte principal</h3>
+      <p>Déjà conforme à la charte.</p>
+      <span class="tag tag-keep">✅ Déjà conforme</span>
+    </div>
+  </div>
+
+  <div class="color-card">
+    <div class="color-card-top">
+      <div class="swatch" style="background:#FAF9F5;color:#555">Actuel</div>
+      <div class="swatch" style="background:#888;color:#fff;font-size:18px">→</div>
+      <div class="swatch" style="background:#FAF9F5;color:#555">Charte</div>
+    </div>
+    <div class="color-card-body">
+      <h3>Fond de page</h3>
+      <p>Le fond légèrement ivoire #FAF9F5 est dans la palette neutre officielle.</p>
+      <span class="tag tag-keep">✅ Déjà conforme</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- TYPOGRAPHIE -->
+<div class="section-title"><span>🔤</span> Système typographique — Polices officielles</div>
+<div class="typo-grid">
+  <div class="typo-box">
+    <h2>Titres — Libre Baskerville (serif)</h2>
+    <div class="sample-h1">Simplifiez vos démarches administratives</div>
+    <div class="sample-h2">Services en ligne</div>
+    <div class="sample-label">H3 — Sous-titre de section</div>
+    <div class="typo-install">
+      <span class="comment">/* Dans &lt;head&gt; de layout.blade.php */</span><br>
+      &lt;link href=<span class="string">"https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"</span> rel=<span class="string">"stylesheet"</span>&gt;
+    </div>
+  </div>
+  <div class="typo-box">
+    <h2>Corps — Source Sans 3 (sans-serif)</h2>
+    <div class="sample-body">Une administration moderne, proche des citoyens. Des démarches simplifiées, transparentes et accessibles à tous les Burkinabè.</div>
+    <div class="sample-label">Texte de navigation · Labels · Boutons</div>
+    <div class="typo-install">
+      <span class="comment">/* Dans &lt;head&gt; de layout.blade.php */</span><br>
+      &lt;link href=<span class="string">"https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap"</span> rel=<span class="string">"stylesheet"</span>&gt;
+    </div>
+  </div>
+</div>
+
+<!-- CSS SNIPPET -->
+<div class="section-title"><span>💻</span> Code CSS — Variables à mettre à jour (app.css / variables.css)</div>
+<div class="code-section">
+<div class="code-block"><span class="comment">/* ─── CHARTE GRAPHIQUE OFFICIELLE — BURKINA FASO ───────────────────── */</span>
+<span class="comment">/* Mise à jour : Avril 2026 · servicepublic.gov.bf                       */</span>
+
+<span class="prop">:root</span> {
+  <span class="comment">/* Couleurs officielles ─────────────────────────────────────────────── */</span>
+  <span class="changed"><span class="prop">  --color-primary</span>:        <span class="val">#00B438</span>;  <span class="comment">/* Vert BF officiel — action principale  */</span></span>
+  <span class="changed"><span class="prop">  --color-primary-dark</span>:   <span class="val">#007A26</span>;  <span class="comment">/* Vert foncé — hover, header            */</span></span>
+  <span class="changed"><span class="prop">  --color-secondary</span>:      <span class="val">#FFED00</span>;  <span class="comment">/* Jaune BF — décoratif, accents         */</span></span>
+  <span class="changed"><span class="prop">  --color-danger</span>:         <span class="val">#E30613</span>;  <span class="comment">/* Rouge BF — alertes, erreurs           */</span></span>
+  <span class="changed"><span class="prop">  --color-info</span>:           <span class="val">#0A448A</span>;  <span class="comment">/* Bleu — information, statuts           */</span></span>
+  <span class="changed"><span class="prop">  --color-warning</span>:        <span class="val">#C9A800</span>;  <span class="comment">/* Jaune foncé — avertissements          */</span></span>
+
+  <span class="comment">/* Neutres ──────────────────────────────────────────────────────────── */</span>
+  <span class="prop">  --color-text-main</span>:      <span class="val">#1A1A1A</span>;  <span class="comment">/* Texte principal                       */</span>
+  <span class="prop">  --color-text-muted</span>:     <span class="val">#6B6B6B</span>;  <span class="comment">/* Texte secondaire                      */</span>
+  <span class="prop">  --color-bg-main</span>:        <span class="val">#FAF9F5</span>;  <span class="comment">/* Fond de page                          */</span>
+  <span class="prop">  --color-bg-light</span>:       <span class="val">#F0EFEA</span>;  <span class="comment">/* Fond de section alternée              */</span>
+  <span class="prop">  --color-border</span>:         <span class="val">#E5E2DA</span>;  <span class="comment">/* Bordures, séparateurs                 */</span>
+
+  <span class="comment">/* Typographie ──────────────────────────────────────────────────────── */</span>
+  <span class="changed"><span class="prop">  --font-serif</span>:    <span class="val">'Libre Baskerville', Georgia, serif</span>;     <span class="comment">/* Titres */</span></span>
+  <span class="changed"><span class="prop">  --font-sans</span>:     <span class="val">'Source Sans 3', system-ui, sans-serif</span>;  <span class="comment">/* Corps  */</span></span>
+}
+
+<span class="comment">/* Appliquer les polices ─────────────────────────────────────────────── */</span>
+<span class="changed">body                    { font-family: var(<span class="val">--font-sans</span>); }</span>
+<span class="changed">h1, h2, h3, .page-title { font-family: var(<span class="val">--font-serif</span>); }</span>
+
+<span class="comment">/* Boutons principaux ─────────────────────────────────────────────────── */</span>
+<span class="changed">.btn-primary, .btn-green { background: var(<span class="val">--color-primary</span>); color: #fff; }</span>
+<span class="changed">.btn-primary:hover       { background: var(<span class="val">--color-primary-dark</span>); }</span>
+<span class="changed">.btn-danger              { background: var(<span class="val">--color-danger</span>); color: #fff; }</span>
+
+<span class="comment">/* ⚠️  Règle critique : ne jamais mettre du texte #FFED00 sur fond clair */</span>
+<span class="changed">.btn-jaune   { background: var(<span class="val">--color-secondary</span>); color: var(<span class="val">--color-text-main</span>); }</span></div>
+<p style="font-size:12px;color:#888;margin-top:12px">💡 Les lignes surlignées en vert sont les changements à appliquer. Le reste est déjà conforme ou à vérifier.</p>
+</div>
+
+<!-- COMPOSANTS -->
+<div class="section-title"><span>🧩</span> Aperçu des composants avec la charte officielle</div>
+<div class="comp-section">
+  <div class="comp-group">
+    <h4>Boutons</h4>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <button class="btn-primary">Rechercher une démarche →</button>
+      <button class="btn-secondary">Bouton secondaire</button>
+      <button class="btn-danger">Action dangereuse</button>
+      <button class="btn-cta">Aide & FAQ</button>
+    </div>
+  </div>
+  <div class="comp-group">
+    <h4>Badges / Statuts</h4>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start">
+      <span class="badge-valide">✓ Validé</span>
+      <span class="badge-attente">⏳ En attente</span>
+      <span class="badge-rejete">✗ Rejeté</span>
+      <span class="badge-info">ℹ Information</span>
+    </div>
+  </div>
+  <div class="comp-group">
+    <h4>Alertes</h4>
+    <div class="alert-success">✅ Votre demande a été enregistrée.</div>
+    <div class="alert-error">✗ Une erreur est survenue. Veuillez réessayer.</div>
+    <div class="alert-warning">⚠️ Certaines informations sont requises.</div>
+  </div>
+  <div class="comp-group" style="min-width:100%">
+    <h4>Règles d'usage du drapeau</h4>
+    <div class="drapeau-rule">
+      <div class="drapeau-box drapeau-ok">
+        <h5>✅ Utilisations recommandées</h5>
+        <div class="flag-strip"></div>
+        <p style="font-size:12px">Bandeau de séparation discret, icônes institutionnelles, repères visuels dans le header ou footer.</p>
+      </div>
+      <div class="drapeau-box drapeau-nok">
+        <h5>❌ À éviter</h5>
+        <p style="font-size:12px">Ne pas utiliser le drapeau en grand fond de page ni comme élément décoratif excessif. Pas de fond d'écran drapeau.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ISSUES -->
+<div class="section-title"><span>🐛</span> Corrections à apporter avant le 5 mai</div>
+<div class="issues-list">
+
+  <div class="issue-item haute">
+    <div class="issue-icon" style="background:#FFD9D9">🔴</div>
+    <div class="issue-body">
+      <h4>Couleurs des boutons — non-conformité charte</h4>
+      <p>La variable CSS du bouton principal n'utilise pas #00B438. À corriger dans app.css / variables.css.</p>
+      <div class="fix"><strong>Fix :</strong> Remplacer <code>--color-primary: #2D6A4F</code> par <code>--color-primary: #00B438</code></div>
+      <span class="priority-badge pb-haute">🔴 Haute — 30 min</span>
+    </div>
+  </div>
+
+  <div class="issue-item haute">
+    <div class="issue-icon" style="background:#FFD9D9">🔴</div>
+    <div class="issue-body">
+      <h4>Polices officielles non chargées</h4>
+      <p>Libre Baskerville et Source Sans 3 ne sont pas dans le layout. Les titres n'utilisent pas la bonne police.</p>
+      <div class="fix"><strong>Fix :</strong> Ajouter les deux liens Google Fonts dans <code>resources/views/layouts/app.blade.php</code></div>
+      <span class="priority-badge pb-haute">🔴 Haute — 15 min</span>
+    </div>
+  </div>
+
+  <div class="issue-item haute">
+    <div class="issue-icon" style="background:#FFD9D9">🔴</div>
+    <div class="issue-body">
+      <h4>Doublons dans l'annuaire</h4>
+      <p>Plusieurs organismes apparaissent deux fois (ARCOP, CEFORE, Centre de facilitation). Confusion pour les citoyens.</p>
+      <div class="fix"><strong>Fix :</strong> <code>SELECT name, COUNT(*) FROM organisations GROUP BY name HAVING COUNT(*)>1;</code> puis nettoyer + contrainte unique.</div>
+      <span class="priority-badge pb-haute">🔴 Haute — 1h</span>
+    </div>
+  </div>
+
+  <div class="issue-item haute">
+    <div class="issue-icon" style="background:#FFD9D9">🔴</div>
+    <div class="issue-body">
+      <h4>Titres de fiches avec catégorie collée</h4>
+      <p>Ex : "Sante humaine Demande d'autorisation speciale d'importation" — "Sante humaine" est la catégorie, pas le titre.</p>
+      <div class="fix"><strong>Fix :</strong> Script de nettoyage des titres — retirer le préfixe catégorie. Vérifier la logique d'import.</div>
+      <span class="priority-badge pb-haute">🔴 Haute — 2h</span>
+    </div>
+  </div>
+
+  <div class="issue-item moyenne">
+    <div class="issue-icon" style="background:#FFE8CC">🟠</div>
+    <div class="issue-body">
+      <h4>Pagination en anglais</h4>
+      <p>"Showing 1 to 12 of 139 results" — doit être en français.</p>
+      <div class="fix"><strong>Fix :</strong> Dans <code>config/app.php</code> vérifier <code>'locale' => 'fr'</code>. Publier les traductions Laravel : <code>php artisan lang:publish</code></div>
+      <span class="priority-badge pb-moyenne">🟠 Moyenne — 20 min</span>
+    </div>
+  </div>
+
+  <div class="issue-item moyenne">
+    <div class="issue-icon" style="background:#FFE8CC">🟠</div>
+    <div class="issue-body">
+      <h4>Fiches avec contenu minimal</h4>
+      <p>Certaines fiches ont pour seule condition "Déposer son dossier" et aucune pièce listée. Crédibilité en jeu.</p>
+      <div class="fix"><strong>Fix :</strong> Identifier les fiches incomplètes (<code>WHERE conditions IS NULL OR LENGTH(conditions) < 30</code>) et enrichir le contenu éditorial.</div>
+      <span class="priority-badge pb-moyenne">🟠 Moyenne — 1 journée rédaction</span>
+    </div>
+  </div>
+
+  <div class="issue-item haute">
+    <div class="issue-icon" style="background:#FFD9D9">🔴</div>
+    <div class="issue-body">
+      <h4>ANO ANSSI — À confirmer</h4>
+      <p>L'autorisation de mise en ligne par l'ANSSI (Autorité Nationale de Sécurité des Systèmes d'Information) doit être obtenue avant le lancement public.</p>
+      <div class="fix"><strong>Fix :</strong> Vérifier le statut de la demande ANO. Si pas encore soumise, soumettre immédiatement.</div>
+      <span class="priority-badge pb-haute">🔴 Haute — Démarche administrative</span>
+    </div>
+  </div>
+
+</div>
+
+</main>
+
+<footer>
+  Service Public · Gouvernement du Burkina Faso · Guide généré le 24 avril 2026 · Lancement prévu 5 mai 2026
+</footer>
+</body>
+</html>
